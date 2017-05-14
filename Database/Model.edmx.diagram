@@ -4,18 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="28ede3bd37e1468cb04ac3a36df18ef7" Name="Diagram1">
-        <EntityTypeShape EntityType="АвтозаправкиModel.Автозаправка" Width="1.5" PointX="8.375" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="АвтозаправкиModel.Акции_на_товар" Width="1.5" PointX="5.125" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="АвтозаправкиModel.Акции_на_услугу" Width="1.5" PointX="4.5" PointY="9.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="АвтозаправкиModel.Запись" Width="1.5" PointX="6.5" PointY="12.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="АвтозаправкиModel.Общая" Width="1.5" PointX="3.25" PointY="12.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="АвтозаправкиModel.Постоянные_клиенты" Width="1.5" PointX="0.5" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="АвтозаправкиModel.Сервер" Width="1.5" PointX="6.375" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="АвтозаправкиModel.Товар" Width="1.5" PointX="0.5" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="АвтозаправкиModel.Топливо" Width="1.5" PointX="0.625" PointY="12" IsExpanded="true" />
+      <Diagram DiagramId="198f2f2460aa4d97b0843bb7b4fd1a27" Name="Diagram1">
+        <EntityTypeShape EntityType="АвтозаправкиModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="АвтозаправкиModel.Автозаправка" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="АвтозаправкиModel.Акции_на_товар" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="АвтозаправкиModel.Акции_на_услугу" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="АвтозаправкиModel.Запись" Width="1.5" PointX="5.25" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="АвтозаправкиModel.Общая" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="АвтозаправкиModel.Постоянные_клиенты" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="АвтозаправкиModel.Сервер" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="АвтозаправкиModel.Товар" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="АвтозаправкиModel.Топливо" Width="1.5" PointX="0.75" PointY="12.625" IsExpanded="true" />
         <EntityTypeShape EntityType="АвтозаправкиModel.Услуга" Width="1.5" PointX="0.75" PointY="15.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="АвтозаправкиModel.Чек" Width="1.5" PointX="3.875" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="АвтозаправкиModel.Чек" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
         <AssociationConnector Association="АвтозаправкиModel.FK__Автозапра__код_т__2C3393D0" ManuallyRouted="false" />
         <AssociationConnector Association="АвтозаправкиModel.FK__Автозапра__код_т__2D27B809" ManuallyRouted="false" />
         <AssociationConnector Association="АвтозаправкиModel.FK__Автозапра__код_у__2E1BDC42" ManuallyRouted="false" />

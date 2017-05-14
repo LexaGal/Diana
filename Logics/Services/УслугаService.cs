@@ -7,16 +7,16 @@ namespace Logics.Services
 {
     public class УслугаService : IService<Топливо>
     {
-        private UnitOfWork _uow;
+        public UnitOfWork Uow { get; }
 
         public УслугаService(UnitOfWork uow)
         {
-            _uow = uow;
+            Uow = uow;
         }
 
         public IEnumerable<Топливо> ReadAll()
         {
-            return _uow.Топливо.GetAll();
+            return Uow.Топливо.GetAll();
         }
     }
 }

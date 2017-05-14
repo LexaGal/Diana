@@ -18,17 +18,16 @@ namespace Database.Repository
 
         public virtual List<T> GetAll(Expression<Func<T, bool>> func = null)
         {
-            using (_context = new АвтозаправкиEntities())
-            {
+           
                 if (func != null)
                     return _context.Set<T>().Where(func).ToList();
                 return _context.Set<T>().ToList();
-            }
+            
         }
 
         public virtual T Get(int id)
         {
-            using (_context = new АвтозаправкиEntities())
+            //using (_context = new АвтозаправкиEntities())
             {
                 return _context.Set<T>().Find(id);
             }
@@ -36,7 +35,7 @@ namespace Database.Repository
 
         public virtual bool Save(T value, int id)
         {
-            using (_context = new АвтозаправкиEntities())
+            //using (_context = new АвтозаправкиEntities())
             {
                 var t = _context.Set<T>().Find(id);
                 if (t == null)

@@ -23,10 +23,18 @@ namespace WpfApplication
             InitializeComponent();
             this._code = code;
             var autoServ = ServiceLocator.GetService<Автозаправка>();
-            var автозаправка = autoServ.ReadAll().Single(a => a.Код == _code);
-            textBox.Text = автозаправка.Номер_телефона;
-            textBox1.AppendText(автозаправка.Описание);
-            //textBox2.Text = автозаправка.Номер_телефона;
+            using (autoServ.Uow.Db = new АвтозаправкиEntities())
+            {
+                var автозаправка = autoServ.ReadAll().Single(a => a.Код == _code);
+                textBox.Text = автозаправка.Номер_телефона;
+                textBox1.AppendText(автозаправка.Описание);
+                textBox2.Text = автозаправка.Общая.Адреса;
+                автозаправка.Номер_телефона = "12344567";
+                var auto = autoServ.Uow.Db.Автозаправка.Find(автозаправка.Код); //Автозаправки //Save(автозаправка, автозаправка.Номер_автозаправки);//.Value);
+                autoServ.Uow.Save();
+            
+            }
+                //Include(
         }
 
         private void m92_Click(object sender, RoutedEventArgs e)
