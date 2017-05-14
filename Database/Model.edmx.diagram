@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="28ede3bd37e1468cb04ac3a36df18ef7" Name="Diagram1">
+        <EntityTypeShape EntityType="АвтозаправкиModel.Автозаправка" Width="1.5" PointX="8.375" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="АвтозаправкиModel.Акции_на_товар" Width="1.5" PointX="5.125" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="АвтозаправкиModel.Акции_на_услугу" Width="1.5" PointX="4.5" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="АвтозаправкиModel.Запись" Width="1.5" PointX="6.5" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="АвтозаправкиModel.Общая" Width="1.5" PointX="3.25" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="АвтозаправкиModel.Постоянные_клиенты" Width="1.5" PointX="0.5" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="АвтозаправкиModel.Сервер" Width="1.5" PointX="6.375" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="АвтозаправкиModel.Товар" Width="1.5" PointX="0.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="АвтозаправкиModel.Топливо" Width="1.5" PointX="0.625" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="АвтозаправкиModel.Услуга" Width="1.5" PointX="0.75" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="АвтозаправкиModel.Чек" Width="1.5" PointX="3.875" PointY="1.25" IsExpanded="true" />
+        <AssociationConnector Association="АвтозаправкиModel.FK__Автозапра__код_т__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="АвтозаправкиModel.FK__Автозапра__код_т__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="АвтозаправкиModel.FK__Автозапра__код_у__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="АвтозаправкиModel.FK__Автозапра__код_ч__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="АвтозаправкиModel.FK__Автозапра__Номер__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="АвтозаправкиModel.FK_Акции1" ManuallyRouted="false" />
+        <AssociationConnector Association="АвтозаправкиModel.FK_Акции2" ManuallyRouted="false" />
+        <AssociationConnector Association="АвтозаправкиModel.PK_Автозаправка" ManuallyRouted="false" />
+        <AssociationConnector Association="АвтозаправкиModel.FK__Акции_на___код_т__164452B1" ManuallyRouted="false" />
+        <AssociationConnector Association="АвтозаправкиModel.FK__Акции_на___код_у__1920BF5C" ManuallyRouted="false" />
+        <AssociationConnector Association="АвтозаправкиModel.номерзз_РК" ManuallyRouted="false" />
+        <AssociationConnector Association="АвтозаправкиModel.FK__Чек__номер_карто__20C1E124" ManuallyRouted="false" />
+        <AssociationConnector Association="АвтозаправкиModel.FK__Чек__код_товара__1ED998B2" ManuallyRouted="false" />
+        <AssociationConnector Association="АвтозаправкиModel.FK__Чек__код_топлива__1DE57479" ManuallyRouted="false" />
+        <AssociationConnector Association="АвтозаправкиModel.FK__Чек__код_услуги__1FCDBCEB" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

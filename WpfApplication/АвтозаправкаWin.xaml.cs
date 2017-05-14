@@ -1,0 +1,129 @@
+﻿using System.Linq;
+using System.Windows;
+using Database;
+//using Database.EFModel;
+using Logics.Services;
+
+namespace WpfApplication
+{
+    /// <summary>
+    /// Логика взаимодействия для Window1.xaml
+    /// </summary>
+    public partial class АвтозаправкаWin : Window
+    {
+        private string _code;
+
+        public АвтозаправкаWin()
+        {
+            InitializeComponent();
+        }
+
+        public АвтозаправкаWin(string code): base()
+        {
+            InitializeComponent();
+            this._code = code;
+            var autoServ = ServiceLocator.GetService<Автозаправка>();
+            var автозаправка = autoServ.ReadAll().Single(a => a.Код == _code);
+            textBox.Text = автозаправка.Номер_телефона;
+            textBox1.AppendText(автозаправка.Описание);
+            //textBox2.Text = автозаправка.Номер_телефона;
+        }
+
+        private void m92_Click(object sender, RoutedEventArgs e)
+        {
+            Топливо92 winTool = new Топливо92();
+            //Назначение текущего окна владельцем.
+            winTool.Owner = this;
+            //Отображение окна, принадлежащего окну-владельцу.
+            winTool.Show();
+            this.Hide();
+        }
+
+        private void m95_Click(object sender, RoutedEventArgs e)
+        {
+            Топливо95 winTool = new Топливо95();
+            //Назначение текущего окна владельцем.
+            winTool.Owner = this;
+            //Отображение окна, принадлежащего окну-владельцу.
+            winTool.Show();
+            this.Hide();
+        }
+
+        private void mdiz_Click(object sender, RoutedEventArgs e)
+        {
+            Дизельное winTool = new Дизельное();
+            //Назначение текущего окна владельцем.
+            winTool.Owner = this;
+            //Отображение окна, принадлежащего окну-владельцу.
+            winTool.Show();
+            this.Hide();
+        }
+
+        private void b_Click(object sender, RoutedEventArgs e)
+        {
+            КлиентыWin winTool = new КлиентыWin();
+            //Назначение текущего окна владельцем.
+            winTool.Owner = this;
+            //Отображение окна, принадлежащего окну-владельцу.
+            winTool.Show();
+            this.Hide();
+        }
+
+
+
+        private void back_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow winTool = new MainWindow();
+            //Назначение текущего окна владельцем.
+            winTool.Owner = this;
+            //Отображение окна, принадлежащего окну-владельцу.
+            winTool.Show();
+            this.Hide();
+        }
+
+        private void chek_Click(object sender, RoutedEventArgs e)
+        {
+            ЧекWin winTool = new ЧекWin();
+            //Назначение текущего окна владельцем.
+            winTool.Owner = this;
+            //Отображение окна, принадлежащего окну-владельцу.
+            winTool.Show();
+            this.Hide();
+        }
+
+        private void tov_Click(object sender, RoutedEventArgs e)
+        {
+            ТоварыWin winTool = new ТоварыWin();
+            //Назначение текущего окна владельцем.
+            winTool.Owner = this;
+            //Отображение окна, принадлежащего окну-владельцу.
+            winTool.Show();
+            this.Hide();
+        }
+
+        private void usl_Click(object sender, RoutedEventArgs e)
+        {
+            УслугиWin winTool = new УслугиWin();
+            //Назначение текущего окна владельцем.
+            winTool.Owner = this;
+            //Отображение окна, принадлежащего окну-владельцу.
+            winTool.Show();
+            this.Hide();
+        }
+
+        private void mFile_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            АкцииWin winTool = new АкцииWin();
+            //Назначение текущего окна владельцем.
+            winTool.Owner = this;
+            //Отображение окна, принадлежащего окну-владельцу.
+            winTool.Show();
+            this.Hide();
+        }
+    }
+}
