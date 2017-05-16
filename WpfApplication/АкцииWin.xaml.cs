@@ -21,5 +21,10 @@ namespace WpfApplication
             winTool.Show();
             this.Hide();
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

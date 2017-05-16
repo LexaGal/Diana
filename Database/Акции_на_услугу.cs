@@ -20,9 +20,10 @@ namespace Database
             this.Автозаправка = new HashSet<Автозаправка>();
         }
     
+        public int Код_акции_услуга { get; set; }
         public string Вид_акции { get; set; }
         public string Описание { get; set; }
-        public Nullable<int> код_услуги_на_акции { get; set; }
+        public int код_услуги_на_акции { get; set; }
         public string Скидка_ { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

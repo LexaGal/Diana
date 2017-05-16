@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 //using Database.EFModel;
 using Logics.Services;
+using System;
 
 namespace WpfApplication
 {
@@ -24,7 +25,7 @@ namespace WpfApplication
         private void button_Click(object sender, RoutedEventArgs e)
         {
             //Создание нового окна.
-            АвтозаправкаWin winTool = new АвтозаправкаWin(textBox.Text);
+            АвтозаправкаWin winTool = new АвтозаправкаWin(int.Parse(entrance.Text));
             // Назначение текущего окна владельцем.
             winTool.Owner = this;
             // Отображение окна, принадлежащего окну-владельцу.

@@ -5,27 +5,17 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="Хранилище АвтозаправкиModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="Автозаправка">
           <Key>
             <PropertyRef Name="Код" />
           </Key>
-          <Property Name="Код" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Код" Type="int" Nullable="false" />
           <Property Name="Номер_автозаправки" Type="int" />
           <Property Name="Номер_телефона" Type="nchar" MaxLength="50" />
           <Property Name="Описание" Type="nchar" MaxLength="500" />
           <Property Name="Номер_карточки_клиента" Type="int" />
-          <Property Name="Акции_на_товар" Type="nchar" MaxLength="50" />
-          <Property Name="Акции_на_услугу" Type="nchar" MaxLength="50" />
+          <Property Name="Акции_на_товар" Type="int" />
+          <Property Name="Акции_на_услугу" Type="int" />
           <Property Name="код_топлива" Type="int" />
           <Property Name="количесвто_топлива" Type="int" />
           <Property Name="код_товара" Type="int" />
@@ -36,20 +26,22 @@
         </EntityType>
         <EntityType Name="Акции_на_товар">
           <Key>
-            <PropertyRef Name="Вид_акции" />
+            <PropertyRef Name="Код_акции_товар" />
           </Key>
-          <Property Name="Вид_акции" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="Код_акции_товар" Type="int" Nullable="false" />
+          <Property Name="Вид_акции" Type="nchar" MaxLength="50" />
           <Property Name="Описание" Type="nchar" MaxLength="100" />
-          <Property Name="код_товара_на_акции" Type="int" />
+          <Property Name="код_товара_на_акции" Type="int" Nullable="false" />
           <Property Name="Скидка%" Type="nchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Акции_на_услугу">
           <Key>
-            <PropertyRef Name="Вид_акции" />
+            <PropertyRef Name="Код_акции_услуга" />
           </Key>
-          <Property Name="Вид_акции" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="Код_акции_услуга" Type="int" Nullable="false" />
+          <Property Name="Вид_акции" Type="nchar" MaxLength="50" />
           <Property Name="Описание" Type="nchar" MaxLength="100" />
-          <Property Name="код_услуги_на_акции" Type="int" />
+          <Property Name="код_услуги_на_акции" Type="int" Nullable="false" />
           <Property Name="Скидка%" Type="nchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Запись">
@@ -57,7 +49,7 @@
             <PropertyRef Name="Номер_записи" />
           </Key>
           <Property Name="Номер_записи" Type="int" Nullable="false" />
-          <Property Name="Номер_автозаправки" Type="int" />
+          <Property Name="Номер_автозаправки" Type="int" Nullable="false" />
           <Property Name="Тип_топлива" Type="int" />
         </EntityType>
         <EntityType Name="Общая">
@@ -118,10 +110,10 @@
           </Key>
           <Property Name="код_чека" Type="int" Nullable="false" />
           <Property Name="дата" Type="date" />
-          <Property Name="код_топлива" Type="int" />
+          <Property Name="код_топлива" Type="int" Nullable="false" />
           <Property Name="код_товара" Type="int" />
           <Property Name="код_услуги" Type="int" />
-          <Property Name="номер_карточки_клиента" Type="int" />
+          <Property Name="номер_карточки_клиента" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK__Автозапра__код_т__2C3393D0">
           <End Role="Топливо" Type="Self.Топливо" Multiplicity="0..1" />
@@ -184,7 +176,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Акции_на___код_т__164452B1">
-          <End Role="Товар" Type="Self.Товар" Multiplicity="0..1" />
+          <End Role="Товар" Type="Self.Товар" Multiplicity="1" />
           <End Role="Акции_на_товар" Type="Self.Акции_на_товар" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Товар">
@@ -196,7 +188,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Акции_на___код_у__1920BF5C">
-          <End Role="Услуга" Type="Self.Услуга" Multiplicity="0..1" />
+          <End Role="Услуга" Type="Self.Услуга" Multiplicity="1" />
           <End Role="Акции_на_услугу" Type="Self.Акции_на_услугу" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Услуга">
@@ -220,7 +212,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Чек__код_топлива__1DE57479">
-          <End Role="Топливо" Type="Self.Топливо" Multiplicity="0..1" />
+          <End Role="Топливо" Type="Self.Топливо" Multiplicity="1" />
           <End Role="Чек" Type="Self.Чек" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Топливо">
@@ -244,7 +236,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Чек__номер_карто__20C1E124">
-          <End Role="Постоянные_клиенты" Type="Self.Постоянные_клиенты" Multiplicity="0..1" />
+          <End Role="Постоянные_клиенты" Type="Self.Постоянные_клиенты" Multiplicity="1" />
           <End Role="Чек" Type="Self.Чек" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Постоянные_клиенты">
@@ -260,7 +252,7 @@
           <End Role="Автозаправка" Type="Self.Автозаправка" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Акции_на_товар">
-              <PropertyRef Name="Вид_акции" />
+              <PropertyRef Name="Код_акции_товар" />
             </Principal>
             <Dependent Role="Автозаправка">
               <PropertyRef Name="Акции_на_товар" />
@@ -272,7 +264,7 @@
           <End Role="Автозаправка" Type="Self.Автозаправка" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Акции_на_услугу">
-              <PropertyRef Name="Вид_акции" />
+              <PropertyRef Name="Код_акции_услуга" />
             </Principal>
             <Dependent Role="Автозаправка">
               <PropertyRef Name="Акции_на_услугу" />
@@ -292,7 +284,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="номерзз_РК">
-          <End Role="Общая" Type="Self.Общая" Multiplicity="0..1" />
+          <End Role="Общая" Type="Self.Общая" Multiplicity="1" />
           <End Role="Запись" Type="Self.Запись" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Общая">
@@ -304,7 +296,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Хранилище АвтозаправкиModelContainer">
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Автозаправка" EntityType="Self.Автозаправка" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Акции_на_товар" EntityType="Self.Акции_на_товар" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Акции_на_услугу" EntityType="Self.Акции_на_услугу" Schema="dbo" store:Type="Tables" />
@@ -382,27 +373,17 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="АвтозаправкиModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <EntityType Name="Автозаправка">
           <Key>
             <PropertyRef Name="Код" />
           </Key>
-          <Property Name="Код" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Код" Type="Int32" Nullable="false" />
           <Property Name="Номер_автозаправки" Type="Int32" />
           <Property Name="Номер_телефона" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="Описание" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
           <Property Name="Номер_карточки_клиента" Type="Int32" />
-          <Property Name="Акции_на_товар" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="Акции_на_услугу" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Акции_на_товар" Type="Int32" />
+          <Property Name="Акции_на_услугу" Type="Int32" />
           <Property Name="код_топлива" Type="Int32" />
           <Property Name="количесвто_топлива" Type="Int32" />
           <Property Name="код_товара" Type="Int32" />
@@ -421,22 +402,24 @@
         </EntityType>
         <EntityType Name="Акции_на_товар">
           <Key>
-            <PropertyRef Name="Вид_акции" />
+            <PropertyRef Name="Код_акции_товар" />
           </Key>
-          <Property Name="Вид_акции" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Код_акции_товар" Type="Int32" Nullable="false" />
+          <Property Name="Вид_акции" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="Описание" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
-          <Property Name="код_товара_на_акции" Type="Int32" />
+          <Property Name="код_товара_на_акции" Type="Int32" Nullable="false" />
           <Property Name="Скидка_" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Автозаправка" Relationship="Self.FK_Акции1" FromRole="Акции_на_товар" ToRole="Автозаправка" />
           <NavigationProperty Name="Товар" Relationship="Self.FK__Акции_на___код_т__164452B1" FromRole="Акции_на_товар" ToRole="Товар" />
         </EntityType>
         <EntityType Name="Акции_на_услугу">
           <Key>
-            <PropertyRef Name="Вид_акции" />
+            <PropertyRef Name="Код_акции_услуга" />
           </Key>
-          <Property Name="Вид_акции" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Код_акции_услуга" Type="Int32" Nullable="false" />
+          <Property Name="Вид_акции" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="Описание" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
-          <Property Name="код_услуги_на_акции" Type="Int32" />
+          <Property Name="код_услуги_на_акции" Type="Int32" Nullable="false" />
           <Property Name="Скидка_" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Автозаправка" Relationship="Self.FK_Акции2" FromRole="Акции_на_услугу" ToRole="Автозаправка" />
           <NavigationProperty Name="Услуга" Relationship="Self.FK__Акции_на___код_у__1920BF5C" FromRole="Акции_на_услугу" ToRole="Услуга" />
@@ -446,7 +429,7 @@
             <PropertyRef Name="Номер_записи" />
           </Key>
           <Property Name="Номер_записи" Type="Int32" Nullable="false" />
-          <Property Name="Номер_автозаправки" Type="Int32" />
+          <Property Name="Номер_автозаправки" Type="Int32" Nullable="false" />
           <Property Name="Тип_топлива" Type="Int32" />
           <NavigationProperty Name="Общая" Relationship="Self.номерзз_РК" FromRole="Запись" ToRole="Общая" />
         </EntityType>
@@ -520,10 +503,10 @@
           </Key>
           <Property Name="код_чека" Type="Int32" Nullable="false" />
           <Property Name="дата" Type="DateTime" Precision="0" />
-          <Property Name="код_топлива" Type="Int32" />
+          <Property Name="код_топлива" Type="Int32" Nullable="false" />
           <Property Name="код_товара" Type="Int32" />
           <Property Name="код_услуги" Type="Int32" />
-          <Property Name="номер_карточки_клиента" Type="Int32" />
+          <Property Name="номер_карточки_клиента" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Автозаправка" Relationship="Self.FK__Автозапра__код_ч__2F10007B" FromRole="Чек" ToRole="Автозаправка" />
           <NavigationProperty Name="Постоянные_клиенты" Relationship="Self.FK__Чек__номер_карто__20C1E124" FromRole="Чек" ToRole="Постоянные_клиенты" />
           <NavigationProperty Name="Товар" Relationship="Self.FK__Чек__код_товара__1ED998B2" FromRole="Чек" ToRole="Товар" />
@@ -595,7 +578,7 @@
           <End Role="Автозаправка" Type="Self.Автозаправка" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Акции_на_товар">
-              <PropertyRef Name="Вид_акции" />
+              <PropertyRef Name="Код_акции_товар" />
             </Principal>
             <Dependent Role="Автозаправка">
               <PropertyRef Name="Акции_на_товар" />
@@ -607,7 +590,7 @@
           <End Role="Автозаправка" Type="Self.Автозаправка" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Акции_на_услугу">
-              <PropertyRef Name="Вид_акции" />
+              <PropertyRef Name="Код_акции_услуга" />
             </Principal>
             <Dependent Role="Автозаправка">
               <PropertyRef Name="Акции_на_услугу" />
@@ -627,7 +610,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Акции_на___код_т__164452B1">
-          <End Role="Товар" Type="Self.Товар" Multiplicity="0..1" />
+          <End Role="Товар" Type="Self.Товар" Multiplicity="1" />
           <End Role="Акции_на_товар" Type="Self.Акции_на_товар" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Товар">
@@ -639,7 +622,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Акции_на___код_у__1920BF5C">
-          <End Role="Услуга" Type="Self.Услуга" Multiplicity="0..1" />
+          <End Role="Услуга" Type="Self.Услуга" Multiplicity="1" />
           <End Role="Акции_на_услугу" Type="Self.Акции_на_услугу" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Услуга">
@@ -651,7 +634,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="номерзз_РК">
-          <End Role="Общая" Type="Self.Общая" Multiplicity="0..1" />
+          <End Role="Общая" Type="Self.Общая" Multiplicity="1" />
           <End Role="Запись" Type="Self.Запись" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Общая">
@@ -663,7 +646,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Чек__номер_карто__20C1E124">
-          <End Role="Постоянные_клиенты" Type="Self.Постоянные_клиенты" Multiplicity="0..1" />
+          <End Role="Постоянные_клиенты" Type="Self.Постоянные_клиенты" Multiplicity="1" />
           <End Role="Чек" Type="Self.Чек" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Постоянные_клиенты">
@@ -687,7 +670,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Чек__код_топлива__1DE57479">
-          <End Role="Топливо" Type="Self.Топливо" Multiplicity="0..1" />
+          <End Role="Топливо" Type="Self.Топливо" Multiplicity="1" />
           <End Role="Чек" Type="Self.Чек" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Топливо">
@@ -711,7 +694,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="АвтозаправкиEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="Автозаправка" EntityType="Self.Автозаправка" />
           <EntitySet Name="Акции_на_товар" EntityType="Self.Акции_на_товар" />
           <EntitySet Name="Акции_на_услугу" EntityType="Self.Акции_на_услугу" />
@@ -790,17 +772,6 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище АвтозаправкиModelContainer" CdmEntityContainer="АвтозаправкиEntities">
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="АвтозаправкиModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Автозаправка">
             <EntityTypeMapping TypeName="АвтозаправкиModel.Автозаправка">
               <MappingFragment StoreEntitySet="Автозаправка">
@@ -824,6 +795,7 @@
           <EntitySetMapping Name="Акции_на_товар">
             <EntityTypeMapping TypeName="АвтозаправкиModel.Акции_на_товар">
               <MappingFragment StoreEntitySet="Акции_на_товар">
+                <ScalarProperty Name="Код_акции_товар" ColumnName="Код_акции_товар" />
                 <ScalarProperty Name="Вид_акции" ColumnName="Вид_акции" />
                 <ScalarProperty Name="Описание" ColumnName="Описание" />
                 <ScalarProperty Name="код_товара_на_акции" ColumnName="код_товара_на_акции" />
@@ -834,6 +806,7 @@
           <EntitySetMapping Name="Акции_на_услугу">
             <EntityTypeMapping TypeName="АвтозаправкиModel.Акции_на_услугу">
               <MappingFragment StoreEntitySet="Акции_на_услугу">
+                <ScalarProperty Name="Код_акции_услуга" ColumnName="Код_акции_услуга" />
                 <ScalarProperty Name="Вид_акции" ColumnName="Вид_акции" />
                 <ScalarProperty Name="Описание" ColumnName="Описание" />
                 <ScalarProperty Name="код_услуги_на_акции" ColumnName="код_услуги_на_акции" />

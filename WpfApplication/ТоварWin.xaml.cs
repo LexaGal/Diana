@@ -16,5 +16,15 @@ namespace WpfApplication
         {
 
         }
+
+        private void back_Click(object sender, RoutedEventArgs e)
+        {
+            ТоварыWin winTool = new ТоварыWin();
+            //Назначение текущего окна владельцем.
+            winTool.Owner = this;
+            //Отображение окна, принадлежащего окну-владельцу.
+            winTool.Show();
+            this.Hide();
+        }
     }
 }

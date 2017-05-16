@@ -72,9 +72,6 @@
     <Compile Include="Helpers\PropertiesCopier.cs" />
     <Compile Include="Repository\Repository.cs" />
     <Compile Include="Repository\UnitOfWork.cs" />
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Автозаправка.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

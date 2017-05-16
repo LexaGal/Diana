@@ -8,9 +8,9 @@
     <Grid>
         <!--Text="Код автозаправки, на которую вы хотите зайти"-->
 
-        <TextBox x:Name="textBox" Margin="106,0,88.4,183.8"  
+        <TextBox x:Name="entrance" Margin="106,0,88.4,183.8"  
                  Height="30" VerticalAlignment="Bottom" TextChanged="textBox_TextChanged"/>
-        <Label x:Name="label" Content="Вход" HorizontalAlignment="Left" Height="32" Margin="242,75,0,0" VerticalAlignment="Top" Width="49"/>
-        <Button x:Name="button" Content="Зайти" HorizontalAlignment="Left" Height="26" Margin="217,157,0,0" VerticalAlignment="Top" Width="103" Click="button_Click"/>
+        <Label x:Name="entrance_label" Content="Вход" HorizontalAlignment="Left" Height="32" Margin="242,75,0,0" VerticalAlignment="Top" Width="49"/>
+        <Button x:Name="entrance_button" Content="Зайти" HorizontalAlignment="Left" Height="26" Margin="217,157,0,0" VerticalAlignment="Top" Width="103" Click="button_Click"/>
     </Grid>
 </Window>

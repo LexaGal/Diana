@@ -11,19 +11,16 @@ namespace Database
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Автозаправка
     {
-        [Key]
-        //Nullable<
-        public int Номер_автозаправки { get; set; }
-        public string Код { get; set; }
+        public int Код { get; set; }
+        public Nullable<int> Номер_автозаправки { get; set; }
         public string Номер_телефона { get; set; }
         public string Описание { get; set; }
         public Nullable<int> Номер_карточки_клиента { get; set; }
-        public string Акции_на_товар { get; set; }
-        public string Акции_на_услугу { get; set; }
+        public Nullable<int> Акции_на_товар { get; set; }
+        public Nullable<int> Акции_на_услугу { get; set; }
         public Nullable<int> код_топлива { get; set; }
         public Nullable<int> количесвто_топлива { get; set; }
         public Nullable<int> код_товара { get; set; }

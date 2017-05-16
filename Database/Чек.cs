@@ -22,10 +22,10 @@ namespace Database
     
         public int код_чека { get; set; }
         public Nullable<System.DateTime> дата { get; set; }
-        public Nullable<int> код_топлива { get; set; }
+        public int код_топлива { get; set; }
         public Nullable<int> код_товара { get; set; }
         public Nullable<int> код_услуги { get; set; }
-        public Nullable<int> номер_карточки_клиента { get; set; }
+        public int номер_карточки_клиента { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Автозаправка> Автозаправка { get; set; }
