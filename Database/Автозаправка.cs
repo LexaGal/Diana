@@ -15,7 +15,7 @@ namespace Database
     public partial class Автозаправка
     {
         public int Код { get; set; }
-        public Nullable<int> Номер_автозаправки { get; set; }
+        public int Номер_автозаправки { get; set; }
         public string Номер_телефона { get; set; }
         public string Описание { get; set; }
         public Nullable<int> Номер_карточки_клиента { get; set; }
@@ -27,7 +27,7 @@ namespace Database
         public Nullable<int> количесвто_товаров { get; set; }
         public Nullable<int> код_услуги { get; set; }
         public Nullable<int> количесвто_услуг { get; set; }
-        public Nullable<int> код_чека { get; set; }
+        public int код_чека { get; set; }
     
         public virtual Топливо Топливо { get; set; }
         public virtual Товар Товар { get; set; }

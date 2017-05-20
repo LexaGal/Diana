@@ -65,6 +65,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Settings.cs" />
     <Compile Include="УслугаWin.xaml.cs">
       <DependentUpon>УслугаWin.xaml</DependentUpon>
     </Compile>

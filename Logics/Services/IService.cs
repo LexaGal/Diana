@@ -11,5 +11,6 @@ namespace Logics.Services
     {
         UnitOfWork Uow { get; }
         IEnumerable<T> ReadAll();
+        T ReadOne(int id);
     }
 }

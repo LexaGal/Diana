@@ -32,5 +32,10 @@ namespace Database
         public virtual ICollection<Акции_на_услугу> Акции_на_услугу { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Чек> Чек { get; set; }
+
+        public override string ToString()
+        {
+            return название_услуги;
+        }
     }
 }

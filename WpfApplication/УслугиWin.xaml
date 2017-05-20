@@ -9,11 +9,13 @@
         <Button x:Name="back" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="37" Click="back_Click" Margin="480,0,0,0">
             <Image Source="1.png" Width="37" Height="30" />
         </Button>
-        <TextBox x:Name="value" HorizontalAlignment="Left" Height="59" Margin="23,161,0,0" TextWrapping="Wrap" Text="Стоимость" VerticalAlignment="Top" Width="329"/>
+        <TextBox x:Name="value" HorizontalAlignment="Left" Height="59" Margin="23,190,0,0" TextWrapping="Wrap" Text="Стоимость" VerticalAlignment="Top" Width="329"/>
         <Button x:Name="insert_in_check" Content="Добавить в чек" HorizontalAlignment="Left" Height="24" Margin="413,285,0,0" VerticalAlignment="Top" Width="94" Click="button_Click"/>
-        <ListBox x:Name="list_of_service" HorizontalAlignment="Left" Height="112" Margin="23,44,0,0" VerticalAlignment="Top" Width="329" >Список услуг</ListBox>
+        <ListBox x:Name="list_of_service" HorizontalAlignment="Left" Height="112" Margin="23,73,0,0" VerticalAlignment="Top" Width="329" SelectionChanged="list_of_serviceSelect" />
         <Button x:Name="insert_new_good" Content="Добавить услугу" HorizontalAlignment="Left" Height="27" Margin="175,273,0,0" VerticalAlignment="Top" Width="114" Click="button1_Click"/>
         <Button x:Name="delete" Content="Удалить" HorizontalAlignment="Left" Height="26" Margin="396,110,0,0" VerticalAlignment="Top" Width="80" Click="button2_Click"/>
+        <TextBox x:Name="name_of_service" HorizontalAlignment="Left" Height="20" Margin="23,10,0,0" TextWrapping="Wrap" Text="Имя  услуги" VerticalAlignment="Top" Width="266"/>
+        <Button x:Name="search" Content="Поиск" HorizontalAlignment="Left" Height="32" Margin="314,10,0,0" VerticalAlignment="Top" Width="85" Click="search_Click"/>
 
     </Grid>
 </Window>

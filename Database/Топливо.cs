@@ -23,7 +23,7 @@ namespace Database
     
         public int код_топлива { get; set; }
         public string название_топлива { get; set; }
-        public Nullable<int> стоимость { get; set; }
+        public int стоимость { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Автозаправка> Автозаправка { get; set; }

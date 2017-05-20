@@ -105,5 +105,10 @@ namespace WpfApplication
         {
 
         }
+
+        private void textBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+
+        }
     }
 }

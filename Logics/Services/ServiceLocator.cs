@@ -31,6 +31,14 @@ namespace Logics.Services
             {
                 return new ТоварService(Uow) as IService<T>;
             }
+            if (typeof(T) == typeof(Акции_на_товар) || typeof(T) == typeof(Акции_на_услугу))
+            {
+                return new АкцииService(Uow) as IService<T>;
+            }
+            //if ()
+            //{
+            //    return new АкцииService(Uow) as IService<T>;
+            //}
             return null;
         }
     }

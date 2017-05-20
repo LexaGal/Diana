@@ -3,6 +3,7 @@ using System.Windows;
 using Database;
 //using Database.EFModel;
 using Logics.Services;
+using WpfApplication.Helpers;
 
 namespace WpfApplication
 {
@@ -11,30 +12,36 @@ namespace WpfApplication
     /// </summary>
     public partial class АвтозаправкаWin : Window
     {
-        private int _code;
+        //private int _code;
 
         public АвтозаправкаWin()
         {
             InitializeComponent();
+            FillFields(Settings.AutoCode);
         }
 
-        public АвтозаправкаWin(int code): base()
+        public АвтозаправкаWin(int code) : base()
         {
             InitializeComponent();
-            this._code = code;
+            Settings.AutoCode = code;
+            FillFields(code);
+        }
+
+        private void FillFields(int code)
+        {
             var autoServ = ServiceLocator.GetService<Автозаправка>();
             using (autoServ.Uow.Db = new АвтозаправкиEntities())
             {
-                var автозаправка = autoServ.ReadAll().Single(a => a.Код == _code);
+                var автозаправка = autoServ.ReadAll().Single(a => a.Код == code);
                 phone_number.Text = автозаправка.Номер_телефона;
                 description.AppendText(автозаправка.Описание);
                 address.Text = автозаправка.Общая.Адреса;
-                автозаправка.Номер_телефона = "12344567";
-                var auto = autoServ.Uow.Db.Автозаправка.Find(автозаправка.Код); //Автозаправки //Save(автозаправка, автозаправка.Номер_автозаправки);//.Value);
-                autoServ.Uow.Save();
-            
+                //автозаправка.Номер_телефона = "12344567";
+                //var auto = autoServ.Uow.Db.Автозаправка.Find(автозаправка.Код); //Автозаправки //Save(автозаправка, автозаправка.Номер_автозаправки);//.Value);
+                //autoServ.Uow.Save();
+
             }
-                //Include(
+            //Include(
         }
 
         private void m92_Click(object sender, RoutedEventArgs e)

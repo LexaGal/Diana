@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Database;
 //using Database.EFModel;
 using Database.Repository;
@@ -17,6 +18,11 @@ namespace Logics.Services
         public IEnumerable<Топливо> ReadAll()
         {
             return Uow.Топливо.GetAll();
+        }
+
+        public Топливо ReadOne(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

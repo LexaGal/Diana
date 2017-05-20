@@ -16,9 +16,9 @@ namespace Database
     {
         public int Код_записи { get; set; }
         public Nullable<System.DateTime> дата { get; set; }
-        public Nullable<decimal> Средняя_прибыль_за_месяц { get; set; }
-        public Nullable<decimal> Средняя_прибыль_за_топливо { get; set; }
-        public Nullable<decimal> Общая_прибыль_за_месяц_по_услугам_и_товарам { get; set; }
-        public Nullable<int> Общий_объём_израсходованного_топлива { get; set; }
+        public decimal Средняя_прибыль_за_месяц { get; set; }
+        public decimal Средняя_прибыль_за_топливо { get; set; }
+        public decimal Общая_прибыль_за_месяц_по_услугам_и_товарам { get; set; }
+        public int Общий_объём_израсходованного_топлива { get; set; }
     }
 }

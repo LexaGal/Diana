@@ -16,7 +16,7 @@ namespace Database
     {
         public int Номер_записи { get; set; }
         public int Номер_автозаправки { get; set; }
-        public Nullable<int> Тип_топлива { get; set; }
+        public int Тип_топлива { get; set; }
     
         public virtual Общая Общая { get; set; }
     }

@@ -9,9 +9,11 @@
         <Button x:Name="back" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="37" Click="back_Click" Margin="480,0,0,0">
             <Image Source="1.png" Width="37" Height="30" />
         </Button>
-        <TextBox x:Name="list_of_clients" HorizontalAlignment="Left" Height="226" Margin="17,56,0,0" TextWrapping="Wrap" Text="Список клиентов" VerticalAlignment="Top" Width="253"/>
+        <ListBox x:Name="list_of_clients" HorizontalAlignment="Left" Height="226" Margin="17,56,0,0" VerticalAlignment="Top" Width="253" SelectionChanged="list_of_clients_SelectionChanged"/>
         <Button x:Name="insert_in_check" Content="Добавить в чек" HorizontalAlignment="Left" Margin="411,289,0,0" VerticalAlignment="Top" Width="96" Click="button_Click"/>
-        <TextBox x:Name="name_of_client" HorizontalAlignment="Left" Height="17" Margin="17,23,0,0" TextWrapping="Wrap" Text="Имя клиента" VerticalAlignment="Top" Width="167"/>
-        <Button x:Name="search" Content="Поиск" HorizontalAlignment="Left" Height="17" Margin="199,23,0,0" VerticalAlignment="Top" Width="46"/>
+        <TextBox x:Name="name_of_client" HorizontalAlignment="Left" Height="17" Margin="17,23,0,0" TextWrapping="Wrap" Text="Имя клиента" VerticalAlignment="Top" Width="167" TextChanged="name_of_client_TextChanged"/>
+        <Button x:Name="search" Content="Поиск" HorizontalAlignment="Left" Height="17" Margin="199,23,0,0" VerticalAlignment="Top" Width="46" Click="search_Click"/>
+        <TextBox x:Name="attends_amount" HorizontalAlignment="Left" Height="33" Margin="326,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143"/>
+        <Label x:Name="label" Content="Кол-во посещений" HorizontalAlignment="Left" Margin="324,29,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

@@ -10,7 +10,7 @@
             <PropertyRef Name="Код" />
           </Key>
           <Property Name="Код" Type="int" Nullable="false" />
-          <Property Name="Номер_автозаправки" Type="int" />
+          <Property Name="Номер_автозаправки" Type="int" Nullable="false" />
           <Property Name="Номер_телефона" Type="nchar" MaxLength="50" />
           <Property Name="Описание" Type="nchar" MaxLength="500" />
           <Property Name="Номер_карточки_клиента" Type="int" />
@@ -22,7 +22,7 @@
           <Property Name="количесвто_товаров" Type="int" />
           <Property Name="код_услуги" Type="int" />
           <Property Name="количесвто_услуг" Type="int" />
-          <Property Name="код_чека" Type="int" />
+          <Property Name="код_чека" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Акции_на_товар">
           <Key>
@@ -50,7 +50,7 @@
           </Key>
           <Property Name="Номер_записи" Type="int" Nullable="false" />
           <Property Name="Номер_автозаправки" Type="int" Nullable="false" />
-          <Property Name="Тип_топлива" Type="int" />
+          <Property Name="Тип_топлива" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Общая">
           <Key>
@@ -66,7 +66,7 @@
           <Property Name="Номер_карточки_клиента" Type="int" Nullable="false" />
           <Property Name="ФИО_клиента" Type="nchar" MaxLength="50" />
           <Property Name="Количество_посещений" Type="int" />
-          <Property Name="Средняя_потраченная_сумма" Type="money" />
+          <Property Name="Средняя_потраченная_сумма" Type="money" Nullable="false" />
           <Property Name="Скидка_на_количество_посещений" Type="int" />
         </EntityType>
         <EntityType Name="Сервер">
@@ -75,10 +75,10 @@
           </Key>
           <Property Name="Код_записи" Type="int" Nullable="false" />
           <Property Name="дата" Type="date" />
-          <Property Name="Средняя_прибыль_за_месяц" Type="money" />
-          <Property Name="Средняя_прибыль_за_топливо" Type="money" />
-          <Property Name="Общая_прибыль_за_месяц_по_услугам_и_товарам" Type="money" />
-          <Property Name="Общий_объём_израсходованного_топлива" Type="int" />
+          <Property Name="Средняя_прибыль_за_месяц" Type="money" Nullable="false" />
+          <Property Name="Средняя_прибыль_за_топливо" Type="money" Nullable="false" />
+          <Property Name="Общая_прибыль_за_месяц_по_услугам_и_товарам" Type="money" Nullable="false" />
+          <Property Name="Общий_объём_израсходованного_топлива" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Товар">
           <Key>
@@ -87,6 +87,7 @@
           <Property Name="код_товара" Type="int" Nullable="false" />
           <Property Name="название_товара" Type="nchar" MaxLength="50" />
           <Property Name="стоимость" Type="money" />
+          <Property Name="количесвто" Type="int" />
         </EntityType>
         <EntityType Name="Топливо">
           <Key>
@@ -94,7 +95,7 @@
           </Key>
           <Property Name="код_топлива" Type="int" Nullable="false" />
           <Property Name="название_топлива" Type="nchar" MaxLength="50" />
-          <Property Name="стоимость" Type="int" />
+          <Property Name="стоимость" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Услуга">
           <Key>
@@ -110,7 +111,7 @@
           </Key>
           <Property Name="код_чека" Type="int" Nullable="false" />
           <Property Name="дата" Type="date" />
-          <Property Name="код_топлива" Type="int" Nullable="false" />
+          <Property Name="код_топлива" Type="int" />
           <Property Name="код_товара" Type="int" />
           <Property Name="код_услуги" Type="int" />
           <Property Name="номер_карточки_клиента" Type="int" Nullable="false" />
@@ -152,7 +153,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Автозапра__код_ч__2F10007B">
-          <End Role="Чек" Type="Self.Чек" Multiplicity="0..1" />
+          <End Role="Чек" Type="Self.Чек" Multiplicity="1" />
           <End Role="Автозаправка" Type="Self.Автозаправка" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Чек">
@@ -212,7 +213,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Чек__код_топлива__1DE57479">
-          <End Role="Топливо" Type="Self.Топливо" Multiplicity="1" />
+          <End Role="Топливо" Type="Self.Топливо" Multiplicity="0..1" />
           <End Role="Чек" Type="Self.Чек" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Топливо">
@@ -272,7 +273,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="PK_Автозаправка">
-          <End Role="Общая" Type="Self.Общая" Multiplicity="0..1" />
+          <End Role="Общая" Type="Self.Общая" Multiplicity="1" />
           <End Role="Автозаправка" Type="Self.Автозаправка" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Общая">
@@ -378,7 +379,7 @@
             <PropertyRef Name="Код" />
           </Key>
           <Property Name="Код" Type="Int32" Nullable="false" />
-          <Property Name="Номер_автозаправки" Type="Int32" />
+          <Property Name="Номер_автозаправки" Type="Int32" Nullable="false" />
           <Property Name="Номер_телефона" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="Описание" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
           <Property Name="Номер_карточки_клиента" Type="Int32" />
@@ -390,7 +391,7 @@
           <Property Name="количесвто_товаров" Type="Int32" />
           <Property Name="код_услуги" Type="Int32" />
           <Property Name="количесвто_услуг" Type="Int32" />
-          <Property Name="код_чека" Type="Int32" />
+          <Property Name="код_чека" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Топливо" Relationship="Self.FK__Автозапра__код_т__2C3393D0" FromRole="Автозаправка" ToRole="Топливо" />
           <NavigationProperty Name="Товар" Relationship="Self.FK__Автозапра__код_т__2D27B809" FromRole="Автозаправка" ToRole="Товар" />
           <NavigationProperty Name="Услуга" Relationship="Self.FK__Автозапра__код_у__2E1BDC42" FromRole="Автозаправка" ToRole="Услуга" />
@@ -430,7 +431,7 @@
           </Key>
           <Property Name="Номер_записи" Type="Int32" Nullable="false" />
           <Property Name="Номер_автозаправки" Type="Int32" Nullable="false" />
-          <Property Name="Тип_топлива" Type="Int32" />
+          <Property Name="Тип_топлива" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Общая" Relationship="Self.номерзз_РК" FromRole="Запись" ToRole="Общая" />
         </EntityType>
         <EntityType Name="Общая">
@@ -449,7 +450,7 @@
           <Property Name="Номер_карточки_клиента" Type="Int32" Nullable="false" />
           <Property Name="ФИО_клиента" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="Количество_посещений" Type="Int32" />
-          <Property Name="Средняя_потраченная_сумма" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Средняя_потраченная_сумма" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="Скидка_на_количество_посещений" Type="Int32" />
           <NavigationProperty Name="Автозаправка" Relationship="Self.FK__Автозапра__Номер__29572725" FromRole="Постоянные_клиенты" ToRole="Автозаправка" />
           <NavigationProperty Name="Чек" Relationship="Self.FK__Чек__номер_карто__20C1E124" FromRole="Постоянные_клиенты" ToRole="Чек" />
@@ -460,10 +461,10 @@
           </Key>
           <Property Name="Код_записи" Type="Int32" Nullable="false" />
           <Property Name="дата" Type="DateTime" Precision="0" />
-          <Property Name="Средняя_прибыль_за_месяц" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Средняя_прибыль_за_топливо" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Общая_прибыль_за_месяц_по_услугам_и_товарам" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Общий_объём_израсходованного_топлива" Type="Int32" />
+          <Property Name="Средняя_прибыль_за_месяц" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Средняя_прибыль_за_топливо" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Общая_прибыль_за_месяц_по_услугам_и_товарам" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Общий_объём_израсходованного_топлива" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Товар">
           <Key>
@@ -472,6 +473,7 @@
           <Property Name="код_товара" Type="Int32" Nullable="false" />
           <Property Name="название_товара" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="стоимость" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="количесвто" Type="Int32" />
           <NavigationProperty Name="Автозаправка" Relationship="Self.FK__Автозапра__код_т__2D27B809" FromRole="Товар" ToRole="Автозаправка" />
           <NavigationProperty Name="Акции_на_товар" Relationship="Self.FK__Акции_на___код_т__164452B1" FromRole="Товар" ToRole="Акции_на_товар" />
           <NavigationProperty Name="Чек" Relationship="Self.FK__Чек__код_товара__1ED998B2" FromRole="Товар" ToRole="Чек" />
@@ -482,7 +484,7 @@
           </Key>
           <Property Name="код_топлива" Type="Int32" Nullable="false" />
           <Property Name="название_топлива" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="стоимость" Type="Int32" />
+          <Property Name="стоимость" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Автозаправка" Relationship="Self.FK__Автозапра__код_т__2C3393D0" FromRole="Топливо" ToRole="Автозаправка" />
           <NavigationProperty Name="Чек" Relationship="Self.FK__Чек__код_топлива__1DE57479" FromRole="Топливо" ToRole="Чек" />
         </EntityType>
@@ -503,7 +505,7 @@
           </Key>
           <Property Name="код_чека" Type="Int32" Nullable="false" />
           <Property Name="дата" Type="DateTime" Precision="0" />
-          <Property Name="код_топлива" Type="Int32" Nullable="false" />
+          <Property Name="код_топлива" Type="Int32" />
           <Property Name="код_товара" Type="Int32" />
           <Property Name="код_услуги" Type="Int32" />
           <Property Name="номер_карточки_клиента" Type="Int32" Nullable="false" />
@@ -550,7 +552,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Автозапра__код_ч__2F10007B">
-          <End Role="Чек" Type="Self.Чек" Multiplicity="0..1" />
+          <End Role="Чек" Type="Self.Чек" Multiplicity="1" />
           <End Role="Автозаправка" Type="Self.Автозаправка" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Чек">
@@ -598,7 +600,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="PK_Автозаправка">
-          <End Role="Общая" Type="Self.Общая" Multiplicity="0..1" />
+          <End Role="Общая" Type="Self.Общая" Multiplicity="1" />
           <End Role="Автозаправка" Type="Self.Автозаправка" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Общая">
@@ -670,7 +672,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Чек__код_топлива__1DE57479">
-          <End Role="Топливо" Type="Self.Топливо" Multiplicity="1" />
+          <End Role="Топливо" Type="Self.Топливо" Multiplicity="0..1" />
           <End Role="Чек" Type="Self.Чек" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Топливо">
@@ -860,6 +862,7 @@
                 <ScalarProperty Name="код_товара" ColumnName="код_товара" />
                 <ScalarProperty Name="название_товара" ColumnName="название_товара" />
                 <ScalarProperty Name="стоимость" ColumnName="стоимость" />
+                <ScalarProperty Name="количесвто" ColumnName="количесвто" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

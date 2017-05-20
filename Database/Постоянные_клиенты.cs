@@ -24,12 +24,17 @@ namespace Database
         public int Номер_карточки_клиента { get; set; }
         public string ФИО_клиента { get; set; }
         public Nullable<int> Количество_посещений { get; set; }
-        public Nullable<decimal> Средняя_потраченная_сумма { get; set; }
+        public decimal Средняя_потраченная_сумма { get; set; }
         public Nullable<int> Скидка_на_количество_посещений { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Автозаправка> Автозаправка { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Чек> Чек { get; set; }
+
+        public override string ToString()
+        {
+            return ФИО_клиента;
+        }
     }
 }
