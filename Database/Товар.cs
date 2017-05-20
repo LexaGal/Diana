@@ -17,7 +17,6 @@ namespace Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Товар()
         {
-            this.Автозаправка = new HashSet<Автозаправка>();
             this.Акции_на_товар = new HashSet<Акции_на_товар>();
             this.Чек = new HashSet<Чек>();
         }
@@ -28,12 +27,10 @@ namespace Database
         public Nullable<int> количесвто { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Автозаправка> Автозаправка { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Акции_на_товар> Акции_на_товар { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Чек> Чек { get; set; }
-        
+
         public override string ToString()
         {
             return название_товара;

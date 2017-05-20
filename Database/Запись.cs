@@ -16,8 +16,9 @@ namespace Database
     {
         public int Номер_записи { get; set; }
         public int Номер_автозаправки { get; set; }
-        public int Тип_топлива { get; set; }
+        public int Код_топлива { get; set; }
     
-        public virtual Общая Общая { get; set; }
+        public virtual Автозаправка Автозаправка { get; set; }
+        public virtual Топливо Топливо { get; set; }
     }
 }

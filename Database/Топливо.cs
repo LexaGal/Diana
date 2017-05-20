@@ -17,7 +17,7 @@ namespace Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Топливо()
         {
-            this.Автозаправка = new HashSet<Автозаправка>();
+            this.Запись = new HashSet<Запись>();
             this.Чек = new HashSet<Чек>();
         }
     
@@ -26,7 +26,7 @@ namespace Database
         public int стоимость { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Автозаправка> Автозаправка { get; set; }
+        public virtual ICollection<Запись> Запись { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Чек> Чек { get; set; }
     }

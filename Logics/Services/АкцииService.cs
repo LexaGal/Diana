@@ -24,5 +24,10 @@ namespace Logics.Services
         {
             throw new NotImplementedException();
         }
+
+        public bool Save(Акции_на_товар item)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

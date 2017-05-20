@@ -32,10 +32,10 @@ namespace WpfApplication
             var autoServ = ServiceLocator.GetService<Автозаправка>();
             using (autoServ.Uow.Db = new АвтозаправкиEntities())
             {
-                var автозаправка = autoServ.ReadAll().Single(a => a.Код == code);
+                var автозаправка = autoServ.ReadOne(code); //ReadAll().Single(a => a.Код == code);
                 phone_number.Text = автозаправка.Номер_телефона;
                 description.AppendText(автозаправка.Описание);
-                address.Text = автозаправка.Общая.Адреса;
+                address.Text = автозаправка.Общая.First().Адреса;
                 //автозаправка.Номер_телефона = "12344567";
                 //var auto = autoServ.Uow.Db.Автозаправка.Find(автозаправка.Код); //Автозаправки //Save(автозаправка, автозаправка.Номер_автозаправки);//.Value);
                 //autoServ.Uow.Save();

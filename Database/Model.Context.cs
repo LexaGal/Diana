@@ -25,6 +25,7 @@ namespace Database
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Автозаправка> Автозаправка { get; set; }
         public virtual DbSet<Акции_на_товар> Акции_на_товар { get; set; }
         public virtual DbSet<Акции_на_услугу> Акции_на_услугу { get; set; }

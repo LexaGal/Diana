@@ -14,28 +14,22 @@ namespace Database
     
     public partial class Автозаправка
     {
-        public int Код { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Автозаправка()
+        {
+            this.Общая = new HashSet<Общая>();
+            this.Запись = new HashSet<Запись>();
+        }
+    
         public int Номер_автозаправки { get; set; }
         public string Номер_телефона { get; set; }
         public string Описание { get; set; }
-        public Nullable<int> Номер_карточки_клиента { get; set; }
-        public Nullable<int> Акции_на_товар { get; set; }
-        public Nullable<int> Акции_на_услугу { get; set; }
-        public Nullable<int> код_топлива { get; set; }
         public Nullable<int> количесвто_топлива { get; set; }
-        public Nullable<int> код_товара { get; set; }
         public Nullable<int> количесвто_товаров { get; set; }
-        public Nullable<int> код_услуги { get; set; }
-        public Nullable<int> количесвто_услуг { get; set; }
-        public int код_чека { get; set; }
     
-        public virtual Топливо Топливо { get; set; }
-        public virtual Товар Товар { get; set; }
-        public virtual Услуга Услуга { get; set; }
-        public virtual Чек Чек { get; set; }
-        public virtual Постоянные_клиенты Постоянные_клиенты { get; set; }
-        public virtual Акции_на_товар Акции_на_товар1 { get; set; }
-        public virtual Акции_на_услугу Акции_на_услугу1 { get; set; }
-        public virtual Общая Общая { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Общая> Общая { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Запись> Запись { get; set; }
     }
 }

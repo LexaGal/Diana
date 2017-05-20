@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using Database;
+using Logics.Services;
+using System.Windows;
 
 namespace WpfApplication
 {
@@ -15,19 +17,19 @@ namespace WpfApplication
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            //this._code = code;
-            //var autoServ = ServiceLocator.GetService<Постоянные_клиенты>();
-            //using (autoServ.Uow.Db = new АвтозаправкиEntities())
-            //{
-            //    var постоянныеклиенты = autoServ.ReadAll();
-            //    list_of_clients.Text = постоянныеклиенты.ФИО_клиента;//должен выводится весь список
-            //    //description.AppendText(автозаправка.Описание);
-            //    name_of_client.Text = постоянныеклиенты.ФИО_клиента;
-            //    //автозаправка.Номер_телефона = "12344567";
-            //    //var auto = autoServ.Uow.Db.Автозаправка.Find(автозаправка.Код); //Автозаправки //Save(автозаправка, автозаправка.Номер_автозаправки);//.Value);
-            //    //autoServ.Uow.Save();
+            var prod = new Товар()
+            {
+                код_товара = int.Parse(product_code.Text),
+                название_товара = name.Text,
+                количесвто = int.Parse(amount.Text),
+                стоимость = decimal.Parse(value.Text)
+            };
 
-            //}
+            var prodServ = ServiceLocator.GetService<Товар>();
+            using (prodServ.Uow.Db = new АвтозаправкиEntities())
+            {
+                //prodServ.
+            }
         }
 
         private void back_Click(object sender, RoutedEventArgs e)

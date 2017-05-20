@@ -17,7 +17,6 @@ namespace Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Постоянные_клиенты()
         {
-            this.Автозаправка = new HashSet<Автозаправка>();
             this.Чек = new HashSet<Чек>();
         }
     
@@ -27,8 +26,6 @@ namespace Database
         public decimal Средняя_потраченная_сумма { get; set; }
         public Nullable<int> Скидка_на_количество_посещений { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Автозаправка> Автозаправка { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Чек> Чек { get; set; }
 
