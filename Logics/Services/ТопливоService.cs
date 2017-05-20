@@ -24,5 +24,15 @@ namespace Logics.Services
         {
             throw new NotImplementedException();
         }
+
+        public bool Save(Топливо item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

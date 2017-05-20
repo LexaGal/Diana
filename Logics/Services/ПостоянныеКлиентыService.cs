@@ -32,5 +32,15 @@ namespace Logics.Services
             return Uow.ПостоянныеКлиенты.GetAll()
                 .Where(c => c.ФИО_клиента.Contains(name));
         }
+
+        public bool Save(Постоянные_клиенты item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

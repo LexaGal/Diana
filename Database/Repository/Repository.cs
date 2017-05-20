@@ -45,6 +45,7 @@ namespace Database.Repository
                     return true;
                 }
                 value.CopyPropertiesTo(t);
+                _context.SaveChanges();
                 return true;
             }
         }

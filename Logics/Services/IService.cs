@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace Logics.Services
 {
-    public interface IService<out T> where T : class
+    public interface IService<T> where T : class
     {
         UnitOfWork Uow { get; }
         IEnumerable<T> ReadAll();
         T ReadOne(int id);
+        bool Save(T item);
+        bool Delete(int id);
     }
 }

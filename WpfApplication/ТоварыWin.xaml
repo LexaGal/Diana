@@ -13,7 +13,7 @@
         <Button x:Name="insert_in_check" Content="Добавить в чек" HorizontalAlignment="Left" Height="24" Margin="413,285,0,0" VerticalAlignment="Top" Width="94" Click="button_Click"/>
         <ListBox x:Name="list_of_products" HorizontalAlignment="Left" Height="112" Margin="23,44,0,0" VerticalAlignment="Top" Width="329" SelectionChanged="list_of_productsSelect" />
         <Button x:Name="insert_new_good" Content="Добавить товар" HorizontalAlignment="Left" Height="27" Margin="175,273,0,0" VerticalAlignment="Top" Width="114" Click="button1_Click"/>
-        <Button x:Name="delete" Content="Удалить" HorizontalAlignment="Left" Height="26" Margin="413,236,0,0" VerticalAlignment="Top" Width="80" Click="button2_Click"/>
+        <Button x:Name="delete" Content="Удалить" HorizontalAlignment="Left" Height="26" Margin="413,236,0,0" VerticalAlignment="Top" Width="80" Click="delete_Click"/>
         <TextBox x:Name="name_of_product" HorizontalAlignment="Left" Height="20" Margin="23,10,0,0" TextWrapping="Wrap" Text="Имя  товара" VerticalAlignment="Top" Width="266"/>
         <Button x:Name="search" Content="Поиск" HorizontalAlignment="Left" Height="32" Margin="314,10,0,0" VerticalAlignment="Top" Width="85" Click="search_Click"/>
         <TextBox x:Name="amount_of_goods" HorizontalAlignment="Left" Height="34" Margin="399,88,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="77"/>

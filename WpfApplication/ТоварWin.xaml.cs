@@ -9,7 +9,7 @@ namespace WpfApplication
     /// </summary>
     public partial class ТоварWin : Window
     {
-         private int _code;
+        //private int _code;
         public ТоварWin()
         {
             InitializeComponent();
@@ -28,7 +28,7 @@ namespace WpfApplication
             var prodServ = ServiceLocator.GetService<Товар>();
             using (prodServ.Uow.Db = new АвтозаправкиEntities())
             {
-                //prodServ.
+                prodServ.Save(prod);
             }
         }
 

@@ -22,6 +22,17 @@ namespace Logics.Services
 
         public Автозаправка ReadOne(int id)
         {
+            return Uow.Автозаправки.Get(id);
+            //throw new NotImplementedException();
+        }
+
+        public bool Save(Автозаправка item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Delete(int id)
+        {
             throw new NotImplementedException();
         }
     }

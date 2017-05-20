@@ -62,11 +62,6 @@ namespace WpfApplication
             this.Hide();
         }
 
-        private void button2_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void search_Click(object sender, RoutedEventArgs e)
         {
             var autoServ = ServiceLocator.GetService<Товар>() as ТоварService;
@@ -95,8 +90,20 @@ namespace WpfApplication
             {
                 var client = e.AddedItems[0] as Товар;
                 value.Text = client.стоимость.Value.ToString();
-                amount_of_goods.Text= client.количесвто.Value.ToString();
+                amount_of_goods.Text = client.количесвто.Value.ToString();
             }
+        }
+
+        private void delete_Click(object sender, RoutedEventArgs e)
+        {
+            var prodServ = ServiceLocator.GetService<Товар>();
+            using (prodServ.Uow.Db = new АвтозаправкиEntities())
+            {
+                var id = (list_of_products.SelectedItem as Товар).код_товара;
+                prodServ.Delete(id);
+            }
+            //list_of_products.Items.Clear();
+            list_of_products.Items.Remove(list_of_products.SelectedItem);
         }
     }
 }

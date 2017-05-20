@@ -21,8 +21,7 @@ namespace Logics.Services
         {
             return Uow.Услуги.GetAll();
         }
-
-
+        
         public Услуга ReadOne(int id)
         {
             return Uow.Услуги.Get(id);
@@ -33,6 +32,16 @@ namespace Logics.Services
         {
             return Uow.Услуги.GetAll()
                 .Where(c => c.название_услуги.Contains(name));
+        }
+
+        public bool Save(Услуга item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Delete(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }
