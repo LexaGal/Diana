@@ -42,7 +42,7 @@ namespace Logics.Services
           //throw new NotImplementedException();
         }
 
-        public bool Delete(int id)
+        public bool Delete(int id)//проверка на связи с другими таблицами
         {
             var prod = Uow.Товары.Get(id);
             if (prod.Акции_на_товар.Any())
