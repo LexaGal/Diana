@@ -36,12 +36,23 @@ namespace Logics.Services
 
         public bool Save(Услуга item)
         {
-            throw new NotImplementedException();
+            Uow.Услуги.Save(item, item.код_услуги);
+            return true;
         }
 
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            var prod = Uow.Услуги.Get(id);
+            if (prod.Акции_на_услугу.Any())
+            {
+                prod.Акции_на_услугу.ToList().ForEach(a => Uow.АкцииНаУслуги.Delete(a.Код_акции_услуга));
+            }
+            if (prod.Чек.Any())
+            {
+                prod.Чек.ToList().ForEach(a => Uow.Чеки.Delete(a.код_чека));
+            }
+            Uow.Услуги.Delete(id);
+            return true;
         }
     }
 }

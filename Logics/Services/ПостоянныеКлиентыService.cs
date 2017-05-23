@@ -35,12 +35,19 @@ namespace Logics.Services
 
         public bool Save(Постоянные_клиенты item)
         {
-            throw new NotImplementedException();
+            Uow.ПостоянныеКлиенты.Save(item, item.Номер_карточки_клиента);
+            return true;
         }
 
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            var prod = Uow.ПостоянныеКлиенты.Get(id);
+            if (prod.Чек.Any())
+            {
+                prod.Чек.ToList().ForEach(a => Uow.Чеки.Delete(a.код_чека));
+            }
+            Uow.ПостоянныеКлиенты.Delete(id);
+            return true;
         }
     }
 }

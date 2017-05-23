@@ -15,5 +15,7 @@
         <Button x:Name="search" Content="Поиск" HorizontalAlignment="Left" Height="17" Margin="199,23,0,0" VerticalAlignment="Top" Width="46" Click="search_Click"/>
         <TextBox x:Name="attends_amount" HorizontalAlignment="Left" Height="33" Margin="326,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143"/>
         <Label x:Name="label" Content="Кол-во посещений" HorizontalAlignment="Left" Margin="324,29,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="button" Content="Добавить клиента" HorizontalAlignment="Left" Height="29" Margin="341,124,0,0" VerticalAlignment="Top" Width="117" Click="insert_Click"/>
+        <Button x:Name="button1" Content="Удалить клиента" HorizontalAlignment="Left" Height="30" Margin="341,171,0,0" VerticalAlignment="Top" Width="117" Click="delete_Click"/>
     </Grid>
 </Window>

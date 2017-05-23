@@ -7,7 +7,7 @@ namespace WpfApplication
     /// </summary>
     public partial class АкцииWin : Window
     {
-        private int _code;
+        //private int _code;
         public АкцииWin()
         {
 

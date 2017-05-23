@@ -88,5 +88,28 @@ namespace WpfApplication
                 attends_amount.Text = client.Количество_посещений.Value.ToString();
             }
         }
+
+        private void insert_Click(object sender, RoutedEventArgs e)
+        {
+            КлиентWin winTool = new КлиентWin();
+            //Назначение текущего окна владельцем.
+            winTool.Owner = this;
+            //Отображение окна, принадлежащего окну-владельцу.
+            winTool.Show();
+            this.Hide();
+        }
+
+        private void delete_Click(object sender, RoutedEventArgs e)
+        {
+
+            var prodServ = ServiceLocator.GetService<Постоянные_клиенты>();
+            using (prodServ.Uow.Db = new АвтозаправкиEntities())
+            {
+                var id = (list_of_clients.SelectedItem as Постоянные_клиенты).Номер_карточки_клиента;
+                prodServ.Delete(id);
+            }
+            //list_of_products.Items.Clear();
+            list_of_clients.Items.Remove(list_of_clients.SelectedItem);
+        }
     }
 }

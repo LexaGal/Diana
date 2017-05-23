@@ -63,12 +63,24 @@ namespace WpfApplication
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-
+            var prodServ = ServiceLocator.GetService<Услуга>();
+            using (prodServ.Uow.Db = new АвтозаправкиEntities())
+            {
+                var id = (list_of_service.SelectedItem as Услуга).код_услуги;
+                prodServ.Delete(id);
+            }
+            //list_of_products.Items.Clear();
+            list_of_service.Items.Remove(list_of_service.SelectedItem);
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-
+            УслугаWin winTool = new УслугаWin();
+            //Назначение текущего окна владельцем.
+            winTool.Owner = this;
+            //Отображение окна, принадлежащего окну-владельцу.
+            winTool.Show();
+            this.Hide();
         }
 
         private void search_Click(object sender, RoutedEventArgs e)

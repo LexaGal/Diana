@@ -66,6 +66,9 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="КлиентWin.xaml.cs">
+      <DependentUpon>КлиентWin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="УслугаWin.xaml.cs">
       <DependentUpon>УслугаWin.xaml</DependentUpon>
     </Compile>
@@ -106,6 +109,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="КлиентWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="УслугаWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
