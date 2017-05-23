@@ -30,4 +30,12 @@ namespace Database
             return this.название_услуги;
         }
     }
+
+    public partial class ЧекТовар
+    {
+        public override string ToString()
+        {
+            return $"{this.Товар.название_товара}: {this.Товар.стоимость} руб., {this.Товар.количесвто} штук.";
+        }
+    }
 }

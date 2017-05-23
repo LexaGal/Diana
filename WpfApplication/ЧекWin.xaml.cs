@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Linq;
+using System.Windows;
+using WpfApplication.Helpers;
 
 namespace WpfApplication
 {
@@ -10,6 +12,13 @@ namespace WpfApplication
         public ЧекWin()
         {
             InitializeComponent();
+            customer_name.Text = Settings.Check.Постоянные_клиенты?.ФИО_клиента;
+            decimal sum = 0;
+            Settings.Check.ЧекТовар.ToList().ForEach(c => {
+                list_of_goods.Items.Add(c);
+                sum += c.Товар.стоимость.Value * c.Товар.количесвто.Value;
+            });
+            total_price_of_goods.Text = sum.ToString("#0.00");
         }
 
         private void back_Click(object sender, RoutedEventArgs e)
@@ -107,6 +116,11 @@ namespace WpfApplication
         }
 
         private void textBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+
+        }
+
+        private void listBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
 
         }

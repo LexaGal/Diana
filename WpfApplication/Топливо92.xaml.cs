@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using Database;
+using Logics.Services;
+using System.Linq;
+using System.Windows;
 
 namespace WpfApplication
 {
@@ -10,6 +13,11 @@ namespace WpfApplication
         public Топливо92()
         {
             InitializeComponent();
+            var fuelServ = ServiceLocator.GetService<Топливо>();
+            using (fuelServ.Uow.Db = new АвтозаправкиEntities())
+            {
+                value.Text = fuelServ.ReadAll().ToList().Single(f => { return f.название_топлива == "92"; }).стоимость.ToString();
+            }
         }
 
         private void back_Click(object sender, RoutedEventArgs e)

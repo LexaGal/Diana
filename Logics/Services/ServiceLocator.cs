@@ -35,9 +35,9 @@ namespace Logics.Services
             {
                 return new АкцииService(Uow) as IService<T>;
             }
-            //if ()
+            //if (typeof(T) == typeof(Топливо))
             //{
-            //    return new АкцииService(Uow) as IService<T>;
+            //    return new ТопливоService(Uow) as IService<T>;
             //}
             return null;
         }

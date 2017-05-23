@@ -6,10 +6,10 @@
         mc:Ignorable="d"
         Title="95" Height="350" Width="525">
     <Grid>
-        <TextBox x:Name="name" HorizontalAlignment="Left" Height="56" Margin="55,37,0,0" TextWrapping="Wrap" Text="Вид топлива" VerticalAlignment="Top" Width="295"/>
-        <TextBox x:Name="residue" HorizontalAlignment="Left" Height="59" Margin="55,109,0,0" TextWrapping="Wrap" Text="Сколько осталось" VerticalAlignment="Top" Width="174"/>
-        <TextBox x:Name="value" HorizontalAlignment="Left" Height="30" Margin="55,190,0,0" TextWrapping="Wrap" Text="Стоимость" VerticalAlignment="Top" Width="174"/>
-        <Button x:Name="back" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="37" Click="back_Click" Margin="480,0,0,0">
+        <TextBox x:Name="name" HorizontalAlignment="Left" Height="56" Margin="55,37,0,0" TextWrapping="Wrap" Text="95" VerticalAlignment="Top" Width="295"/>
+        <TextBox x:Name="amount" HorizontalAlignment="Left" Height="59" Margin="55,166,0,0" TextWrapping="Wrap" Text="количество" VerticalAlignment="Top" Width="174"/>
+        <TextBox x:Name="value" HorizontalAlignment="Left" Height="30" Margin="55,115,0,0" TextWrapping="Wrap" Text="Стоимость" VerticalAlignment="Top" Width="174"/>
+         <Button x:Name="back" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="37" Click="back_Click" Margin="480,0,0,0">
             <Image Source="1.png" Width="37" Height="20" />
         </Button>
         <Button x:Name="insert_in_check" Content="Добавить в чек" HorizontalAlignment="Left" Height="24" Margin="412,285,0,0" Click="insert_Click" VerticalAlignment="Top" Width="95"/>
