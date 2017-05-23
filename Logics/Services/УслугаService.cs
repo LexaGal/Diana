@@ -47,9 +47,9 @@ namespace Logics.Services
             {
                 prod.Акции_на_услугу.ToList().ForEach(a => Uow.АкцииНаУслуги.Delete(a.Код_акции_услуга));
             }
-            if (prod.Чек.Any())
+            if (prod.ЧекУслуга.Any())
             {
-                prod.Чек.ToList().ForEach(a => Uow.Чеки.Delete(a.код_чека));
+                prod.ЧекУслуга.ToList().ForEach(a => Uow.Чеки.Delete(a.код_чека));
             }
             Uow.Услуги.Delete(id);
             return true;

@@ -3,6 +3,7 @@ using System.Windows;
 using Database;
 //using Database.EFModel;
 using Logics.Services;
+using WpfApplication.Helpers;
 
 namespace WpfApplication
 {
@@ -11,6 +12,8 @@ namespace WpfApplication
     /// </summary>
     public partial class УслугиWin : Window
     {
+        private Услуга serv;
+
         public УслугиWin()
         {
             InitializeComponent();
@@ -110,9 +113,15 @@ namespace WpfApplication
 
             if (e.AddedItems.Count > 0)
             {
-                var client = e.AddedItems[0] as Услуга;
-                value.Text = client.стоимость.Value.ToString();
+                serv = e.AddedItems[0] as Услуга;
+                value.Text = serv.стоимость.Value.ToString();
             }
+        }
+
+        private void insert_serv_check(object sender, RoutedEventArgs e)
+        {
+            Settings.Check.ЧекУслуга.Add(new ЧекУслуга() { Услуга = serv, Чек = Settings.Check });
+            //.AddRange(prods);.ToList()
         }
     }
 }

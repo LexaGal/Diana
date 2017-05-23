@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,5 +10,6 @@ namespace WpfApplication.Helpers
     public static class Settings
     {
         public static int AutoCode { get; set; }
+        public static Чек Check { get; set; } = new Чек();
     }
 }

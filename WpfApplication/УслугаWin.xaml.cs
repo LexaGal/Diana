@@ -1,6 +1,8 @@
 ﻿using System.Windows;
 using Database;
 using Logics.Services;
+using WpfApplication.Helpers;
+
 namespace WpfApplication
 {
     /// <summary>
@@ -25,17 +27,17 @@ namespace WpfApplication
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            var prod = new Услуга()
+            var serv = new Услуга()
             {
                 код_услуги = int.Parse(service_code.Text),
                 название_услуги = name.Text,
                 стоимость = decimal.Parse(value.Text)
             };
 
-            var prodServ = ServiceLocator.GetService<Услуга>();
-            using (prodServ.Uow.Db = new АвтозаправкиEntities())
+            var servServ = ServiceLocator.GetService<Услуга>();
+            using (servServ.Uow.Db = new АвтозаправкиEntities())
             {
-                prodServ.Save(prod);
+                servServ.Save(serv);
             }
         }
     }

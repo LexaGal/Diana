@@ -10,7 +10,7 @@
             <Image Source="1.png" Width="37" Height="30" />
         </Button>
         <ListBox x:Name="list_of_clients" HorizontalAlignment="Left" Height="226" Margin="17,56,0,0" VerticalAlignment="Top" Width="253" SelectionChanged="list_of_clients_SelectionChanged"/>
-        <Button x:Name="insert_in_check" Content="Добавить в чек" HorizontalAlignment="Left" Margin="411,289,0,0" VerticalAlignment="Top" Width="96" Click="button_Click"/>
+        <Button x:Name="insert_in_check" Content="Добавить в чек" HorizontalAlignment="Left" Margin="411,289,0,0" VerticalAlignment="Top" Width="96" Click="Insert_client_check"/>
         <TextBox x:Name="name_of_client" HorizontalAlignment="Left" Height="17" Margin="17,23,0,0" TextWrapping="Wrap" Text="Имя клиента" VerticalAlignment="Top" Width="167" TextChanged="name_of_client_TextChanged"/>
         <Button x:Name="search" Content="Поиск" HorizontalAlignment="Left" Height="17" Margin="199,23,0,0" VerticalAlignment="Top" Width="46" Click="search_Click"/>
         <TextBox x:Name="attends_amount" HorizontalAlignment="Left" Height="33" Margin="326,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143"/>

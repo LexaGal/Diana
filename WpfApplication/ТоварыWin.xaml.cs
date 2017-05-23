@@ -3,7 +3,8 @@ using System.Windows;
 using Database;
 //using Database.EFModel;
 using Logics.Services;
-
+using System.Collections.Generic;
+using WpfApplication.Helpers;
 
 namespace WpfApplication
 {
@@ -12,10 +13,12 @@ namespace WpfApplication
     /// </summary>
     public partial class ТоварыWin : Window
     {
+        private Товар prod;
+
         public ТоварыWin()
         {
             InitializeComponent();
-            //this._code = code;
+            //this.prods = new List<Товар>();
             var autoServ = ServiceLocator.GetService<Товар>();
             using (autoServ.Uow.Db = new АвтозаправкиEntities())
             {
@@ -88,9 +91,9 @@ namespace WpfApplication
         {
             if (e.AddedItems.Count > 0)
             {
-                var client = e.AddedItems[0] as Товар;
-                value.Text = client.стоимость.Value.ToString();
-                amount_of_goods.Text = client.количесвто.Value.ToString();
+                prod = e.AddedItems[0] as Товар;
+                value.Text = prod.стоимость.Value.ToString();
+                amount_of_goods.Text = prod.количесвто.Value.ToString();
             }
         }
 
@@ -104,6 +107,12 @@ namespace WpfApplication
             }
             //list_of_products.Items.Clear();
             list_of_products.Items.Remove(list_of_products.SelectedItem);
+        }
+
+        private void insert_prod_check(object sender, RoutedEventArgs e)
+        {
+            Settings.Check.ЧекТовар.Add(new ЧекТовар() { Товар = prod, Чек = Settings.Check });
+                //.AddRange(prods);.ToList()
         }
     }
 }

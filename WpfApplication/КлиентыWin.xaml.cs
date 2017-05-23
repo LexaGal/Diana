@@ -3,6 +3,7 @@ using System.Windows;
 using Database;
 //using Database.EFModel;
 using Logics.Services;
+using WpfApplication.Helpers;
 
 namespace WpfApplication
 {
@@ -11,6 +12,7 @@ namespace WpfApplication
     /// </summary>
     public partial class КлиентыWin : Window
     {
+        private Постоянные_клиенты client;
 
         //private int _code;
         public КлиентыWin()
@@ -84,7 +86,7 @@ namespace WpfApplication
         {
             if (e.AddedItems.Count > 0)
             {
-                var client = e.AddedItems[0] as Постоянные_клиенты;
+                client = e.AddedItems[0] as Постоянные_клиенты;
                 attends_amount.Text = client.Количество_посещений.Value.ToString();
             }
         }
@@ -110,6 +112,11 @@ namespace WpfApplication
             }
             //list_of_products.Items.Clear();
             list_of_clients.Items.Remove(list_of_clients.SelectedItem);
+        }
+
+        private void Insert_client_check(object sender, RoutedEventArgs e)
+        {
+            Settings.Check.Постоянные_клиенты = client;
         }
     }
 }

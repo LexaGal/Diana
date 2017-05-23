@@ -14,16 +14,23 @@ namespace Database
     
     public partial class Чек
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Чек()
+        {
+            this.ЧекТовар = new HashSet<ЧекТовар>();
+            this.ЧекУслуга = new HashSet<ЧекУслуга>();
+        }
+    
         public int код_чека { get; set; }
         public Nullable<System.DateTime> дата { get; set; }
         public Nullable<int> код_топлива { get; set; }
-        public Nullable<int> код_товара { get; set; }
-        public Nullable<int> код_услуги { get; set; }
-        public int номер_карточки_клиента { get; set; }
+        public Nullable<int> номер_карточки_клиента { get; set; }
     
         public virtual Постоянные_клиенты Постоянные_клиенты { get; set; }
-        public virtual Товар Товар { get; set; }
         public virtual Топливо Топливо { get; set; }
-        public virtual Услуга Услуга { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ЧекТовар> ЧекТовар { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ЧекУслуга> ЧекУслуга { get; set; }
     }
 }

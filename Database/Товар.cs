@@ -18,7 +18,7 @@ namespace Database
         public Товар()
         {
             this.Акции_на_товар = new HashSet<Акции_на_товар>();
-            this.Чек = new HashSet<Чек>();
+            this.ЧекТовар = new HashSet<ЧекТовар>();
         }
     
         public int код_товара { get; set; }
@@ -29,11 +29,6 @@ namespace Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Акции_на_товар> Акции_на_товар { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Чек> Чек { get; set; }
-
-        public override string ToString()
-        {
-            return название_товара;
-        }
+        public virtual ICollection<ЧекТовар> ЧекТовар { get; set; }
     }
 }

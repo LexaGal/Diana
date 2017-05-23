@@ -121,14 +121,32 @@ create table Чек
 код_чека int not null constraint PK_код_чека primary key, 
 дата date, 
 код_топлива int null foreign key references Топливо(код_топлива),--как сделать так, чтобы было код_товара*количесвто*стоимость 
-код_товара int  null foreign key references Товар(код_товара), 
-код_услуги int null foreign key references Услуга(код_услуги), 
-номер_карточки_клиента int not null foreign key references Постоянные_клиенты(номер_карточки_клиента), 
+--код_товара int  null foreign key references Товар(код_товара), 
+--код_услуги int null foreign key references Услуга(код_услуги), 
+номер_карточки_клиента int null foreign key references Постоянные_клиенты(номер_карточки_клиента), 
 ) 
-insert into Чек(код_чека, дата, код_топлива, код_товара,код_услуги,номер_карточки_клиента) 
-values (1,'2017-12-10', 3, 3, NULL, 1); 
-insert into Чек(код_чека, дата, код_топлива, код_товара,код_услуги,номер_карточки_клиента) 
-values (2,'2017-12-11', 1, 4, 4, 2); 
+insert into Чек(код_чека, дата, код_топлива, --код_товара,код_услуги,
+номер_карточки_клиента) 
+values (1,'2017-12-10', 3, --3, NULL,
+ 1); 
+insert into Чек(код_чека, дата, код_топлива, --код_товара,код_услуги,
+номер_карточки_клиента) 
+values (2,'2017-12-11', 1, --4, 4,
+ 2); 
+
+create table ЧекТовар 
+(
+	Номер	   int not null constraint номерЧТ_РК primary key, 
+	код_товара int not null constraint номерТ1_РК foreign key references Товар(код_товара),
+	код_чека   int not null constraint номерЧ1_РК foreign key references Чек(код_чека)
+)
+
+create table ЧекУслуга 
+(
+	Номер	   int not null constraint номерЧУ_РК primary key, 
+	код_услуги int not null constraint номерУ_РК foreign key references Услуга(код_услуги),
+	код_чека   int not null constraint номерЧ2_РК foreign key references Чек(код_чека)
+)
 
 create table Автозаправка 
 (  
@@ -176,7 +194,7 @@ create table Запись
 ( 
 Номер_записи int not null constraint номерЗ_РК primary key, 
 Номер_автозаправки int not null constraint номерАЗ_РК foreign key references Автозаправка(Номер_автозаправки), 
-Код_топлива int not null constraint номерТ_РК foreign key references Топливо(Код_топлива)
+Код_топлива int not null constraint номерТ2_РК foreign key references Топливо(Код_топлива)
 ) 
 insert into Запись(Номер_записи, Номер_автозаправки,Код_топлива) 
 values (1,1,1); 									

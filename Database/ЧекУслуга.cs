@@ -12,12 +12,13 @@ namespace Database
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagram
+    public partial class ЧекУслуга
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int Номер { get; set; }
+        public int код_услуги { get; set; }
+        public int код_чека { get; set; }
+    
+        public virtual Услуга Услуга { get; set; }
+        public virtual Чек Чек { get; set; }
     }
 }
