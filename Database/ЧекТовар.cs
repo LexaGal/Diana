@@ -17,6 +17,7 @@ namespace Database
         public int Номер { get; set; }
         public int код_товара { get; set; }
         public int код_чека { get; set; }
+        public int кол_во { get; set; }
     
         public virtual Товар Товар { get; set; }
         public virtual Чек Чек { get; set; }

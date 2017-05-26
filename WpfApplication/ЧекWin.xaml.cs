@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using Database;
+using Logics.Services;
+using System.Linq;
 using System.Windows;
 using WpfApplication.Helpers;
 
@@ -9,16 +11,37 @@ namespace WpfApplication
     /// </summary>
     public partial class ЧекWin : Window
     {
+        decimal sumProd = 0, sumServ = 0, sumFuel = 0;
+
         public ЧекWin()
         {
-            InitializeComponent();
+            InitializeComponent();                       
+
             customer_name.Text = Settings.Check.Постоянные_клиенты?.ФИО_клиента;
-            decimal sum = 0;
-            Settings.Check.ЧекТовар.ToList().ForEach(c => {
+            
+            Settings.Check.ЧекТовар.ToList().ForEach(c =>
+            {
                 list_of_goods.Items.Add(c);
-                sum += c.Товар.стоимость.Value * c.Товар.количесвто.Value;
+                sumProd += c.Товар.стоимость.Value * c.кол_во;
             });
-            total_price_of_goods.Text = sum.ToString("#0.00");
+            total_price_of_goods.Text = sumProd.ToString("#0.00");
+
+            Settings.Check.ЧекУслуга.ToList().ForEach(u => {
+                list_of_services.Items.Add(u);
+                sumServ += u.Услуга.стоимость.Value ;
+            });
+
+            //sumFuel = 
+            
+            total_price_of_servs.Text = sumServ.ToString("#0.00");
+            //Settings.Check.ЧекУслуга.ToList().ForEach(u => {
+            //    list_of_services.Items.Add(u);
+            //    sumServ += u.Услуга.стоимость.Value;
+            //});
+
+            ////sumFuel = 
+
+            //total_price_of_servs.Text = sumServ.ToString("#0.00");
         }
 
         private void back_Click(object sender, RoutedEventArgs e)
@@ -87,7 +110,7 @@ namespace WpfApplication
       
         private void tov_Click(object sender, RoutedEventArgs e)
         {
-            ТоварWin winTool = new ТоварWin();
+            ТоварыWin winTool = new ТоварыWin();
             //Назначение текущего окна владельцем.
             winTool.Owner = this;
             //Отображение окна, принадлежащего окну-владельцу.
@@ -97,7 +120,7 @@ namespace WpfApplication
 
         private void usl_Click(object sender, RoutedEventArgs e)
         {
-            УслугаWin winTool = new УслугаWin();
+            УслугиWin winTool = new УслугиWin();
             //Назначение текущего окна владельцем.
             winTool.Owner = this;
             //Отображение окна, принадлежащего окну-владельцу.
@@ -123,6 +146,26 @@ namespace WpfApplication
         private void listBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void calculate_all(object sender, RoutedEventArgs e)
+        {
+            decimal sum = sumProd + sumFuel + sumServ; //Settings.Check
+            total_price.Text = $"{sum}";
+
+            decimal disc = Settings.Check.Постоянные_клиенты.Количество_посещений.Value % 15;
+            decimal total = sum - sum * disc / 100;
+
+            discount.Text = $"-{disc}% = {total}";
+
+            Settings.Check.стоимость = total;
+
+            var checkServ = ServiceLocator.GetService<Чек>();
+            using (checkServ.Uow.Db = new АвтозаправкиEntities())
+            {
+                checkServ.Save(Settings.Check); //Settings.Check.код_чека);
+            }
+            //Database       
         }
     }
 }

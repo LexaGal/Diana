@@ -18,6 +18,7 @@
         <Button x:Name="search" Content="Поиск" HorizontalAlignment="Left" Height="32" Margin="314,10,0,0" VerticalAlignment="Top" Width="85" Click="search_Click"/>
         <TextBox x:Name="amount_of_goods" HorizontalAlignment="Left" Height="34" Margin="399,88,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="77"/>
         <Label x:Name="label" Content="Количество" HorizontalAlignment="Left" Height="27" Margin="399,56,0,0" VerticalAlignment="Top" Width="94"/>
+        <TextBox x:Name="qty" HorizontalAlignment="Left" Height="23" Margin="373,142,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>

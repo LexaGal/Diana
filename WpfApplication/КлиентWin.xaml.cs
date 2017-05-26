@@ -42,7 +42,7 @@ namespace WpfApplication
             var prod = new Постоянные_клиенты()
             {
                 ФИО_клиента = name.Text,
-                Количество_посещений = int.Parse(amount_of_visitations.Text),
+                Количество_посещений = 0,//int.Parse(amount_of_visitations.Text),
                 Номер_карточки_клиента = int.Parse(number.Text)
             };
 

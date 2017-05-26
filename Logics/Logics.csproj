@@ -54,6 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ServiceLocator.cs" />
     <Compile Include="Services\АвтозаправкаService.cs" />
+    <Compile Include="Services\ЧекService.cs" />
     <Compile Include="Services\УслугаService.cs" />
     <Compile Include="Services\ТоварService.cs" />
     <Compile Include="Services\ПостоянныеКлиентыService.cs" />

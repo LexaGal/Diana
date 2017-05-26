@@ -35,7 +35,14 @@ namespace Database
     {
         public override string ToString()
         {
-            return $"{this.Товар.название_товара}: {this.Товар.стоимость} руб., {this.Товар.количесвто} штук.";
+            return $"{this.Товар.название_товара}: {this.Товар.стоимость} руб., {this.кол_во} штук.";
+        }
+    }
+    public partial class ЧекУслуга
+    {
+        public override string ToString()
+        {
+            return $"{this.Услуга.название_услуги}: {this.Услуга.стоимость} руб.";
         }
     }
 }

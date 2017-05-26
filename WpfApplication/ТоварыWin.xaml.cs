@@ -21,6 +21,8 @@ namespace WpfApplication
             //this.prods = new List<Товар>();
             var autoServ = ServiceLocator.GetService<Товар>();
             using (autoServ.Uow.Db = new АвтозаправкиEntities())
+
+
             {
                 var услуги = autoServ.ReadAll();
                 услуги.ToList().ForEach(c => list_of_products.Items.Add(c));//.ФИО_клиента));
@@ -111,6 +113,8 @@ namespace WpfApplication
 
         private void insert_prod_check(object sender, RoutedEventArgs e)
         {
+            var qty = qty.Text;
+            prod.кол_во = int.Parse(qty);
             Settings.Check.ЧекТовар.Add(new ЧекТовар() { Товар = prod, Чек = Settings.Check });
                 //.AddRange(prods);.ToList()
         }

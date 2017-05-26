@@ -123,22 +123,24 @@ create table Чек
 код_топлива int null foreign key references Топливо(код_топлива),--как сделать так, чтобы было код_товара*количесвто*стоимость 
 --код_товара int  null foreign key references Товар(код_товара), 
 --код_услуги int null foreign key references Услуга(код_услуги), 
-номер_карточки_клиента int null foreign key references Постоянные_клиенты(номер_карточки_клиента), 
+номер_карточки_клиента int null foreign key references Постоянные_клиенты(номер_карточки_клиента),
+стоимость decimal not null
 ) 
-insert into Чек(код_чека, дата, код_топлива, --код_товара,код_услуги,
-номер_карточки_клиента) 
-values (1,'2017-12-10', 3, --3, NULL,
- 1); 
-insert into Чек(код_чека, дата, код_топлива, --код_товара,код_услуги,
-номер_карточки_клиента) 
-values (2,'2017-12-11', 1, --4, 4,
- 2); 
+--insert into Чек(код_чека, дата, код_топлива, --код_товара,код_услуги,
+--номер_карточки_клиента) 
+--values (1,'2017-12-10', 3, --3, NULL,
+-- 1); 
+--insert into Чек(код_чека, дата, код_топлива, --код_товара,код_услуги,
+--номер_карточки_клиента) 
+--values (2,'2017-12-11', 1, --4, 4,
+-- 2); 
 
 create table ЧекТовар 
 (
 	Номер	   int not null constraint номерЧТ_РК primary key, 
 	код_товара int not null constraint номерТ1_РК foreign key references Товар(код_товара),
-	код_чека   int not null constraint номерЧ1_РК foreign key references Чек(код_чека)
+	код_чека   int not null constraint номерЧ1_РК foreign key references Чек(код_чека),
+	кол_во int not null 
 )
 
 create table ЧекУслуга 

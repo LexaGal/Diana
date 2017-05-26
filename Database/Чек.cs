@@ -25,6 +25,7 @@ namespace Database
         public Nullable<System.DateTime> дата { get; set; }
         public Nullable<int> код_топлива { get; set; }
         public Nullable<int> номер_карточки_клиента { get; set; }
+        public decimal стоимость { get; set; }
     
         public virtual Постоянные_клиенты Постоянные_клиенты { get; set; }
         public virtual Топливо Топливо { get; set; }
