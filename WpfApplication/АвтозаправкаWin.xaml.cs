@@ -75,10 +75,16 @@ namespace WpfApplication
 
         private void chek_Click(object sender, RoutedEventArgs e)
         {
-            ЧекWin winTool = new ЧекWin();
-            winTool.Owner = this;
-            winTool.Show();
-            this.Hide();
+            //chek.IsEnabled = false;
+            if (Settings.Check.Топливо != null && Settings.Check.Постоянные_клиенты != null)
+            {
+                ЧекWin winTool = new ЧекWin();
+                winTool.Owner = this;
+                winTool.Show();
+                this.Hide();
+                return;
+            }
+            MessageBox.Show("Выберите топливо и клиента чтобы перейти на чек.");
         }
 
         private void tov_Click(object sender, RoutedEventArgs e)

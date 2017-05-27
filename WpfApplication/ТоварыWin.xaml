@@ -18,7 +18,7 @@
         <Button x:Name="search" Content="Поиск" HorizontalAlignment="Left" Height="32" Margin="308,7,0,0" VerticalAlignment="Top" Width="85" Click="search_Click"/>
         <TextBox x:Name="amount_of_goods" HorizontalAlignment="Left" Height="34" Margin="373,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="92"/>
         <Label x:Name="label" Content="Количество" HorizontalAlignment="Left" Height="27" Margin="382,44,0,0" VerticalAlignment="Top" Width="74"/>
-        <TextBox x:Name="qty" HorizontalAlignment="Left" Height="41" Margin="373,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92"/>
+        <TextBox x:Name="qty" HorizontalAlignment="Left" Text="1" Height="41" Margin="373,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92"/>
         <Label x:Name="label_Copy" Content="Купить штук" HorizontalAlignment="Left" Height="27" Margin="382,120,0,0" VerticalAlignment="Top" Width="83"/>
 
     </Grid>

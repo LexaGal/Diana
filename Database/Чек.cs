@@ -23,7 +23,8 @@ namespace Database
     
         public int код_чека { get; set; }
         public Nullable<System.DateTime> дата { get; set; }
-        public Nullable<int> код_топлива { get; set; }
+        public int код_топлива { get; set; }
+        public int кол_во_топлива { get; set; }
         public Nullable<int> номер_карточки_клиента { get; set; }
         public decimal стоимость { get; set; }
     

@@ -30,16 +30,15 @@ namespace Logics.Services
             var cl = item.Постоянные_клиенты;
             cl.Количество_посещений++;
             cl.Скидка_на_количество_посещений++;
-
-            //
-            Uow.Db.Entry(cl).State = EntityState.Modified;
-            item.ЧекТовар.Select(ct => ct.Товар).ToList().ForEach(t => Uow.Db.Entry(t).State = EntityState.Modified);
-            item.ЧекУслуга.Select(cs => cs.Услуга).ToList().ForEach(s => Uow.Db.Entry(s).State = EntityState.Modified);
-            //Uow.Db.Entry(item.Топливо).State = EntityState.Modified;
-            //
-            
             item.дата = DateTime.Now;
 
+            // not to insert related objects - as they were obtained outside of context
+            Uow.Db.Entry(cl).State = EntityState.Modified;
+            item.ЧекТовар.Select(ct => ct.Товар).Distinct().ToList().ForEach(t => Uow.Db.Entry(t).State = EntityState.Modified);
+            item.ЧекУслуга.Select(cs => cs.Услуга).ToList().ForEach(s => Uow.Db.Entry(s).State = EntityState.Modified);
+            Uow.Db.Entry(item.Топливо).State = EntityState.Modified;
+            //
+            
             Uow.Чеки.Save(item);
             return true;
         }

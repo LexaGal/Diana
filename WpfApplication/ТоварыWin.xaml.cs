@@ -1,12 +1,17 @@
-﻿using System.Linq;
+﻿using System.Data.Entity;
+using System.Linq;
 using System.Windows;
-using Database;using Logics.Services;
+using Database;
+using Logics.Services;
 using WpfApplication.Helpers;
+
 namespace WpfApplication
 {
     public partial class ТоварыWin : Window
     {
         private Товар prod;
+        IService<Товар> prodServ = ServiceLocator.GetService<Товар>();
+
         public ТоварыWin()
         {
             InitializeComponent();
@@ -14,9 +19,10 @@ namespace WpfApplication
             using (autoServ.Uow.Db = new АвтозаправкиEntities())
             {
                 var услуги = autoServ.ReadAll();
-                услуги.ToList().ForEach(c => list_of_products.Items.Add(c));            
+                услуги.ToList().ForEach(c => list_of_products.Items.Add(c));
             }
         }
+
         private void back_Click(object sender, RoutedEventArgs e)
         {
             АвтозаправкаWin winTool = new АвтозаправкаWin();
@@ -24,6 +30,7 @@ namespace WpfApplication
             winTool.Show();
             this.Hide();
         }
+
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             ТоварWin winTool = new ТоварWin();
@@ -31,13 +38,7 @@ namespace WpfApplication
             winTool.Show();
             this.Hide();
         }
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            ЧекWin winTool = new ЧекWin();
-            winTool.Owner = this;
-            winTool.Show();
-            this.Hide();
-        }
+        
         private void search_Click(object sender, RoutedEventArgs e)
         {
             var autoServ = ServiceLocator.GetService<Товар>() as ТоварService;
@@ -46,9 +47,10 @@ namespace WpfApplication
             {
                 var постоянныеклиенты = autoServ.ReadSome(n);
                 list_of_products.Items.Clear();
-                постоянныеклиенты.ToList().ForEach(c => list_of_products.Items.Add(c));            
+                постоянныеклиенты.ToList().ForEach(c => list_of_products.Items.Add(c));
             }
         }
+
         private void list_of_productsSelect(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             if (e.AddedItems.Count > 0)
@@ -58,9 +60,9 @@ namespace WpfApplication
                 amount_of_goods.Text = prod.количесвто.Value.ToString();
             }
         }
+
         private void delete_Click(object sender, RoutedEventArgs e)
         {
-            var prodServ = ServiceLocator.GetService<Товар>();
             using (prodServ.Uow.Db = new АвтозаправкиEntities())
             {
                 var id = (list_of_products.SelectedItem as Товар).код_товара;
@@ -68,9 +70,22 @@ namespace WpfApplication
             }
             list_of_products.Items.Remove(list_of_products.SelectedItem);
         }
+
         private void insert_prod_check(object sender, RoutedEventArgs e)
         {
-            Settings.Check.ЧекТовар.Add(new ЧекТовар() { Товар = prod, Чек = Settings.Check });
+            var qtyProd = int.Parse(qty.Text);
+            Settings.Check.ЧекТовар.Add(new ЧекТовар() {кол_во = qtyProd, Товар = prod, Чек = Settings.Check});
+
+            if (prod.количесвто < qtyProd)
+            {
+                MessageBox.Show("Такое количество товаров недоступнo.");
+                return;
+            }
+            using (prodServ.Uow.Db = new АвтозаправкиEntities())
+            {
+                prod.количесвто -= qtyProd;
+                prodServ.Save(prod);
+            }
         }
     }
 }

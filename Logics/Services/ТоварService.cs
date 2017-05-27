@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using Database;
 using Database.Repository;
 using System.Linq;
@@ -32,6 +33,11 @@ namespace Logics.Services
 
         public bool Save(Товар item)
         {
+            //update existing product
+            if (item.код_товара != 0)
+            {
+                Uow.Db.Entry(item).State = EntityState.Modified;
+            }
             Uow.Товары.Save(item, item.код_товара);
             return true;
         }

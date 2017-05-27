@@ -1,12 +1,15 @@
 ﻿using System.Linq;
 using System.Windows;
-using Database;using Logics.Services;
+using Database;
+using Logics.Services;
 using WpfApplication.Helpers;
+
 namespace WpfApplication
 {
     public partial class УслугиWin : Window
     {
         private Услуга serv;
+
         public УслугиWin()
         {
             InitializeComponent();
@@ -14,9 +17,10 @@ namespace WpfApplication
             using (autoServ.Uow.Db = new АвтозаправкиEntities())
             {
                 var услуги = autoServ.ReadAll();
-                услуги.ToList().ForEach(c => list_of_service.Items.Add(c));            
+                услуги.ToList().ForEach(c => list_of_service.Items.Add(c));
             }
         }
+
         private void back_Click(object sender, RoutedEventArgs e)
         {
             АвтозаправкаWin winTool = new АвтозаправкаWin();
@@ -24,20 +28,7 @@ namespace WpfApplication
             winTool.Show();
             this.Hide();
         }
-        private void b1_Click(object sender, RoutedEventArgs e)
-        {
-            УслугаWin winTool = new УслугаWin();
-            winTool.Owner = this;
-            winTool.Show();
-            this.Hide();
-        }
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            ЧекWin winTool = new ЧекWin();
-            winTool.Owner = this;
-            winTool.Show();
-            this.Hide();
-        }
+        
         private void button2_Click(object sender, RoutedEventArgs e)
         {
             var prodServ = ServiceLocator.GetService<Услуга>();
@@ -48,6 +39,7 @@ namespace WpfApplication
             }
             list_of_service.Items.Remove(list_of_service.SelectedItem);
         }
+
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             УслугаWin winTool = new УслугаWin();
@@ -55,6 +47,7 @@ namespace WpfApplication
             winTool.Show();
             this.Hide();
         }
+
         private void search_Click(object sender, RoutedEventArgs e)
         {
             var autoServ = ServiceLocator.GetService<Услуга>() as УслугаService;
@@ -63,9 +56,10 @@ namespace WpfApplication
             {
                 var постоянныеклиенты = autoServ.ReadSome(n);
                 list_of_service.Items.Clear();
-                постоянныеклиенты.ToList().ForEach(c => list_of_service.Items.Add(c));            
+                постоянныеклиенты.ToList().ForEach(c => list_of_service.Items.Add(c));
             }
         }
+
         private void list_of_serviceSelect(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             if (e.AddedItems.Count > 0)
@@ -74,9 +68,10 @@ namespace WpfApplication
                 value.Text = serv.стоимость.Value.ToString();
             }
         }
+
         private void insert_serv_check(object sender, RoutedEventArgs e)
         {
-            Settings.Check.ЧекУслуга.Add(new ЧекУслуга() { Услуга = serv, Чек = Settings.Check });
+            Settings.Check.ЧекУслуга.Add(new ЧекУслуга() {Услуга = serv, Чек = Settings.Check});
         }
     }
 }

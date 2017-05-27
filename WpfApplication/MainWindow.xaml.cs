@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+
 namespace WpfApplication
 {
     public partial class MainWindow : Window
@@ -8,9 +9,11 @@ namespace WpfApplication
         {
             InitializeComponent();
         }
+
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
         {
         }
+
         private void button_Click(object sender, RoutedEventArgs e)
         {
             АвтозаправкаWin winTool = new АвтозаправкаWin(int.Parse(entrance.Text));

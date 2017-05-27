@@ -83,7 +83,8 @@
           </Key>
           <Property Name="код_чека" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="дата" Type="date" />
-          <Property Name="код_топлива" Type="int" />
+          <Property Name="код_топлива" Type="int" Nullable="false" />
+          <Property Name="кол_во_топлива" Type="int" Nullable="false" />
           <Property Name="номер_карточки_клиента" Type="int" />
           <Property Name="стоимость" Type="decimal" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
@@ -105,7 +106,7 @@
           <Property Name="код_чека" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK__Чек__код_топлива__182C9B23">
-          <End Role="Топливо" Type="Self.Топливо" Multiplicity="0..1" />
+          <End Role="Топливо" Type="Self.Топливо" Multiplicity="1" />
           <End Role="Чек" Type="Self.Чек" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Топливо">
@@ -354,7 +355,8 @@
           </Key>
           <Property Name="код_чека" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="дата" Type="DateTime" Precision="0" />
-          <Property Name="код_топлива" Type="Int32" />
+          <Property Name="код_топлива" Type="Int32" Nullable="false" />
+          <Property Name="кол_во_топлива" Type="Int32" Nullable="false" />
           <Property Name="номер_карточки_клиента" Type="Int32" />
           <Property Name="стоимость" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <NavigationProperty Name="Постоянные_клиенты" Relationship="Self.FK__Чек__номер_карто__1920BF5C" FromRole="Чек" ToRole="Постоянные_клиенты" />
@@ -444,7 +446,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Чек__код_топлива__182C9B23">
-          <End Role="Топливо" Type="Self.Топливо" Multiplicity="0..1" />
+          <End Role="Топливо" Type="Self.Топливо" Multiplicity="1" />
           <End Role="Чек" Type="Self.Чек" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Топливо">
@@ -632,6 +634,7 @@
                 <ScalarProperty Name="код_чека" ColumnName="код_чека" />
                 <ScalarProperty Name="дата" ColumnName="дата" />
                 <ScalarProperty Name="код_топлива" ColumnName="код_топлива" />
+                <ScalarProperty Name="кол_во_топлива" ColumnName="кол_во_топлива" />
                 <ScalarProperty Name="номер_карточки_клиента" ColumnName="номер_карточки_клиента" />
                 <ScalarProperty Name="стоимость" ColumnName="стоимость" />
               </MappingFragment>
