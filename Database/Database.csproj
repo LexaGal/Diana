@@ -76,12 +76,6 @@
     <Compile Include="Автозаправка.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Акции_на_товар.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Акции_на_услугу.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Запись.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

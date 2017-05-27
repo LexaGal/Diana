@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace Database.Helpers
+﻿using System.Linq;namespace Database.Helpers
 {
     public static class PropertiesCopier
     {
@@ -9,9 +7,7 @@ namespace Database.Helpers
             var sourceProps = typeof(T).GetProperties().Where(x => x.CanRead && !x.GetGetMethod().IsVirtual).ToList();
             var destProps = typeof(TU).GetProperties()
                 .Where(x => x.CanWrite)
-                .ToList();
-
-            foreach (var sourceProp in sourceProps)
+                .ToList();            foreach (var sourceProp in sourceProps)
             {
                 if (destProps.Any(x => x.Name == sourceProp.Name))
                 {

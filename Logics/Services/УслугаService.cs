@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Database;
-//using Database.EFModel;
 using Database.Repository;
 using System.Linq;
-
 
 namespace Logics.Services
 {
@@ -21,11 +18,10 @@ namespace Logics.Services
         {
             return Uow.Услуги.GetAll();
         }
-        
+
         public Услуга ReadOne(int id)
         {
             return Uow.Услуги.Get(id);
-            //throw new NotImplementedException();
         }
 
         public IEnumerable<Услуга> ReadSome(string name)
@@ -43,10 +39,7 @@ namespace Logics.Services
         public bool Delete(int id)
         {
             var prod = Uow.Услуги.Get(id);
-            if (prod.Акции_на_услугу.Any())
-            {
-                prod.Акции_на_услугу.ToList().ForEach(a => Uow.АкцииНаУслуги.Delete(a.Код_акции_услуга));
-            }
+            
             if (prod.ЧекУслуга.Any())
             {
                 prod.ЧекУслуга.ToList().ForEach(a => Uow.Чеки.Delete(a.код_чека));
