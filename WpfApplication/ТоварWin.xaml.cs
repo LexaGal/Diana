@@ -1,6 +1,7 @@
 ﻿using Database;
 using Logics.Services;
 using System.Windows;
+
 namespace WpfApplication
 {
     public partial class ТоварWin : Window
@@ -9,11 +10,11 @@ namespace WpfApplication
         {
             InitializeComponent();
         }
+
         private void button_Click(object sender, RoutedEventArgs e)
         {
             var prod = new Товар()
             {
-                код_товара = int.Parse(product_code.Text),
                 название_товара = name.Text,
                 количесвто = int.Parse(amount.Text),
                 стоимость = decimal.Parse(value.Text)
@@ -24,6 +25,7 @@ namespace WpfApplication
                 prodServ.Save(prod);
             }
         }
+
         private void back_Click(object sender, RoutedEventArgs e)
         {
             ТоварыWin winTool = new ТоварыWin();

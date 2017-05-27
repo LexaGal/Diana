@@ -7,12 +7,12 @@
         mc:Ignorable="d"
         Title="Добавить клиента" Height="350" Width="525">
     <Grid>
-        <TextBox x:Name="name" HorizontalAlignment="Left" Height="37" Margin="64,68,0,0" TextWrapping="Wrap" Text="Имя клиента" VerticalAlignment="Top" Width="138"/>
-        <Button x:Name="insert" Content="Добавить" HorizontalAlignment="Left" Height="27" Margin="87,244,0,0" VerticalAlignment="Top" Width="75" Click="button_Click" Grid.ColumnSpan="3"/>
-        <Button x:Name="back" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="37" Click="back_Click" Margin="481,0,0,0">
+        <TextBox x:Name="name" HorizontalAlignment="Left" Height="37" Margin="59,48,0,0" TextWrapping="Wrap" Text="Имя клиента" VerticalAlignment="Top" Width="138"/>
+        <Button x:Name="insert" Content="Добавить" HorizontalAlignment="Left" Height="34" Margin="59,103,0,0" VerticalAlignment="Top" Width="91" Click="button_Click"/>
+        <Button x:Name="back" HorizontalAlignment="Left" Height="38" VerticalAlignment="Top" Width="48" Click="back_Click" Margin="454,11,0,0">
             <Image Source="1.png" Width="37" Height="30" />
         </Button>
-        <TextBox x:Name="number" HorizontalAlignment="Left" Height="35" Margin="64,18,0,0" TextWrapping="Wrap" Text="Номер карточки" VerticalAlignment="Top" Width="138"/>
+        <!--<TextBox x:Name="number" HorizontalAlignment="Left" Height="35" Margin="64,18,0,0" TextWrapping="Wrap" Text="Номер карточки" VerticalAlignment="Top" Width="138"/>-->
 
     </Grid>
 </Window>

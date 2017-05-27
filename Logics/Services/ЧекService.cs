@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Database;using Database.Repository;
 using System.Linq;
 using System.Data.Entity;
@@ -37,6 +38,8 @@ namespace Logics.Services
             //Uow.Db.Entry(item.Топливо).State = EntityState.Modified;
             //
             
+            item.дата = DateTime.Now;
+
             Uow.Чеки.Save(item);
             return true;
         }

@@ -87,9 +87,6 @@
     <Compile Include="КлиентыWin.xaml.cs">
       <DependentUpon>КлиентыWin.xaml</DependentUpon>
     </Compile>
-    <Compile Include="АкцииWin.xaml.cs">
-      <DependentUpon>АкцииWin.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ТоварыWin.xaml.cs">
       <DependentUpon>ТоварыWin.xaml</DependentUpon>
     </Compile>
@@ -142,10 +139,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="КлиентыWin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="АкцииWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

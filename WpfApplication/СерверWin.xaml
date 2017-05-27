@@ -9,8 +9,8 @@
         <TextBox x:Name="average_profit" HorizontalAlignment="Left" Height="46" Margin="28,44,0,0" TextWrapping="Wrap" Text="Средняя прибыль за месяц" VerticalAlignment="Top" Width="194"/>
         <TextBox x:Name="profit_for_fuel" HorizontalAlignment="Left" Height="40" Margin="28,106,0,0" TextWrapping="Wrap" Text="Прибыль за топливо" VerticalAlignment="Top" Width="194"/>
         <TextBox x:Name="profit_for_a_good_or_service" HorizontalAlignment="Left" Height="40" Margin="28,167,0,0" TextWrapping="Wrap" Text="Прибыль за товары и услуги" VerticalAlignment="Top" Width="194"/>
-        <Button x:Name="сalculate" Content="Рассчитать" HorizontalAlignment="Left" Height="39" Margin="324,195,0,0" VerticalAlignment="Top" Width="117" Click="button_Click"/>
-        <Calendar HorizontalAlignment="Left" Height="170" Margin="257,10,0,0" VerticalAlignment="Top" Width="184"/>
+        <Button x:Name="сalculate" Content="Рассчитать" HorizontalAlignment="Left" Height="39" Margin="281,228,0,0" VerticalAlignment="Top" Width="117" Click="button_Click"/>
+        <Calendar HorizontalAlignment="Left" Height="179" Margin="248,44,0,0" VerticalAlignment="Top" Width="197"/>
 
 
     </Grid>

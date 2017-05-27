@@ -7,30 +7,31 @@
         Title="Автозаправка №n" Height="350" Width="525">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="126*"/>
-            <ColumnDefinition Width="121*"/>
+            <ColumnDefinition Width="116*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="400*"/>
         </Grid.ColumnDefinitions>
-        <Menu HorizontalAlignment="Left" Width="517" Grid.ColumnSpan="2">
-            <MenuItem Header="Топливо"  x:Name="mFuel" Click="mFile_Click" Width="99" Height="30">
+        <Menu HorizontalAlignment="Left" Width="84" Margin="10,0,0,291">
+            <MenuItem Header="Топливо"  x:Name="mFuel" Click="mFile_Click" Width="85" Height="26">
                 <MenuItem Header="_92 бензин"  x:Name="m92" Click="m92_Click" />
                 <MenuItem Header="_95 бензин"  x:Name="m95" Click="m95_Click" />
                 <MenuItem Header="_дизельное топливо"  x:Name="mdiesel" Click="mdiz_Click" />
             </MenuItem>
         </Menu>
-        <Button x:Name="goods" Content="Товары" Height="29" Width="82"  Click="tov_Click" Margin="101,0,81.8,291.8"/>
-        <Button x:Name="services" Content="Услуги" Height="29" Width="82"  Click="usl_Click" Margin="183,0,253.4,291.8" Grid.ColumnSpan="2"/>
+        <Button x:Name="goods" Content="Товары"  Click="tov_Click" Margin="226,11,73,271" Grid.Column="2"/>
+        <Button x:Name="services" Content="Услуги"  Click="usl_Click" Margin="128,11,182,271" Grid.Column="2"/>
 
-        <Button x:Name="regula_customers" Content="Постоянные клиенты" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="128" Click="b_Click" Grid.Column="1" Margin="18.2,0,0,0"/>
-        <TextBox x:Name="phone_number" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="91,58,0,0" TextWrapping="Wrap" Text="Номер телефона" VerticalAlignment="Top" Width="116"/>
-        <RichTextBox x:Name="description" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="146" Margin="23,49,0,0"  VerticalAlignment="Top" Width="287"/>
-        <Button x:Name="shares" Content="Акции" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="91,107,0,0" VerticalAlignment="Top" Width="116" Click="button_Click"/>
-        <Button x:Name="back" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="37" Click="back_Click" Grid.Column="1" Margin="216,0,0,0">
+        <Button x:Name="regula_customers" Content="Постоянные клиенты" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="136" Click="b_Click" Margin="100,11,0,0" Grid.ColumnSpan="3"/>
+        <TextBox x:Name="phone_number" HorizontalAlignment="Left" Height="31" Margin="23,266,0,0" TextWrapping="Wrap" Text="Номер телефона" VerticalAlignment="Top" Width="140" Grid.ColumnSpan="3"/>
+        <RichTextBox x:Name="description" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="146" Margin="22,54,0,0"  VerticalAlignment="Top" Width="287"/>
+        <!--<Button x:Name="shares" Content="Акции" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="91,107,0,0" VerticalAlignment="Top" Width="116" Click="button_Click"/>-->
+        <Button x:Name="back" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="48" Click="back_Click" Grid.Column="2" Margin="335,12,0,0">
             <Image Source="1.png" Width="27" Height="30" />
         </Button>
 
 
-        <Button x:Name="chek" Content="Чек" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="116" Click="chek_Click" Grid.Column="1" Margin="91,182,0,0">
+        <Button x:Name="chek" Content="Чек" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="116" Click="chek_Click" Grid.Column="2" Margin="267,267,0,0">
         </Button>
-        <TextBox x:Name="address" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="47" Margin="23,240,0,0" TextWrapping="Wrap" Text="Адрес" VerticalAlignment="Top" Width="287"/>
+        <TextBox x:Name="address" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="38" Margin="23,213,0,0" TextWrapping="Wrap" Text="Адрес" VerticalAlignment="Top" Width="287"/>
     </Grid>
 </Window>
