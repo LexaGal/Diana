@@ -102,7 +102,7 @@ create table Чек
 код_топлива int not null foreign key references Топливо(код_топлива), 
 кол_во_топлива int not null,
 номер_карточки_клиента int null foreign key references Постоянные_клиенты(номер_карточки_клиента),
-стоимость decimal not null
+стоимость decimal(18,2) not null
 ) 
 
 create table ЧекТовар 

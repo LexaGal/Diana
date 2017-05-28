@@ -6,12 +6,15 @@
         mc:Ignorable="d"
         Title="95" Height="350" Width="525">
     <Grid>
-        <TextBox x:Name="name" HorizontalAlignment="Left" Height="32" Margin="55,68,0,0" TextWrapping="Wrap" Text="95" VerticalAlignment="Top" Width="174"/>
-        <TextBox x:Name="amount" HorizontalAlignment="Left" Height="35" Margin="55,166,0,0" TextWrapping="Wrap" Text="количество" VerticalAlignment="Top" Width="174"/>
-        <TextBox x:Name="value" HorizontalAlignment="Left" Height="30" Margin="55,119,0,0" TextWrapping="Wrap" Text="Стоимость" VerticalAlignment="Top" Width="174"/>
-        <Button x:Name="back" HorizontalAlignment="Left" Height="39" VerticalAlignment="Top" Width="50" Click="back_Click" Margin="448,10,0,0">
-            <Image Source="1.png" Width="37" Height="29" />
+        <TextBox x:Name="name" HorizontalAlignment="Left" Height="31" Margin="55,66,0,0" TextWrapping="Wrap" Text="95" VerticalAlignment="Top" Width="174"/>
+        <TextBox x:Name="amount" HorizontalAlignment="Left" Height="33" Margin="55,221,0,0" TextWrapping="Wrap" Text="количество" VerticalAlignment="Top" Width="174"/>
+        <TextBox x:Name="value" HorizontalAlignment="Left" Height="30" Margin="55,131,0,0" TextWrapping="Wrap" Text="Стоимость" VerticalAlignment="Top" Width="174"/>
+        <Button x:Name="back" HorizontalAlignment="Left" Height="38" VerticalAlignment="Top" Width="51" Click="back_Click" Margin="452,10,0,0">
+            <Image Source="1.png" Width="37" Height="28" />
         </Button>
-        <Button x:Name="insert_in_check" Content="Добавить в чек" HorizontalAlignment="Left" Height="37" Margin="379,262,0,0" Click="insert_Click" VerticalAlignment="Top" Width="119"/>
+        <Button x:Name="insert_in_check" Content="Добавить в чек" HorizontalAlignment="Left" Height="37" Margin="389,258,0,0" Click="insert_Click" VerticalAlignment="Top" Width="114"/>
+        <Label x:Name="label" Content="Вид топлива" HorizontalAlignment="Left" Height="31" Margin="55,30,0,0" VerticalAlignment="Top" Width="181"/>
+        <Label x:Name="label1" Content="Стоимость" HorizontalAlignment="Left" Height="24" Margin="55,102,0,0" VerticalAlignment="Top" Width="150"/>
+        <Label x:Name="label2" Content="Количество топлива, которое&#xD;&#xA; клиент хочет получить" HorizontalAlignment="Left" Height="55" Margin="55,177,0,0" VerticalAlignment="Top" Width="174"/>
     </Grid>
 </Window>

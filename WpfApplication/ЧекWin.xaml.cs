@@ -34,6 +34,14 @@ namespace WpfApplication
             sumFuel = ch.Топливо.стоимость * ch.кол_во_топлива;
             amount_of_fuels.Text = $"{ch.кол_во_топлива}";
             total_fuel.Text = sumFuel.ToString("#0.00");
+            customer_name.IsReadOnly = true;
+            total_price_of_goods.IsReadOnly = true;
+            total_price_of_servs.IsReadOnly = true;
+            total_fuel.IsReadOnly = true;
+            amount_of_fuels.IsReadOnly = true;
+            discount.IsReadOnly = true;
+            total_price.IsReadOnly = true;
+            total_price_disc.IsReadOnly = true;
         }
 
         private void back_Click(object sender, RoutedEventArgs e)

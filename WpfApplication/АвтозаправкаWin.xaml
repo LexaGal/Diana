@@ -18,10 +18,10 @@
                 <MenuItem Header="_дизельное топливо"  x:Name="mdiesel" Click="mdiz_Click" />
             </MenuItem>
         </Menu>
-        <Button x:Name="goods" Content="Товары"  Click="tov_Click" Margin="226,11,73,271" Grid.Column="2"/>
-        <Button x:Name="services" Content="Услуги"  Click="usl_Click" Margin="128,11,182,271" Grid.Column="2"/>
+        <Button x:Name="goods" Content="Товары"  Click="tov_Click" Margin="218.4,0,80.4,292.8" Grid.Column="2"/>
+        <Button x:Name="services" Content="Услуги"  Click="usl_Click" Margin="122.4,0,187.4,292.8" Grid.Column="2"/>
 
-        <Button x:Name="regula_customers" Content="Постоянные клиенты" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="136" Click="b_Click" Margin="100,11,0,0" Grid.ColumnSpan="3"/>
+        <Button x:Name="regula_customers" Content="Постоянные клиенты" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="136" Click="b_Click" Margin="99,-2,0,0" Grid.ColumnSpan="3"/>
         <TextBox x:Name="phone_number" HorizontalAlignment="Left" Height="31" Margin="23,266,0,0" TextWrapping="Wrap" Text="Номер телефона" VerticalAlignment="Top" Width="140" Grid.ColumnSpan="3"/>
         <RichTextBox x:Name="description" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="146" Margin="22,54,0,0"  VerticalAlignment="Top" Width="287"/>
         <!--<Button x:Name="shares" Content="Акции" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="91,107,0,0" VerticalAlignment="Top" Width="116" Click="button_Click"/>-->
