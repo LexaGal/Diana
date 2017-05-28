@@ -38,10 +38,10 @@ namespace Logics.Services
 
         public bool Delete(int id)
         {
-            var prod = Uow.ПостоянныеКлиенты.Get(id);
-            if (prod.Чек.Any())
+            var client = Uow.ПостоянныеКлиенты.Get(id);
+            if (client.Чек.Any())
             {
-                prod.Чек.ToList().ForEach(a => Uow.Чеки.Delete(a.код_чека));
+                client.Чек.ToList().ForEach(c => c.Постоянные_клиенты = null); //(c.код_чека));
             }
             Uow.ПостоянныеКлиенты.Delete(id);
             return true;

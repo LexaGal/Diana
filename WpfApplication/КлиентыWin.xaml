@@ -13,7 +13,7 @@
         <Button x:Name="insert_in_check" Content="Добавить в чек" HorizontalAlignment="Left" Margin="384,262,0,0" VerticalAlignment="Top" Width="114" Click="Insert_client_check" Height="36"/>
         <TextBox x:Name="name_of_client" HorizontalAlignment="Left" Height="30" Margin="17,10,0,0" TextWrapping="Wrap" Text="Имя клиента" VerticalAlignment="Top" Width="167" TextChanged="name_of_client_TextChanged"/>
         <Button x:Name="search" Content="Поиск" HorizontalAlignment="Left" Height="30" Margin="199,10,0,0" VerticalAlignment="Top" Width="71" Click="search_Click"/>
-        <TextBox x:Name="attends_amount" HorizontalAlignment="Left" Height="33" Margin="305,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143"/>
+        <TextBox x:Name="attends_amount" HorizontalAlignment="Left" Height="33" Margin="305,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" IsEnabled="False"/>
         <Label x:Name="label" Content="Кол-во посещений" HorizontalAlignment="Left" Margin="317,29,0,0" VerticalAlignment="Top"/>
         <Button x:Name="button" Content="Добавить клиента" HorizontalAlignment="Left" Height="42" Margin="305,104,0,0" VerticalAlignment="Top" Width="117" Click="insert_Click"/>
         <Button x:Name="button1" Content="Удалить клиента" HorizontalAlignment="Left" Height="42" Margin="305,159,0,0" VerticalAlignment="Top" Width="117" Click="delete_Click"/>

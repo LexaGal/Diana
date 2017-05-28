@@ -74,13 +74,25 @@ namespace WpfApplication
         private void insert_prod_check(object sender, RoutedEventArgs e)
         {
             var qtyProd = int.Parse(qty.Text);
-            Settings.Check.ЧекТовар.Add(new ЧекТовар() {кол_во = qtyProd, Товар = prod, Чек = Settings.Check});
 
             if (prod.количесвто < qtyProd)
             {
                 MessageBox.Show("Такое количество товаров недоступнo.");
                 return;
             }
+
+            var ch = Settings.Check;
+            var checkProd = ch.ЧекТовар.SingleOrDefault(t => t.Товар.код_товара == prod.код_товара);
+
+            if (checkProd == null)
+            {
+                ch.ЧекТовар.Add(new ЧекТовар() {кол_во = qtyProd, Товар = prod, Чек = Settings.Check});
+            }
+            else
+            {
+                checkProd.кол_во += qtyProd; //.количесвто.Value;
+            }
+            
             using (prodServ.Uow.Db = new АвтозаправкиEntities())
             {
                 prod.количесвто -= qtyProd;

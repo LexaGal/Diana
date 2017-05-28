@@ -28,17 +28,23 @@ namespace Logics.Services
         public bool Save(Чек item)
         {
             var cl = item.Постоянные_клиенты;
-            cl.Количество_посещений++;
-            cl.Скидка_на_количество_посещений++;
-            item.дата = DateTime.Now;
 
+            item.дата = DateTime.Now;
+            item.скидка = cl.Скидка_на_количество_посещений;
+
+            cl.Количество_посещений++;
+            cl.Скидка_на_количество_посещений = cl.Количество_посещений.Value % 15;
+            
             // not to insert related objects - as they were obtained outside of context
             Uow.Db.Entry(cl).State = EntityState.Modified;
-            item.ЧекТовар.Select(ct => ct.Товар).Distinct().ToList().ForEach(t => Uow.Db.Entry(t).State = EntityState.Modified);
+            item.ЧекТовар.Select(ct => ct.Товар)
+                .Distinct()
+                .ToList()
+                .ForEach(t => Uow.Db.Entry(t).State = EntityState.Modified);
             item.ЧекУслуга.Select(cs => cs.Услуга).ToList().ForEach(s => Uow.Db.Entry(s).State = EntityState.Modified);
             Uow.Db.Entry(item.Топливо).State = EntityState.Modified;
             //
-            
+
             Uow.Чеки.Save(item);
             return true;
         }
@@ -46,6 +52,41 @@ namespace Logics.Services
         public bool Delete(int id)
         {
             return true;
+        }
+
+        public decimal GetChecksSum(int month, int day = 0)
+        {
+            var sum = GetChecks(month, day).Sum(c => c.стоимость);
+            return sum;
+        }
+
+        public decimal GetFuelChecksSum(int month, int day = 0)
+        {
+            var sum = GetChecks(month, day).Sum(c => c.кол_во_топлива*c.Топливо.стоимость*(1 - c.скидка.Value/100));
+            return sum;
+        }
+
+        public decimal GetProdServChecksSum(int month, int day = 0)
+        {
+            var checks = GetChecks(month, day).ToList();
+
+            var prods = checks.SelectMany(c => c.ЧекТовар);
+            var sumProd =
+                prods.Sum(
+                    p =>
+                        p.кол_во*p.Товар.стоимость.Value*(1 - p.Чек.скидка.Value/100));
+
+            var servs = checks.SelectMany(c => c.ЧекУслуга);
+            var sumServ = servs.Sum(s => s.Услуга.стоимость.Value*(1- s.Чек.скидка.Value/100));
+
+            return sumProd + sumServ;
+        }
+
+        private IEnumerable<Чек> GetChecks(int month, int day = 0)
+        {
+            return day == 0
+                ? Uow.Чеки.GetAll().Where(c => c.дата.Value.Month == month)
+                : Uow.Чеки.GetAll().Where(c => c.дата.Value.Month == month && c.дата.Value.Day == day);
         }
     }
 }

@@ -6,11 +6,19 @@
         mc:Ignorable="d"
         Title="Сервер" Height="350" Width="525">
     <Grid>
-        <TextBox x:Name="average_profit" HorizontalAlignment="Left" Height="46" Margin="28,44,0,0" TextWrapping="Wrap" Text="Средняя прибыль за месяц" VerticalAlignment="Top" Width="194"/>
-        <TextBox x:Name="profit_for_fuel" HorizontalAlignment="Left" Height="40" Margin="28,106,0,0" TextWrapping="Wrap" Text="Прибыль за топливо" VerticalAlignment="Top" Width="194"/>
-        <TextBox x:Name="profit_for_a_good_or_service" HorizontalAlignment="Left" Height="40" Margin="28,167,0,0" TextWrapping="Wrap" Text="Прибыль за товары и услуги" VerticalAlignment="Top" Width="194"/>
-        <Button x:Name="сalculate" Content="Рассчитать" HorizontalAlignment="Left" Height="39" Margin="281,228,0,0" VerticalAlignment="Top" Width="117" Click="button_Click"/>
-        <Calendar HorizontalAlignment="Left" Height="179" Margin="248,44,0,0" VerticalAlignment="Top" Width="197"/>
+        <TextBox x:Name="month_average_profit" HorizontalAlignment="Left" Height="36" Margin="28,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" IsEnabled="False" TextChanged="average_profit_TextChanged"/>
+        <TextBox x:Name="profit_for_fuel" HorizontalAlignment="Left" Height="35" Margin="28,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" IsEnabled="False"/>
+        <TextBox x:Name="profit_for_goods_and_services" HorizontalAlignment="Left" Height="35" Margin="28,198,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" IsEnabled="False"/>
+        <!--<Button x:Name="сalculate" Content="Рассчитать" HorizontalAlignment="Left" Height="39" Margin="281,228,0,0" VerticalAlignment="Top" Width="117" Click="button_Click"/>-->
+        <Calendar HorizontalAlignment="Left" Height="172" Margin="248,44,0,0" VerticalAlignment="Top" Width="197" SelectedDatesChanged="Update"/>
+        <Label x:Name="label" Content="Общая прибыль" HorizontalAlignment="Left" Margin="28,49,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy" Content="Прибыль за топливо" HorizontalAlignment="Left" Margin="28,111,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy1" Content="Прибыль за товары и услуги" HorizontalAlignment="Left" Margin="28,175,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="go_back" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="45" Click="back_Click" Margin="457,9,0,0">
+            <Image Source="1.png" Width="37" Height="30" />
+        </Button>
+        <RadioButton x:Name="radioMonth" Content="за месяц" HorizontalAlignment="Left" Margin="28,18,0,0" VerticalAlignment="Top" Checked="MonthCheck" IsChecked="True"/>
+        <RadioButton x:Name="radioMonthDay" Content="за день в месяце" HorizontalAlignment="Left" Margin="140,18,0,0" VerticalAlignment="Top" Checked="MonthDayCheck"/>
 
 
     </Grid>

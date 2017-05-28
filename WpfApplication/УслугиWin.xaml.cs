@@ -71,7 +71,18 @@ namespace WpfApplication
 
         private void insert_serv_check(object sender, RoutedEventArgs e)
         {
-            Settings.Check.ЧекУслуга.Add(new ЧекУслуга() {Услуга = serv, Чек = Settings.Check});
+            var ch = Settings.Check;
+            var checkServ = ch.ЧекУслуга.SingleOrDefault(t => t.Услуга.код_услуги == serv.код_услуги);
+
+            if (checkServ == null)
+            {
+                ch.ЧекУслуга.Add(new ЧекУслуга() { Услуга = serv, Чек = Settings.Check });
+            }
+        }
+
+        private void value_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+
         }
     }
 }

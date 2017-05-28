@@ -106,5 +106,13 @@ namespace WpfApplication
         private void mFile_Click(object sender, RoutedEventArgs e)
         {
         }
+
+        private void go_to_server(object sender, RoutedEventArgs e)
+        {
+            СерверWin winTool = new СерверWin();
+            winTool.Owner = this;
+            winTool.Show();
+            this.Hide();
+        }
     }
 }

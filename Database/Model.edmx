@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище АвтозаправкиModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="АвтозаправкиModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Автозаправка">
           <Key>
             <PropertyRef Name="Номер_автозаправки" />
@@ -86,7 +86,8 @@
           <Property Name="код_топлива" Type="int" Nullable="false" />
           <Property Name="кол_во_топлива" Type="int" Nullable="false" />
           <Property Name="номер_карточки_клиента" Type="int" />
-          <Property Name="стоимость" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="стоимость" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="скидка" Type="int" />
         </EntityType>
         <EntityType Name="ЧекТовар">
           <Key>
@@ -213,7 +214,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище АвтозаправкиModelContainer">
+        <EntityContainer Name="АвтозаправкиModelStoreContainer">
           <EntitySet Name="Автозаправка" EntityType="Self.Автозаправка" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Запись" EntityType="Self.Запись" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Общая" EntityType="Self.Общая" Schema="dbo" store:Type="Tables" />
@@ -358,7 +359,8 @@
           <Property Name="код_топлива" Type="Int32" Nullable="false" />
           <Property Name="кол_во_топлива" Type="Int32" Nullable="false" />
           <Property Name="номер_карточки_клиента" Type="Int32" />
-          <Property Name="стоимость" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="стоимость" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="скидка" Type="Int32" />
           <NavigationProperty Name="Постоянные_клиенты" Relationship="Self.FK__Чек__номер_карто__1920BF5C" FromRole="Чек" ToRole="Постоянные_клиенты" />
           <NavigationProperty Name="Топливо" Relationship="Self.FK__Чек__код_топлива__182C9B23" FromRole="Чек" ToRole="Топливо" />
           <NavigationProperty Name="ЧекТовар" Relationship="Self.номерЧ1_РК" FromRole="Чек" ToRole="ЧекТовар" />
@@ -547,7 +549,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище АвтозаправкиModelContainer" CdmEntityContainer="АвтозаправкиEntities">
+        <EntityContainerMapping StorageEntityContainer="АвтозаправкиModelStoreContainer" CdmEntityContainer="АвтозаправкиEntities">
           <EntitySetMapping Name="Автозаправка">
             <EntityTypeMapping TypeName="АвтозаправкиModel.Автозаправка">
               <MappingFragment StoreEntitySet="Автозаправка">
@@ -637,6 +639,7 @@
                 <ScalarProperty Name="кол_во_топлива" ColumnName="кол_во_топлива" />
                 <ScalarProperty Name="номер_карточки_клиента" ColumnName="номер_карточки_клиента" />
                 <ScalarProperty Name="стоимость" ColumnName="стоимость" />
+                <ScalarProperty Name="скидка" ColumnName="скидка" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -676,7 +679,7 @@
         <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->

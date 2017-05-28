@@ -22,8 +22,8 @@
         <Button x:Name="services" Content="Услуги"  Click="usl_Click" Margin="122.4,0,187.4,292.8" Grid.Column="2"/>
 
         <Button x:Name="regula_customers" Content="Постоянные клиенты" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="136" Click="b_Click" Margin="99,-2,0,0" Grid.ColumnSpan="3"/>
-        <TextBox x:Name="phone_number" HorizontalAlignment="Left" Height="31" Margin="23,266,0,0" TextWrapping="Wrap" Text="Номер телефона" VerticalAlignment="Top" Width="140" Grid.ColumnSpan="3"/>
-        <RichTextBox x:Name="description" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="146" Margin="22,54,0,0"  VerticalAlignment="Top" Width="287"/>
+        <TextBox x:Name="phone_number" HorizontalAlignment="Left" Height="31" Margin="23,266,0,0" TextWrapping="Wrap" Text="Номер телефона" VerticalAlignment="Top" Width="140" Grid.ColumnSpan="3" IsEnabled="False"/>
+        <RichTextBox x:Name="description" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="146" Margin="22,54,0,0"  VerticalAlignment="Top" Width="287" IsEnabled="False"/>
         <!--<Button x:Name="shares" Content="Акции" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="91,107,0,0" VerticalAlignment="Top" Width="116" Click="button_Click"/>-->
         <Button x:Name="back" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="48" Click="back_Click" Grid.Column="2" Margin="335,12,0,0">
             <Image Source="1.png" Width="27" Height="30" />
@@ -32,6 +32,7 @@
 
         <Button x:Name="chek" Content="Чек" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="116" Click="chek_Click" Grid.Column="2" Margin="267,267,0,0">
         </Button>
-        <TextBox x:Name="address" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="38" Margin="23,213,0,0" TextWrapping="Wrap" Text="Адрес" VerticalAlignment="Top" Width="287"/>
+        <TextBox x:Name="address" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="38" Margin="23,213,0,0" TextWrapping="Wrap" Text="Адрес" VerticalAlignment="Top" Width="287" IsEnabled="False"/>
+        <Button x:Name="server_btn" Content="Сервер" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="116" Click="go_to_server" Grid.Column="2" Margin="267,227,0,0"/>
     </Grid>
 </Window>
