@@ -29,7 +29,7 @@ namespace Logics.Services
         {
             var cl = item.Постоянные_клиенты;
 
-            item.дата = DateTime.Now;
+            item.дата = DateTime.Now.AddDays(1);
             item.скидка = cl.Скидка_на_количество_посещений;
 
             cl.Количество_посещений++;
@@ -62,7 +62,10 @@ namespace Logics.Services
 
         public decimal GetFuelChecksSum(int month, int day = 0)
         {
-            var sum = GetChecks(month, day).Sum(c => c.кол_во_топлива*c.Топливо.стоимость*(1 - c.скидка.Value/100));
+            var sum = GetChecks(month, day).Sum(c =>
+            {
+                return c.кол_во_топлива * c.Топливо.стоимость * (1 - (c.скидка != null ? (decimal) c.скидка.Value / 100 : 0));
+            });
             return sum;
         }
 
@@ -74,10 +77,11 @@ namespace Logics.Services
             var sumProd =
                 prods.Sum(
                     p =>
-                        p.кол_во*p.Товар.стоимость.Value*(1 - p.Чек.скидка.Value/100));
+                        p.кол_во*p.Товар.стоимость.Value*(1 - (p.Чек.скидка != null ? (decimal) p.Чек.скидка.Value/100 : 0)));
 
             var servs = checks.SelectMany(c => c.ЧекУслуга);
-            var sumServ = servs.Sum(s => s.Услуга.стоимость.Value*(1- s.Чек.скидка.Value/100));
+            var sumServ = servs.Sum(s => s.Услуга.стоимость.Value*
+                        (1 - (s.Чек.скидка != null ? (decimal) s.Чек.скидка.Value/100 : 0)));
 
             return sumProd + sumServ;
         }

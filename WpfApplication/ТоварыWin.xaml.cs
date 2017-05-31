@@ -38,7 +38,7 @@ namespace WpfApplication
             winTool.Show();
             this.Hide();
         }
-        
+
         private void search_Click(object sender, RoutedEventArgs e)
         {
             var autoServ = ServiceLocator.GetService<Товар>() as ТоварService;
@@ -86,16 +86,31 @@ namespace WpfApplication
 
             if (checkProd == null)
             {
-                ch.ЧекТовар.Add(new ЧекТовар() {кол_во = qtyProd, Товар = prod, Чек = Settings.Check});
+                ch.ЧекТовар.Add(new ЧекТовар() { кол_во = qtyProd, Товар = prod, Чек = Settings.Check });
             }
             else
             {
                 checkProd.кол_во += qtyProd; //.количесвто.Value;
             }
-            
+
             using (prodServ.Uow.Db = new АвтозаправкиEntities())
             {
                 prod.количесвто -= qtyProd;
+                prodServ.Save(prod);
+            }
+        }
+
+        private void update_amount_click(object sender, RoutedEventArgs e)
+        {
+            var n = int.Parse(amount_of_goods.Text);
+            if (n<0)
+            {
+                MessageBox.Show("");
+                return;
+            }
+            using (prodServ.Uow.Db = new АвтозаправкиEntities())
+            {
+                prod.количесвто = n;
                 prodServ.Save(prod);
             }
         }

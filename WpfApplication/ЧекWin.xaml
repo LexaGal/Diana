@@ -4,43 +4,72 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Чек" Height="539" Width="525">
-    <Grid>
-        <Menu HorizontalAlignment="Left" Width="517" Margin="0,5,0,0">
-            <MenuItem Header="Топливо"  x:Name="mFuel" Click="mFile_Click" Width="99" Height="30">
-                <MenuItem Header="_92 бензин"  x:Name="m92" Click="m92_Click" />
-                <MenuItem Header="_95 бензин"  x:Name="m95" Click="m95_Click" />
-                <MenuItem Header="_дизельное топливо"  x:Name="mdiesel" Click="mdiz_Click" />
+        Title="Чек" Height="452.5" Width="525">
+    <Window.Resources>
+        <Style x:Key="Gray">
+            <Setter Property="Control.Background" Value="Gray" />
+        </Style>
+        <Style x:Key="Button">
+            <Setter Property="Control.FontFamily" Value="Time New Roman" />
+            <Setter Property="Control.FontSize" Value="14" />
+            <Setter Property="Control.Background" Value="Coral" />
+        </Style>
+        <Style x:Key="Text">
+            <Setter Property="Control.FontFamily" Value="Time New Roman" />
+            <Setter Property="Control.Foreground" Value="Coral" />
+
+            <Setter Property="Control.Background" Value="Brown" />
+            <Setter Property="Control.FontSize" Value="12" />
+        </Style>
+        <Style x:Key="Texti">
+            <Setter Property="Control.FontFamily" Value="Time New Roman" />
+            <Setter Property="Control.FontSize" Value="14" />
+
+        </Style>
+        <Style x:Key="Buttoni">
+
+            <Setter Property="Control.Background" Value="Gray" />
+        </Style>
+
+    </Window.Resources>
+    <Grid Style="{StaticResource Gray}" >
+
+        <Menu HorizontalAlignment="Left" Width="517" Margin="0,5,0,33" Style="{StaticResource Gray}">
+            <MenuItem Header="Топливо"  x:Name="mFuel" Click="mFile_Click" Width="120" Height="36" Style="{StaticResource Text}">
+                <MenuItem Header="_92 бензин"  x:Name="m92" Click="m92_Click" Style="{StaticResource Text}"/>
+                <MenuItem Header="_95 бензин"  x:Name="m95" Click="m95_Click" Style="{StaticResource Text}"/>
+                <MenuItem Header="_дизельное топливо"  x:Name="mdiesel" Click="mdiz_Click" Style="{StaticResource Text}"/>
             </MenuItem>
-            <Button x:Name="goods" Content="Товары" Height="36" Width="93"  Click="tov_Click" RenderTransformOrigin="0.527,0.889"/>
-            <Button x:Name="services" Content="Услуги" Width="93"  Click="usl_Click"/>
+
         </Menu>
-        <Button x:Name="regular_customers" Content="Постоянные клиенты" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="128" Click="b_Click" Margin="321,12,0,0"/>
-        <Button x:Name="back" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="50" Click="back_Click" Margin="454,10,0,0">
-            <Image Source="1.png" Width="37" Height="30" />
+        <Button x:Name="goods" Content="Товары"  Click="tov_Click" RenderTransformOrigin="0.527,0.889" Style="{StaticResource Button}" Margin="119,0,277.4,383.2"/>
+        <Button x:Name="services" Content="Услуги"  Click="usl_Click" Style="{StaticResource Button}" Margin="240,0,156.4,383.2"/>
+        <Button x:Name="regular_customers" Content="Постоянные клиенты" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="128" Click="b_Click" Margin="361,0,0,0" Style="{StaticResource Button}"/>
+        <Button x:Name="back" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="37" Click="back_Click" Margin="480,0,0,0" Style="{StaticResource Buttoni}">
+            <Image Source="100.png" Width="40" Height="29" />
         </Button>
-        <TextBox x:Name="total_fuel" HorizontalAlignment="Left" Height="26" Margin="353,200,0,0" TextWrapping="Wrap" Text="Топливо*количесвто" VerticalAlignment="Top" Width="140"/>
-        <TextBox x:Name="discount" HorizontalAlignment="Left" Height="29" Margin="378,365,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="113"/>
-        <Button x:Name="calculate" Content="Рассчитать" HorizontalAlignment="Left" Height="52" Margin="325,64,0,0" VerticalAlignment="Top" Width="178" Click="calculate_all"/>
+        <TextBox x:Name="total_fuel" HorizontalAlignment="Left" Height="22" Margin="400,79,0,0" TextWrapping="Wrap" Text="Топливо*количесвто" VerticalAlignment="Top" Width="101" Style="{StaticResource Texti}"/>
+        <TextBox x:Name="discount" HorizontalAlignment="Left" Height="22" Margin="404,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="97" Style="{StaticResource Texti}"/>
+        <Button x:Name="calculate" Content="Рассчитать" HorizontalAlignment="Left" Height="21" Margin="381,380,0,0" VerticalAlignment="Top" Width="120" Click="calculate_all" Style="{StaticResource Button}"/>
         <!--<Button x:Name="printing" Content="Печать" HorizontalAlignment="Left" Height="28" Margin="324,132,0,0" VerticalAlignment="Top" Width="178"/>-->
-        <TextBox x:Name="customer_name" HorizontalAlignment="Left" Height="39" Margin="10,50,0,0" TextWrapping="Wrap" Text="Имя и фамилия клиента" VerticalAlignment="Top" Width="213"/>
+        <TextBox x:Name="customer_name" HorizontalAlignment="Left" Height="22" Margin="20,40,0,0" TextWrapping="Wrap" Text="Имя и фамилия клиента" VerticalAlignment="Top" Width="220" Style="{StaticResource Texti}"/>
         <!--<Button x:Name="add_customer" Content="Добавить клиента" HorizontalAlignment="Left" Height="30" Margin="349,216,0,0" VerticalAlignment="Top" Width="128"/>-->
-        <TextBox x:Name="amount_of_fuels" HorizontalAlignment="Left" Height="26" Margin="353,257,0,0" TextWrapping="Wrap" Text="Количесвто" VerticalAlignment="Top" Width="140"/>
-        <ListBox x:Name="list_of_goods" HorizontalAlignment="Left" Height="157" Margin="10,132,0,0" VerticalAlignment="Top" Width="157" />
-        <ListBox x:Name="list_of_services" HorizontalAlignment="Left" Height="162" Margin="8,326,0,0" VerticalAlignment="Top" Width="157"/>
-        <Label x:Name="label" Content="Товары" HorizontalAlignment="Left" Height="25" Margin="60,98,0,0" VerticalAlignment="Top" Width="54"/>
-        <Label x:Name="label1" Content="Услуги" HorizontalAlignment="Left" Height="28" Margin="60,296,0,0" VerticalAlignment="Top" Width="54"/>
-        <TextBox x:Name="total_price_of_goods" HorizontalAlignment="Left" Height="24" Margin="179,132,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="131"/>
-        <TextBox x:Name="total_price_of_servs" HorizontalAlignment="Left" Height="24" Margin="179,325,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="131"/>
-        <Label x:Name="label2" Content="Суммарная стоимость&#xD;&#xA;товаров" HorizontalAlignment="Left" Height="48" Margin="177,94,0,0" VerticalAlignment="Top" Width="133"/>
-        <Label x:Name="label3" Content="Суммарная стоимость&#xD;&#xA;услуг" HorizontalAlignment="Left" Height="44" Margin="179,285,0,0" VerticalAlignment="Top" Width="131"/>
-        <Label x:Name="label_Copy" Content="Топливо сумм." HorizontalAlignment="Left" Height="25" Margin="353,170,0,0" VerticalAlignment="Top" Width="100"/>
-        <TextBox x:Name="total_price" HorizontalAlignment="Left" Height="29" Margin="378,408,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="113" RenderTransformOrigin="0.5,0.913"/>
-        <TextBox x:Name="total_price_disc" HorizontalAlignment="Left" Height="29" Margin="378,449,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="113" RenderTransformOrigin="0.5,0.913"/>
-        <Label x:Name="label_Copy1" Content="Топливо кол-во Л." HorizontalAlignment="Left" Height="25" Margin="353,232,0,0" VerticalAlignment="Top" Width="113"/>
-        <Label x:Name="label_Copy2" Content="Суммарная&#xD;&#xA;стоимость" HorizontalAlignment="Left" Height="44" Margin="245,400,0,0" VerticalAlignment="Top" Width="113"/>
-        <Label x:Name="label_Copy3" Content="Скидка постоянного&#xD;&#xA;клиента" HorizontalAlignment="Left" Height="42" Margin="244,358,0,0" VerticalAlignment="Top" Width="123"/>
-        <Label x:Name="label_Copy4" Content="Суммарная &#xD;&#xA;стоимость со скидкой" HorizontalAlignment="Left" Height="42" Margin="246,444,0,0" VerticalAlignment="Top" Width="132"/>
+        <TextBox x:Name="amount_of_fuels" HorizontalAlignment="Left" Height="22" Margin="400,119,0,0" TextWrapping="Wrap" Text="Количесвто" VerticalAlignment="Top" Width="101" Style="{StaticResource Texti}"/>
+        <ListBox x:Name="list_of_goods" HorizontalAlignment="Left" Height="151" Margin="101,79,0,0" VerticalAlignment="Top" Width="181" Style="{StaticResource Texti}"/>
+        <ListBox x:Name="list_of_services" HorizontalAlignment="Left" Height="151" Margin="101,250,0,0" VerticalAlignment="Top" Width="181" Style="{StaticResource Texti}"/>
+        <Label x:Name="label" Content="Товары" HorizontalAlignment="Left" Height="22" Margin="20,79,0,0" VerticalAlignment="Top" Width="60" Style="{StaticResource Text}"/>
+        <Label x:Name="label1" Content="Услуги" HorizontalAlignment="Left" Height="23" Margin="20,250,0,0" VerticalAlignment="Top" Width="60" Style="{StaticResource Text}"/>
+        <TextBox x:Name="total_price_of_goods" HorizontalAlignment="Left" Height="22" Margin="400,159,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="101" Style="{StaticResource Texti}"/>
+        <TextBox x:Name="total_price_of_servs" HorizontalAlignment="Left" Height="23" Margin="400,199,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="101" Style="{StaticResource Texti}"/>
+        <Label x:Name="label2" Content="Сумм.стоим.тов." HorizontalAlignment="Left" Height="22" Margin="300,159,0,0" VerticalAlignment="Top" Width="100" Style="{StaticResource Text}"/>
+        <Label x:Name="label3" Content="Сумм.стоим.усл." HorizontalAlignment="Left" Height="23" Margin="300,199,0,0" VerticalAlignment="Top" Width="100" Style="{StaticResource Text}"/>
+        <Label x:Name="label_Copy" Content="Топливо сумм." HorizontalAlignment="Left" Height="22" Margin="300,79,0,0" VerticalAlignment="Top" Width="100" Style="{StaticResource Text}"/>
+        <TextBox x:Name="total_price" HorizontalAlignment="Left" Height="22" Margin="400,279,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="101" RenderTransformOrigin="0.5,0.913" Style="{StaticResource Texti}"/>
+        <TextBox x:Name="total_price_disc" HorizontalAlignment="Left" Height="23" Margin="400,319,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="101" RenderTransformOrigin="0.5,0.913" Style="{StaticResource Texti}"/>
+        <Label x:Name="label_Copy1" Content="Топливо кол-во" HorizontalAlignment="Left" Height="22" Margin="300,119,0,0" VerticalAlignment="Top" Width="100" Style="{StaticResource Text}"/>
+        <Label x:Name="label_Copy2" Content="Сумм. стоим." HorizontalAlignment="Left" Height="22" Margin="300,279,0,0" VerticalAlignment="Top" Width="100" Style="{StaticResource Text}"/>
+        <Label x:Name="label_Copy3" Content="Скидка пост. кл." HorizontalAlignment="Left" Height="22" Margin="300,239,0,0" VerticalAlignment="Top" Width="100" Style="{StaticResource Text}"/>
+        <Label x:Name="label_Copy4" Content="Сумм.стоим.+скидка" HorizontalAlignment="Left" Height="23" Margin="300,319,0,0" VerticalAlignment="Top" Width="100" Style="{StaticResource Text}"/>
 
     </Grid>
 </Window>

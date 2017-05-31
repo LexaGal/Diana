@@ -5,17 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Постоянные клиенты" Height="350" Width="525">
-    <Grid>
-        <Button x:Name="back" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="45" Click="back_Click" Margin="457,9,0,0">
-            <Image Source="1.png" Width="37" Height="30" />
+    <Window.Resources>
+        <Style x:Key="Gray">
+            <Setter Property="Control.Background" Value="Gray" />
+        </Style>
+        <Style x:Key="Button">
+            <Setter Property="Control.FontFamily" Value="Time New Roman" />
+            <Setter Property="Control.FontSize" Value="14" />
+            <Setter Property="Control.Background" Value="Coral" />
+        </Style>
+        <Style x:Key="Text">
+            <Setter Property="Control.FontFamily" Value="Time New Roman" />
+            <Setter Property="Control.Foreground" Value="Coral" />
+
+            <Setter Property="Control.Background" Value="Brown" />
+            <Setter Property="Control.FontSize" Value="12" />
+        </Style>
+        <Style x:Key="Buttoni">
+
+            <Setter Property="Control.Background" Value="Gray" />
+        </Style>
+        <Style x:Key="Texti">
+            <Setter Property="Control.FontFamily" Value="Time New Roman" />
+            <Setter Property="Control.FontSize" Value="14" />
+
+        </Style>
+    </Window.Resources>
+    <Grid Style="{StaticResource Gray}">
+        <Button x:Name="back" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="37" Click="back_Click" Margin="480,0,0,0" Style="{StaticResource Buttoni}">
+            <Image Source="100.png" Width="40" Height="29" />
         </Button>
-        <ListBox x:Name="list_of_clients" HorizontalAlignment="Left" Height="242" Margin="17,56,0,0" VerticalAlignment="Top" Width="253" SelectionChanged="list_of_clients_SelectionChanged"/>
-        <Button x:Name="insert_in_check" Content="Добавить в чек" HorizontalAlignment="Left" Margin="384,262,0,0" VerticalAlignment="Top" Width="114" Click="Insert_client_check" Height="36"/>
-        <TextBox x:Name="name_of_client" HorizontalAlignment="Left" Height="30" Margin="17,10,0,0" TextWrapping="Wrap" Text="Имя клиента" VerticalAlignment="Top" Width="167" TextChanged="name_of_client_TextChanged"/>
-        <Button x:Name="search" Content="Поиск" HorizontalAlignment="Left" Height="30" Margin="199,10,0,0" VerticalAlignment="Top" Width="71" Click="search_Click"/>
-        <TextBox x:Name="attends_amount" HorizontalAlignment="Left" Height="33" Margin="305,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" IsEnabled="False"/>
-        <Label x:Name="label" Content="Кол-во посещений" HorizontalAlignment="Left" Margin="317,29,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="button" Content="Добавить клиента" HorizontalAlignment="Left" Height="42" Margin="305,104,0,0" VerticalAlignment="Top" Width="117" Click="insert_Click"/>
-        <Button x:Name="button1" Content="Удалить клиента" HorizontalAlignment="Left" Height="42" Margin="305,159,0,0" VerticalAlignment="Top" Width="117" Click="delete_Click"/>
+        <ListBox x:Name="list_of_clients" HorizontalAlignment="Left" Height="239" Margin="19,59,0,0" VerticalAlignment="Top" Width="301" SelectionChanged="list_of_clients_SelectionChanged " Style="{StaticResource Texti}"/>
+        <Button x:Name="insert_in_check" Content="Добавить в чек" HorizontalAlignment="Left" Margin="380,279,0,0" VerticalAlignment="Top" Width="120" Click="Insert_client_check" Height="22" Style="{StaticResource Button}"/>
+        <TextBox x:Name="name_of_client" HorizontalAlignment="Left" Height="21" Margin="19,19,0,0" TextWrapping="Wrap" Text="Имя клиента" VerticalAlignment="Top" Width="301" TextChanged="name_of_client_TextChanged" Style="{StaticResource Texti}"/>
+        <Button x:Name="search" Content="Поиск" HorizontalAlignment="Left" Height="21" Margin="341,19,0,0" VerticalAlignment="Top" Width="79" Click="search_Click" Style="{StaticResource Button}"/>
+        <TextBox x:Name="attends_amount" HorizontalAlignment="Left" Height="21" Margin="380,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="81" IsEnabled="False" Style="{StaticResource Texti}"/>
+        <Label x:Name="label" Content="Кол-во посещений" HorizontalAlignment="Left" Margin="341,61,0,0" VerticalAlignment="Top" Style="{StaticResource Text}" Height="23" Width="159" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.227"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.329"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Button x:Name="button" Content="Добавить клиента" HorizontalAlignment="Left" Height="20" Margin="360,177,0,0" VerticalAlignment="Top" Width="120" Click="insert_Click" Style="{StaticResource Button}"/>
+        <Button x:Name="button1" Content="Удалить клиента" HorizontalAlignment="Left" Height="21" Margin="360,218,0,0" VerticalAlignment="Top" Width="120" Click="delete_Click" Style="{StaticResource Button}"/>
     </Grid>
 </Window>

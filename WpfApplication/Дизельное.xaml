@@ -5,16 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Дизельное топливо" Height="350" Width="525">
-    <Grid>
-        <TextBox x:Name="name" HorizontalAlignment="Left" Height="31" Margin="55,66,0,0" TextWrapping="Wrap" Text="Дизельное топливо" VerticalAlignment="Top" Width="174" IsEnabled="False"/>
-        <TextBox x:Name="amount" HorizontalAlignment="Left" Height="33" Margin="55,221,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="174"/>
-        <TextBox x:Name="value" HorizontalAlignment="Left" Height="30" Margin="55,131,0,0" TextWrapping="Wrap" Text="Стоимость" VerticalAlignment="Top" Width="174" IsEnabled="False"/>
-        <Button x:Name="back" HorizontalAlignment="Left" Height="38" VerticalAlignment="Top" Width="51" Click="back_Click" Margin="452,10,0,0">
-            <Image Source="1.png" Width="37" Height="28" />
+    <Window.Resources>
+        <Style x:Key="Gray">
+            <Setter Property="Control.Background" Value="Gray" />
+        </Style>
+        <Style x:Key="Buttoni">
+
+            <Setter Property="Control.Background" Value="Gray" />
+        </Style>
+        <Style x:Key="Button">
+            <Setter Property="Control.FontFamily" Value="Time New Roman" />
+            <Setter Property="Control.FontSize" Value="14" />
+            <Setter Property="Control.Background" Value="Coral" />
+        </Style>
+        <Style x:Key="Text">
+            <Setter Property="Control.FontFamily" Value="Time New Roman" />
+            <Setter Property="Control.Foreground" Value="Coral" />
+
+            <Setter Property="Control.Background" Value="Brown" />
+            <Setter Property="Control.FontSize" Value="9" />
+        </Style>
+        <Style x:Key="Texti">
+            <Setter Property="Control.FontFamily" Value="Time New Roman" />
+            <Setter Property="Control.FontSize" Value="14" />
+
+        </Style>
+    </Window.Resources>
+    <Grid Style="{StaticResource Gray}">
+        <TextBox x:Name="name" HorizontalAlignment="Left" Height="19" Margin="261,100,0,0" TextWrapping="Wrap" Text="Дизельное топливо" VerticalAlignment="Top" Width="140" IsEnabled="False" Style="{StaticResource Texti}"/>
+        <TextBox x:Name="amount" HorizontalAlignment="Left" Height="20" Margin="261,180,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="140" Style="{StaticResource Texti}"/>
+        <TextBox x:Name="value" HorizontalAlignment="Left" Height="20" Margin="261,140,0,0" TextWrapping="Wrap" Text="Стоимость" VerticalAlignment="Top" Width="140" IsEnabled="False" Style="{StaticResource Texti}"/>
+        <Button x:Name="back" HorizontalAlignment="Left" Height="39" VerticalAlignment="Top" Width="37" Click="back_Click" Margin="480,0,0,0" Style="{StaticResource Buttoni}">
+            <Image Source="100.png" Width="40" Height="29" />
         </Button>
-        <Button x:Name="insert_in_check" Content="Добавить в чек" HorizontalAlignment="Left" Height="37" Margin="389,258,0,0" Click="insert_Click" VerticalAlignment="Top" Width="114"/>
-        <Label x:Name="label" Content="Вид топлива" HorizontalAlignment="Left" Height="31" Margin="55,30,0,0" VerticalAlignment="Top" Width="181"/>
-        <Label x:Name="label1" Content="Стоимость" HorizontalAlignment="Left" Height="24" Margin="55,102,0,0" VerticalAlignment="Top" Width="150"/>
-        <Label x:Name="label2" Content="Количество топлива, которое&#xD;&#xA;клиент хочет получить (Л.)" HorizontalAlignment="Left" Height="55" Margin="55,177,0,0" VerticalAlignment="Top" Width="174"/>
+        <Button x:Name="insert_in_check" Content="Добавить в чек" HorizontalAlignment="Left" Height="19" Margin="379,280,0,0" Click="insert_Click" VerticalAlignment="Top" Width="122"  Style="{StaticResource Button}"/>
+        <Label x:Name="label" Content="Вид топлива" HorizontalAlignment="Left" Height="19" Margin="121,100,0,0" VerticalAlignment="Top" Width="120" Style="{StaticResource Text}"/>
+        <Label x:Name="label1" Content="Стоимость" HorizontalAlignment="Left" Height="20" Margin="121,140,0,0" VerticalAlignment="Top" Width="120"  Style="{StaticResource Text}"/>
+        <Label x:Name="label2" Content="Топливо для кл-та (Л.)" HorizontalAlignment="Left" Height="20" Margin="121,180,0,0" VerticalAlignment="Top" Width="120"  Style="{StaticResource Text}"/>
     </Grid>
 </Window>

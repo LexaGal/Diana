@@ -5,13 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Новая услуга" Height="350" Width="525">
-    <Grid>
+    <Window.Resources>
+        <Style x:Key="Gray">
+            <Setter Property="Control.Background" Value="Gray" />
+        </Style>
+        <Style x:Key="Buttoni">
+
+            <Setter Property="Control.Background" Value="Gray" />
+        </Style>
+        <Style x:Key="Button">
+            <Setter Property="Control.FontFamily" Value="Time New Roman" />
+            <Setter Property="Control.FontSize" Value="14" />
+            <Setter Property="Control.Background" Value="Coral" />
+        </Style>
+        <Style x:Key="Text">
+            <Setter Property="Control.FontFamily" Value="Time New Roman" />
+            <Setter Property="Control.Foreground" Value="Coral" />
+
+            <Setter Property="Control.Background" Value="Brown" />
+            <Setter Property="Control.FontSize" Value="9" />
+        </Style>
+        <Style x:Key="Texti">
+            <Setter Property="Control.FontFamily" Value="Time New Roman" />
+            <Setter Property="Control.FontSize" Value="14" />
+
+        </Style>
+    </Window.Resources>
+    <Grid Style="{StaticResource Gray}">
         <!--<TextBox x:Name="service_code" HorizontalAlignment="Left" Height="33" Margin="73,61,0,0" TextWrapping="Wrap" Text="Код услуги" VerticalAlignment="Top" Width="69"/>-->
-        <TextBox x:Name="name" HorizontalAlignment="Left" Height="33" Margin="73,54,0,0" TextWrapping="Wrap" Text="Название услуги" VerticalAlignment="Top" Width="207"/>
-        <TextBox x:Name="value" HorizontalAlignment="Left" Height="31" Margin="73,105,0,0" TextWrapping="Wrap" Text="Стоимость" VerticalAlignment="Top" Width="138"/>
-        <Button x:Name="insert" Content="Добавить" HorizontalAlignment="Left" Height="41" Margin="73,159,0,0" VerticalAlignment="Top" Width="110" Click="button_Click"/>
-        <Button x:Name="back" HorizontalAlignment="Left" Height="41" VerticalAlignment="Top" Width="50" Click="back_Click" Margin="450,13,0,0">
-            <Image Source="1.png" Width="37" Height="30" />
+        <TextBox x:Name="name" HorizontalAlignment="Left" Height="22" Margin="140,119,0,0" TextWrapping="Wrap" Text="Название услуги" VerticalAlignment="Top" Width="262" Style="{StaticResource Texti}"/>
+        <TextBox x:Name="value" HorizontalAlignment="Left" Height="20" Margin="180,159,0,0" TextWrapping="Wrap" Text="Стоимость" VerticalAlignment="Top" Width="180" Style="{StaticResource Texti}"/>
+        <Button x:Name="insert" Content="Добавить" HorizontalAlignment="Left" Height="20" Margin="380,280,0,0" VerticalAlignment="Top" Width="121" Click="button_Click" Style="{StaticResource Button}"/>
+        <Button x:Name="back" HorizontalAlignment="Left" Height="41" VerticalAlignment="Top" Width="36" Click="back_Click" Margin="481,0,0,0" Style="{StaticResource Buttoni}">
+            <Image Source="100.png" Width="40" Height="29" />
         </Button>
     </Grid>
 </Window>

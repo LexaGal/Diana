@@ -5,12 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Вход" Height="350" Width="525">
+    <Window.Resources>
+        <Style x:Key="Coral">
+            <Setter Property="Control.Background" Value="Coral" />
+        </Style>
+        <Style x:Key="Text">
+            <Setter Property="Control.FontFamily" Value="Time New Roman" />
+            <Setter Property="Control.Foreground" Value="Coral" />
+            <Setter Property="Control.FontSize" Value="20" />
+        </Style>
+    </Window.Resources>
     <Grid>
         <!--Text="Код автозаправки, на которую вы хотите зайти"-->
+        <Image Source="12.jpg" Width="609" Height="315" Margin="0,0,0,0" />
 
-        <TextBox x:Name="entrance" Margin="106,0,88.4,183.8"  
-                 Height="30" VerticalAlignment="Bottom" TextChanged="textBox_TextChanged"/>
-        <Label x:Name="entrance_label" Content="Номер автозаправки" HorizontalAlignment="Left" Height="32" Margin="198,74,0,0" VerticalAlignment="Top" Width="132"/>
-        <Button x:Name="entrance_button" Content="Зайти" HorizontalAlignment="Left" Height="26" Margin="211,141,0,0" VerticalAlignment="Top" Width="103" Click="button_Click"/>
+        <TextBox x:Name="entrance" Margin="21,0,298,133" 
+        Height="30" VerticalAlignment="Bottom" TextChanged="textBox_TextChanged"/>
+        <Label x:Name="entrance_label" Content="Номер автозаправки" HorizontalAlignment="Left" Height="32" Margin="21,119,0,0" VerticalAlignment="Top" Width="212" Style="{StaticResource Text}"/>
+        <Button x:Name="entrance_button" Content="Зайти" HorizontalAlignment="Left" Height="26" Margin="64,205,0,0" VerticalAlignment="Top" Width="102" Click="button_Click" Style="{StaticResource Coral}"/>
     </Grid>
 </Window>

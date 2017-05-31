@@ -5,20 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Сервер" Height="350" Width="525">
-    <Grid>
-        <TextBox x:Name="month_average_profit" HorizontalAlignment="Left" Height="36" Margin="28,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" IsEnabled="False" TextChanged="average_profit_TextChanged"/>
-        <TextBox x:Name="profit_for_fuel" HorizontalAlignment="Left" Height="35" Margin="28,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" IsEnabled="False"/>
-        <TextBox x:Name="profit_for_goods_and_services" HorizontalAlignment="Left" Height="35" Margin="28,198,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" IsEnabled="False"/>
+    <Window.Resources>
+        <Style x:Key="Gray">
+            <Setter Property="Control.Background" Value="Gray" />
+        </Style>
+        <Style x:Key="Button">
+            <Setter Property="Control.FontFamily" Value="Time New Roman" />
+            <Setter Property="Control.FontSize" Value="14" />
+            <Setter Property="Control.Background" Value="Coral" />
+        </Style>
+        <Style x:Key="Text">
+            <Setter Property="Control.FontFamily" Value="Time New Roman" />
+            <Setter Property="Control.Foreground" Value="Coral" />
+
+            <Setter Property="Control.Background" Value="Brown" />
+            <Setter Property="Control.FontSize" Value="12" />
+        </Style>
+        <Style x:Key="Texti">
+            <Setter Property="Control.FontFamily" Value="Time New Roman" />
+            <Setter Property="Control.FontSize" Value="14" />
+
+        </Style>
+        <Style x:Key="Buttoni">
+
+            <Setter Property="Control.Background" Value="Gray" />
+        </Style>
+
+    </Window.Resources>
+    <Grid  Style="{StaticResource Gray}">
+        <TextBox x:Name="month_average_profit" HorizontalAlignment="Left" Height="24" Margin="200,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="99" IsEnabled="False" TextChanged="average_profit_TextChanged" Style="{StaticResource Texti}"/>
+        <TextBox x:Name="profit_for_fuel" HorizontalAlignment="Left" Height="26" Margin="199,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" IsEnabled="False" Style="{StaticResource Texti}"/>
+        <TextBox x:Name="profit_for_goods_and_services" HorizontalAlignment="Left" Height="22" Margin="200,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="99" IsEnabled="False" Style="{StaticResource Texti}"/>
         <!--<Button x:Name="сalculate" Content="Рассчитать" HorizontalAlignment="Left" Height="39" Margin="281,228,0,0" VerticalAlignment="Top" Width="117" Click="button_Click"/>-->
-        <Calendar HorizontalAlignment="Left" Height="172" Margin="248,44,0,0" VerticalAlignment="Top" Width="197" SelectedDatesChanged="Update"/>
-        <Label x:Name="label" Content="Общая прибыль" HorizontalAlignment="Left" Margin="28,49,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label_Copy" Content="Прибыль за топливо" HorizontalAlignment="Left" Margin="28,111,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label_Copy1" Content="Прибыль за товары и услуги" HorizontalAlignment="Left" Margin="28,175,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="go_back" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="45" Click="back_Click" Margin="457,9,0,0">
-            <Image Source="1.png" Width="37" Height="30" />
+        <Calendar HorizontalAlignment="Left" Height="172" Margin="310,75,0,0" VerticalAlignment="Top" Width="197" SelectedDatesChanged="Update"/>
+        <Label x:Name="label" Content="Общая прибыль" HorizontalAlignment="Left" Margin="19,122,0,0" VerticalAlignment="Top"  Style="{StaticResource Text}" Width="181" Height="24"/>
+        <Label x:Name="label_Copy" Content="Прибыль за топливо" HorizontalAlignment="Left" Margin="19,160,0,0" VerticalAlignment="Top"  Style="{StaticResource Text}" Width="181" Height="26"/>
+        <Label x:Name="label_Copy1" Content="Прибыль за товары и услуги" HorizontalAlignment="Left" Margin="19,202,0,0" VerticalAlignment="Top"  Style="{StaticResource Text}" Height="22" Width="181"/>
+        <Button x:Name="go_back" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="37" Click="back_Click" Margin="480,0,0,0"  Style="{StaticResource Buttoni}">
+            <Image Source="100.png" Width="40" Height="29" />
         </Button>
-        <RadioButton x:Name="radioMonth" Content="за месяц" HorizontalAlignment="Left" Margin="28,18,0,0" VerticalAlignment="Top" Checked="MonthCheck" IsChecked="True"/>
-        <RadioButton x:Name="radioMonthDay" Content="за день в месяце" HorizontalAlignment="Left" Margin="140,18,0,0" VerticalAlignment="Top" Checked="MonthDayCheck"/>
+        <RadioButton x:Name="radioMonth" Content="за месяц" HorizontalAlignment="Left" Margin="22,81,0,0" VerticalAlignment="Top" Checked="MonthCheck" IsChecked="True"  Style="{StaticResource Text}"/>
+        <RadioButton x:Name="radioMonthDay" Content="за день в месяце" HorizontalAlignment="Left" Margin="187,81,0,0" VerticalAlignment="Top" Checked="MonthDayCheck"  Style="{StaticResource Text}"/>
 
 
     </Grid>

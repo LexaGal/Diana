@@ -5,7 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Window11" Height="350" Width="525">
-    <Grid>
+    <Window.Resources>
+        <Style x:Key="Buttoni">
+
+            <Setter Property="Control.Background" Value="Gray" />
+        </Style>
+        <Style x:Key="Gray">
+            <Setter Property="Control.Background" Value="Gray" />
+        </Style>
+        <Style x:Key="Button">
+            <Setter Property="Control.FontFamily" Value="Time New Roman" />
+            <Setter Property="Control.FontSize" Value="14" />
+            <Setter Property="Control.Background" Value="Coral" />
+        </Style>
+        <Style x:Key="Text">
+            <Setter Property="Control.FontFamily" Value="Time New Roman" />
+
+            <Setter Property="Control.Background" Value="Coral" />
+            <Setter Property="Control.FontSize" Value="20" />
+        </Style>
+        <Style x:Key="Texti">
+            <Setter Property="Control.FontFamily" Value="Time New Roman" />
+            <Setter Property="Control.FontSize" Value="14" />
+
+        </Style>
+    </Window.Resources>
+    <Grid Style="{StaticResource Gray}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="59*"/>
@@ -14,13 +39,13 @@
             <ColumnDefinition Width="49*"/>
         </Grid.ColumnDefinitions>
         <!--<TextBox x:Name="product_code" HorizontalAlignment="Left" Height="33" Margin="73,61,0,0" TextWrapping="Wrap" Text="Код товара" VerticalAlignment="Top" Width="69" Grid.ColumnSpan="3"/>-->
-        <TextBox x:Name="name" HorizontalAlignment="Left" Height="37" Margin="73,54,0,0" TextWrapping="Wrap" Text="Название товара" VerticalAlignment="Top" Width="138" Grid.ColumnSpan="3"/>
-        <TextBox x:Name="value" HorizontalAlignment="Left" Height="35" Margin="73,120,0,0" TextWrapping="Wrap" Text="Стоимость" VerticalAlignment="Top" Width="138" Grid.ColumnSpan="3"/>
-        <Button x:Name="insert" Content="Добавить" HorizontalAlignment="Left" Height="42" Margin="73,235,0,0" VerticalAlignment="Top" Width="112" Click="button_Click" Grid.ColumnSpan="3"/>
-        <Button x:Name="back" HorizontalAlignment="Left" Height="39" VerticalAlignment="Top" Width="48" Click="back_Click" Margin="36,10,0,0" Grid.Column="4">
-            <Image Source="1.png" Width="37" Height="30" />
+        <TextBox x:Name="name" HorizontalAlignment="Left" Height="21" Margin="4,99,0,0" TextWrapping="Wrap" Text="Название товара" VerticalAlignment="Top" Width="261" Style="{StaticResource Texti}" Grid.Column="2"/>
+        <TextBox x:Name="value" HorizontalAlignment="Left" Height="21" Margin="42,140,0,0" TextWrapping="Wrap" Text="Стоимость" VerticalAlignment="Top" Width="181" Style="{StaticResource Texti}" Grid.Column="2"/>
+        <Button x:Name="insert" Content="Добавить" HorizontalAlignment="Left" Height="20" Margin="0,280,0,0" VerticalAlignment="Top" Width="119" Click="button_Click" Grid.ColumnSpan="2" Style="{StaticResource Button}" Grid.Column="3"/>
+        <Button x:Name="back" HorizontalAlignment="Left" Height="39" VerticalAlignment="Top" Width="37" Click="back_Click" Margin="61,0,0,0" Grid.Column="4" Style="{StaticResource Buttoni}">
+            <Image Source="100.png" Width="40" Height="29" />
         </Button>
-        <TextBox x:Name="amount" Grid.Column="1" HorizontalAlignment="Left" Height="35" Margin="73,178,0,0" TextWrapping="Wrap" Text="Количество" VerticalAlignment="Top" Width="138" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="amount" Grid.Column="2" HorizontalAlignment="Left" Height="21" Margin="82,180,0,0" TextWrapping="Wrap" Text="Количество" VerticalAlignment="Top" Width="102" Style="{StaticResource Texti}"/>
 
     </Grid>
 </Window>

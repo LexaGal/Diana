@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="АвтозаправкиModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище АвтозаправкиModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Автозаправка">
           <Key>
             <PropertyRef Name="Номер_автозаправки" />
@@ -214,7 +214,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="АвтозаправкиModelStoreContainer">
+        <EntityContainer Name="Хранилище АвтозаправкиModelContainer">
           <EntitySet Name="Автозаправка" EntityType="Self.Автозаправка" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Запись" EntityType="Self.Запись" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Общая" EntityType="Self.Общая" Schema="dbo" store:Type="Tables" />
@@ -549,7 +549,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="АвтозаправкиModelStoreContainer" CdmEntityContainer="АвтозаправкиEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище АвтозаправкиModelContainer" CdmEntityContainer="АвтозаправкиEntities">
           <EntitySetMapping Name="Автозаправка">
             <EntityTypeMapping TypeName="АвтозаправкиModel.Автозаправка">
               <MappingFragment StoreEntitySet="Автозаправка">
@@ -679,7 +679,7 @@
         <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->

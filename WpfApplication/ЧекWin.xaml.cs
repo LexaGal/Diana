@@ -109,10 +109,19 @@ namespace WpfApplication
             decimal sum = sumProd + sumFuel + sumServ;
             total_price.Text = $"{sum}";
 
-            int disc = Settings.Check.Постоянные_клиенты.Скидка_на_количество_посещений.Value;
+            var disc = Settings.Check.Постоянные_клиенты.Скидка_на_количество_посещений;
+            decimal value = 0;
+            if (disc != null)
+            {
+                value = disc.Value;
+            }
+            //else
+            //{
+            //    disc = 0;
+            //}
 
-            decimal total = sum - sum*disc/100;
-            discount.Text = $"{disc}% = {sum*disc/100}";
+            decimal total = sum - sum*value/100;
+            discount.Text = $"{disc}% = {sum*disc/100 ?? 0}";
             total_price_disc.Text = $"{total}";
 
             Settings.Check.стоимость = total;
