@@ -1,6 +1,8 @@
 ﻿using Database;
 using Logics.Services;
+using System;
 using System.Windows;
+using System.Windows.Input;
 
 namespace WpfApplication
 {
@@ -32,6 +34,48 @@ namespace WpfApplication
             winTool.Owner = this;
             winTool.Show();
             this.Hide();
+        }
+
+        private void name_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            try
+            {
+                KeyConverter KC = new KeyConverter();
+                char number = Convert.ToChar(KC.ConvertToString(e.Key));
+                if (!Char.IsLetter(number))
+                {
+                    e.Handled = true;
+                }
+            }
+            catch { }
+        }
+
+        private void value_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                KeyConverter KC = new KeyConverter();
+                char number = Convert.ToChar(KC.ConvertToString(e.Key));
+                if (!Char.IsDigit(number))
+                {
+                    e.Handled = true;
+                }
+            }
+            catch { }
+        }
+
+        private void amount_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                KeyConverter KC = new KeyConverter();
+                char number = Convert.ToChar(KC.ConvertToString(e.Key));
+                if (!Char.IsDigit(number))
+                {
+                    e.Handled = true;
+                }
+            }
+            catch { }
         }
     }
 }

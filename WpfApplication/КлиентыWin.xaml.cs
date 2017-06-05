@@ -3,6 +3,8 @@ using System.Windows;
 using Database;
 using Logics.Services;
 using WpfApplication.Helpers;
+using System.Windows.Input;
+using System;
 
 namespace WpfApplication
 {
@@ -76,6 +78,25 @@ namespace WpfApplication
         private void Insert_client_check(object sender, RoutedEventArgs e)
         {
             Settings.Check.Постоянные_клиенты = client;
+            if (Settings.Check.Постоянные_клиенты != null)
+            {
+
+            }
+            MessageBox.Show("Клиент добавлен в чек.");
+        }
+
+        private void name_of_client_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            try
+            {
+                KeyConverter KC = new KeyConverter();
+                char number = Convert.ToChar(KC.ConvertToString(e.Key));
+                if (!Char.IsLetter(number))
+                {
+                    e.Handled = true;
+                }
+            }
+            catch { }
         }
     }
 }

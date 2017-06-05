@@ -2,7 +2,7 @@
 
 namespace Database.Repository
 {
-    public class UnitOfWork : IDisposable
+    public class UnitOfWork : IDisposable//провайдер репозиториев
     {
         public АвтозаправкиEntities Db;
         
@@ -10,7 +10,7 @@ namespace Database.Repository
         {
             Db = new АвтозаправкиEntities();
         }
-
+        
         public IRepository<Автозаправка> Автозаправки =>
            new Repository<Автозаправка>(Db);
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using Database.Helpers;
 
-namespace Database.Repository
+namespace Database.Repository//конракт работы с базой
 {
     public class Repository<T> : IRepository<T> where T : class
     {

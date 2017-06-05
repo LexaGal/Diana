@@ -45,9 +45,9 @@
             </MenuItem>
         </Menu>
         <Button x:Name="goods" Content="Товары"  Click="tov_Click" Margin="262.4,0,43.4,280.8" Grid.Column="2" Style="{StaticResource Button}"/>
-        <Button x:Name="services" Content="Услуги" Click="usl_Click" Margin="137.4,0,143.4,280.8" Grid.Column="2" Style="{StaticResource Button}"/>
+        <Button x:Name="services" Content="Услуги" Click="usl_Click" Margin="142.4,0,138.4,280.8" Grid.Column="2" Style="{StaticResource Button}"/>
 
-        <Button x:Name="regula_customers" Content="Постоянные кл-ты" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" Width="126" Click="b_Click" Margin="6.4,0,0,0" Style="{StaticResource Button}" Grid.Column="2"/>
+        <Button x:Name="regula_customers" Content="Постоянные кл-ты" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" Width="126" Click="b_Click" Margin="11.4,0,0,0" Style="{StaticResource Button}" Grid.Column="2"/>
         <TextBox x:Name="phone_number" HorizontalAlignment="Left" Height="20" Margin="203,80,0,0" TextWrapping="Wrap" Text="Номер телефона" VerticalAlignment="Top" Width="180" IsEnabled="False" Grid.Column="2"/>
         <RichTextBox x:Name="description" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="260" Margin="20,40,0,0"  VerticalAlignment="Top" Width="280" IsEnabled="False" Style="{StaticResource Texti}"/>
         <!--<Button x:Name="shares" Content="Акции" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="91,107,0,0" VerticalAlignment="Top" Width="116" Click="button_Click"/>-->

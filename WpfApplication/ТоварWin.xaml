@@ -39,13 +39,16 @@
             <ColumnDefinition Width="49*"/>
         </Grid.ColumnDefinitions>
         <!--<TextBox x:Name="product_code" HorizontalAlignment="Left" Height="33" Margin="73,61,0,0" TextWrapping="Wrap" Text="Код товара" VerticalAlignment="Top" Width="69" Grid.ColumnSpan="3"/>-->
-        <TextBox x:Name="name" HorizontalAlignment="Left" Height="21" Margin="4,99,0,0" TextWrapping="Wrap" Text="Название товара" VerticalAlignment="Top" Width="261" Style="{StaticResource Texti}" Grid.Column="2"/>
-        <TextBox x:Name="value" HorizontalAlignment="Left" Height="21" Margin="42,140,0,0" TextWrapping="Wrap" Text="Стоимость" VerticalAlignment="Top" Width="181" Style="{StaticResource Texti}" Grid.Column="2"/>
+        <TextBox x:Name="name" HorizontalAlignment="Left" Height="21" Margin="10.4,82,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="261" Style="{StaticResource Texti}" Grid.Column="2" Grid.ColumnSpan="2" KeyDown="name_KeyDown"/>
+        <TextBox x:Name="value" HorizontalAlignment="Left" Height="21" Margin="41.4,133,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="181" Style="{StaticResource Texti}" Grid.Column="2" KeyDown="value_KeyDown"/>
         <Button x:Name="insert" Content="Добавить" HorizontalAlignment="Left" Height="20" Margin="0,280,0,0" VerticalAlignment="Top" Width="119" Click="button_Click" Grid.ColumnSpan="2" Style="{StaticResource Button}" Grid.Column="3"/>
         <Button x:Name="back" HorizontalAlignment="Left" Height="39" VerticalAlignment="Top" Width="37" Click="back_Click" Margin="61,0,0,0" Grid.Column="4" Style="{StaticResource Buttoni}">
             <Image Source="100.png" Width="40" Height="29" />
         </Button>
-        <TextBox x:Name="amount" Grid.Column="2" HorizontalAlignment="Left" Height="21" Margin="82,180,0,0" TextWrapping="Wrap" Text="Количество" VerticalAlignment="Top" Width="102" Style="{StaticResource Texti}"/>
+        <TextBox x:Name="amount" Grid.Column="2" HorizontalAlignment="Left" Height="21" Margin="82,180,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="102" Style="{StaticResource Texti}" KeyDown="amount_KeyDown"/>
+        <Label x:Name="label" Content="Название товара" Grid.Column="2" HorizontalAlignment="Left" Height="29" Margin="10.4,53,0,0" VerticalAlignment="Top" Width="212"/>
+        <Label x:Name="label1" Content="Стоимость" Grid.Column="2" HorizontalAlignment="Left" Height="32" Margin="41.4,108,0,0" VerticalAlignment="Top" Width="107"/>
+        <Label x:Name="label2" Content="Количесвто" Grid.Column="2" HorizontalAlignment="Left" Height="26" Margin="82.4,154,0,0" VerticalAlignment="Top" Width="80"/>
 
     </Grid>
 </Window>

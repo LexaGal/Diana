@@ -33,11 +33,13 @@
     </Window.Resources>
     <Grid Style="{StaticResource Gray}">
         <!--<TextBox x:Name="service_code" HorizontalAlignment="Left" Height="33" Margin="73,61,0,0" TextWrapping="Wrap" Text="Код услуги" VerticalAlignment="Top" Width="69"/>-->
-        <TextBox x:Name="name" HorizontalAlignment="Left" Height="22" Margin="140,119,0,0" TextWrapping="Wrap" Text="Название услуги" VerticalAlignment="Top" Width="262" Style="{StaticResource Texti}"/>
-        <TextBox x:Name="value" HorizontalAlignment="Left" Height="20" Margin="180,159,0,0" TextWrapping="Wrap" Text="Стоимость" VerticalAlignment="Top" Width="180" Style="{StaticResource Texti}"/>
+        <TextBox x:Name="name" HorizontalAlignment="Left" Height="22" Margin="140,106,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="262" Style="{StaticResource Texti}" KeyDown="name_KeyDown"/>
+        <TextBox x:Name="value" HorizontalAlignment="Left" Height="20" Margin="180,159,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180" Style="{StaticResource Texti}" KeyDown="value_KeyDown"/>
         <Button x:Name="insert" Content="Добавить" HorizontalAlignment="Left" Height="20" Margin="380,280,0,0" VerticalAlignment="Top" Width="121" Click="button_Click" Style="{StaticResource Button}"/>
         <Button x:Name="back" HorizontalAlignment="Left" Height="41" VerticalAlignment="Top" Width="36" Click="back_Click" Margin="481,0,0,0" Style="{StaticResource Buttoni}">
             <Image Source="100.png" Width="40" Height="29" />
         </Button>
+        <Label x:Name="label" Content="Название услуги" HorizontalAlignment="Left" Height="26" Margin="140,75,0,0" VerticalAlignment="Top" Width="127"/>
+        <Label x:Name="label1" Content="Стоимость" HorizontalAlignment="Left" Height="26" Margin="180,133,0,0" VerticalAlignment="Top" Width="113"/>
     </Grid>
 </Window>

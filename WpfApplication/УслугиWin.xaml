@@ -37,13 +37,14 @@
             <Image Source="100.png" Width="40" Height="29" />
         </Button>
         <TextBox x:Name="value" HorizontalAlignment="Left" Height="20" Margin="381,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" IsEnabled="False" TextChanged="value_TextChanged" Style="{StaticResource Texti}"/>
-        <Button x:Name="insert_in_check" Content="Добавить в чек" HorizontalAlignment="Left" Height="22" Margin="381,279,0,0" VerticalAlignment="Top" Width="120" Click="insert_serv_check" Style="{StaticResource Button}"/>
+        <Button x:Name="insert_in_check" Content="Добавить в чек" HorizontalAlignment="Left" Height="22" Margin="360,279,0,0" VerticalAlignment="Top" Width="120" Click="insert_serv_check" Style="{StaticResource Button}"/>
         <ListBox x:Name="list_of_service" HorizontalAlignment="Left" Height="241" Margin="23,60,0,0" VerticalAlignment="Top" Width="297" SelectionChanged="list_of_serviceSelect" Style="{StaticResource Texti}"/>
         <Button x:Name="insert_new_good" Content="Добавить услугу" HorizontalAlignment="Left" Height="22" Margin="360,178,0,0" VerticalAlignment="Top" Width="121" Click="button1_Click" Style="{StaticResource Button}"/>
         <Button x:Name="delete" Content="Удалить" HorizontalAlignment="Left" Height="20" Margin="360,220,0,0" VerticalAlignment="Top" Width="121" Click="button2_Click" Style="{StaticResource Button}"/>
-        <TextBox x:Name="name_of_service" HorizontalAlignment="Left" Height="20" Margin="20,20,0,0" TextWrapping="Wrap" Text="Имя  услуги" VerticalAlignment="Top" Width="300" Style="{StaticResource Texti}"/>
+        <TextBox x:Name="name_of_service" HorizontalAlignment="Left" Height="20" Margin="20,27,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" Style="{StaticResource Texti}" KeyDown="name_of_service_KeyDown"/>
         <Button x:Name="search" Content="Поиск" HorizontalAlignment="Left" Height="20" Margin="340,20,0,0" VerticalAlignment="Top" Width="80" Click="search_Click" Style="{StaticResource Button}"/>
         <Label x:Name="label1" Content="Стоимость" HorizontalAlignment="Left" Height="24" Margin="340,58,0,0" VerticalAlignment="Top" Width="161" Style="{StaticResource Text}"/>
+        <Label x:Name="label" Content="Имя услуги" HorizontalAlignment="Left" Height="27" Margin="20,0,0,0" VerticalAlignment="Top" Width="145"/>
 
     </Grid>
 </Window>

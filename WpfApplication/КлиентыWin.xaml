@@ -36,8 +36,8 @@
             <Image Source="100.png" Width="40" Height="29" />
         </Button>
         <ListBox x:Name="list_of_clients" HorizontalAlignment="Left" Height="239" Margin="19,59,0,0" VerticalAlignment="Top" Width="301" SelectionChanged="list_of_clients_SelectionChanged " Style="{StaticResource Texti}"/>
-        <Button x:Name="insert_in_check" Content="Добавить в чек" HorizontalAlignment="Left" Margin="380,279,0,0" VerticalAlignment="Top" Width="120" Click="Insert_client_check" Height="22" Style="{StaticResource Button}"/>
-        <TextBox x:Name="name_of_client" HorizontalAlignment="Left" Height="21" Margin="19,19,0,0" TextWrapping="Wrap" Text="Имя клиента" VerticalAlignment="Top" Width="301" TextChanged="name_of_client_TextChanged" Style="{StaticResource Texti}"/>
+        <Button x:Name="insert_in_check" Content="Добавить в чек" HorizontalAlignment="Left" Margin="360,276,0,0" VerticalAlignment="Top" Width="120" Click="Insert_client_check" Height="22" Style="{StaticResource Button}"/>
+        <TextBox x:Name="name_of_client" HorizontalAlignment="Left" Height="21" Margin="19,27,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="301" TextChanged="name_of_client_TextChanged" Style="{StaticResource Texti}" KeyDown="name_of_client_KeyDown"/>
         <Button x:Name="search" Content="Поиск" HorizontalAlignment="Left" Height="21" Margin="341,19,0,0" VerticalAlignment="Top" Width="79" Click="search_Click" Style="{StaticResource Button}"/>
         <TextBox x:Name="attends_amount" HorizontalAlignment="Left" Height="21" Margin="380,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="81" IsEnabled="False" Style="{StaticResource Texti}"/>
         <Label x:Name="label" Content="Кол-во посещений" HorizontalAlignment="Left" Margin="341,61,0,0" VerticalAlignment="Top" Style="{StaticResource Text}" Height="23" Width="159" RenderTransformOrigin="0.5,0.5">
@@ -51,6 +51,7 @@
             </Label.RenderTransform>
         </Label>
         <Button x:Name="button" Content="Добавить клиента" HorizontalAlignment="Left" Height="20" Margin="360,177,0,0" VerticalAlignment="Top" Width="120" Click="insert_Click" Style="{StaticResource Button}"/>
-        <Button x:Name="button1" Content="Удалить клиента" HorizontalAlignment="Left" Height="21" Margin="360,218,0,0" VerticalAlignment="Top" Width="120" Click="delete_Click" Style="{StaticResource Button}"/>
+        <Button x:Name="button1" Content="Удалить клиента" HorizontalAlignment="Left" Height="21" Margin="360,202,0,0" VerticalAlignment="Top" Width="120" Click="delete_Click" Style="{StaticResource Button}"/>
+        <Label x:Name="label1" Content="Имя клиента" HorizontalAlignment="Left" Height="27" Margin="19,0,0,0" VerticalAlignment="Top" Width="200"/>
     </Grid>
 </Window>

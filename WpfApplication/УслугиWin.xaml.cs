@@ -3,6 +3,8 @@ using System.Windows;
 using Database;
 using Logics.Services;
 using WpfApplication.Helpers;
+using System.Windows.Input;
+using System;
 
 namespace WpfApplication
 {
@@ -78,11 +80,30 @@ namespace WpfApplication
             {
                 ch.ЧекУслуга.Add(new ЧекУслуга() { Услуга = serv, Чек = Settings.Check });
             }
+            if (Settings.Check.ЧекУслуга != null)
+            {
+
+            }
+            MessageBox.Show("Услуга добавлена в чек.");
         }
 
         private void value_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
 
+        }
+
+        private void name_of_service_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            try
+            {
+                KeyConverter KC = new KeyConverter();
+                char number = Convert.ToChar(KC.ConvertToString(e.Key));
+                if (!Char.IsLetter(number))
+                {
+                    e.Handled = true;
+                }
+            }
+            catch { }
         }
     }
 }

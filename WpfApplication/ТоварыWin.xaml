@@ -37,11 +37,11 @@
             <Image Source="100.png" Width="40" Height="29" />
         </Button>
         <TextBox x:Name="value" HorizontalAlignment="Left" Height="23" Margin="419,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83" IsEnabled="False" Style="{StaticResource Texti}"/>
-        <Button x:Name="insert_in_check" Content="Добавить в чек" HorizontalAlignment="Left" Height="20" Margin="382,280,0,0" VerticalAlignment="Top" Width="120" Click="insert_prod_check" Style="{StaticResource Button}"/>
+        <Button x:Name="insert_in_check" Content="Добавить в чек" HorizontalAlignment="Left" Height="20" Margin="360,280,0,0" VerticalAlignment="Top" Width="120" Click="insert_prod_check" Style="{StaticResource Button}"/>
         <ListBox x:Name="list_of_products" HorizontalAlignment="Left" Height="241" Margin="19,59,0,0" VerticalAlignment="Top" Width="301" SelectionChanged="list_of_productsSelect" Style="{StaticResource Texti}"/>
         <Button x:Name="insert_new_good" Content="Добавить товар" HorizontalAlignment="Left" Height="20" Margin="360,196,0,0" VerticalAlignment="Top" Width="121" Click="button1_Click" Style="{StaticResource Button}"/>
         <Button x:Name="delete" Content="Удалить" HorizontalAlignment="Left" Height="20" Margin="360,236,0,0" VerticalAlignment="Top" Width="121" Click="delete_Click" Style="{StaticResource Button}"/>
-        <TextBox x:Name="name_of_product" HorizontalAlignment="Left" Height="19" Margin="19,20,0,0" TextWrapping="Wrap" Text="Имя  товара" VerticalAlignment="Top" Width="301" Style="{StaticResource Texti}"/>
+        <TextBox x:Name="name_of_product" HorizontalAlignment="Left" Height="19" Margin="19,30,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="301" Style="{StaticResource Texti}" KeyDown="name_of_product_KeyDown"/>
         <Button x:Name="search" Content="Поиск" HorizontalAlignment="Left" Height="19" Margin="339,20,0,0" VerticalAlignment="Top" Width="80" Click="search_Click" Style="{StaticResource Button}"/>
         <TextBox x:Name="amount_of_goods" HorizontalAlignment="Left" Height="23" Margin="419,59,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="83" Style="{StaticResource Texti}"/>
         <Label x:Name="label" Content="Количество" HorizontalAlignment="Left" Height="23" Margin="340,59,0,0" VerticalAlignment="Top" Width="79" Style="{StaticResource Text}"/>
@@ -49,6 +49,7 @@
         <Label x:Name="label_Copy" Content="Купить штук" HorizontalAlignment="Left" Height="24" Margin="340,117,0,0" VerticalAlignment="Top" Width="79" Style="{StaticResource Text}"/>
         <Label x:Name="label_Copy1" Content="Стоимость" HorizontalAlignment="Left" Height="23" Margin="340,157,0,0" VerticalAlignment="Top" Width="79" Style="{StaticResource Text}"/>
         <Button x:Name="update_amount" Content="Обновить" HorizontalAlignment="Left" Height="20" Margin="340,89,0,0" VerticalAlignment="Top" Width="121" Click="update_amount_click" Style="{StaticResource Button}" RenderTransformOrigin="0.478,-6.87"/>
+        <Label x:Name="label1" Content="Имя товара" HorizontalAlignment="Left" Height="30" Margin="19,5,0,0" VerticalAlignment="Top" Width="136"/>
 
     </Grid>
 </Window>

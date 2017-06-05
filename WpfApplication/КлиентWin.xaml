@@ -33,11 +33,12 @@
         </Style>
     </Window.Resources>
     <Grid Style="{StaticResource Gray}">
-        <TextBox x:Name="name" HorizontalAlignment="Left" Height="21" Margin="139,120,0,0" TextWrapping="Wrap" Text="Имя клиента" VerticalAlignment="Top" Width="261" Style="{StaticResource Texti}"/>
+        <TextBox x:Name="name" HorizontalAlignment="Left" Height="21" Margin="139,120,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="261" Style="{StaticResource Texti}" KeyDown="name_KeyDown"/>
         <Button x:Name="insert" Content="Добавить" HorizontalAlignment="Left" Height="19" Margin="380,281,0,0" VerticalAlignment="Top" Width="120" Click="button_Click" Style="{StaticResource Button}"/>
         <Button x:Name="back" HorizontalAlignment="Left" Height="38" VerticalAlignment="Top" Width="37" Click="back_Click" Margin="480,0,0,0" Style="{StaticResource Buttoni}">
             <Image Source="100.png" Width="40" Height="29" />
         </Button>
+        <Label x:Name="label" Content="Имя клиента" HorizontalAlignment="Left" Height="26" Margin="139,89,0,0" VerticalAlignment="Top" Width="207"/>
         <!--<TextBox x:Name="number" HorizontalAlignment="Left" Height="35" Margin="64,18,0,0" TextWrapping="Wrap" Text="Номер карточки" VerticalAlignment="Top" Width="138"/>-->
 
     </Grid>

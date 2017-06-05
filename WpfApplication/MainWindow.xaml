@@ -20,7 +20,7 @@
         <Image Source="12.jpg" Width="609" Height="315" Margin="0,0,0,0" />
 
         <TextBox x:Name="entrance" Margin="21,0,298,133" 
-        Height="30" VerticalAlignment="Bottom" TextChanged="textBox_TextChanged"/>
+        Height="30" VerticalAlignment="Bottom" TextChanged="textBox_TextChanged" KeyDown="entrance_KeyDown"/>
         <Label x:Name="entrance_label" Content="Номер автозаправки" HorizontalAlignment="Left" Height="32" Margin="21,119,0,0" VerticalAlignment="Top" Width="212" Style="{StaticResource Text}"/>
         <Button x:Name="entrance_button" Content="Зайти" HorizontalAlignment="Left" Height="26" Margin="64,205,0,0" VerticalAlignment="Top" Width="102" Click="button_Click" Style="{StaticResource Coral}"/>
     </Grid>

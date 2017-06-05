@@ -1,6 +1,8 @@
 ﻿using System.Windows;
 using Database;
 using Logics.Services;
+using System.Windows.Input;
+using System;
 
 namespace WpfApplication
 {
@@ -31,6 +33,20 @@ namespace WpfApplication
             {
                 prodServ.Save(prod);
             }
+        }
+
+        private void name_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            try
+            {
+                KeyConverter KC = new KeyConverter();
+                char number = Convert.ToChar(KC.ConvertToString(e.Key));
+                if (!Char.IsLetter(number))
+                {
+                    e.Handled = true;
+                }
+            }
+            catch { }
         }
     }
 }

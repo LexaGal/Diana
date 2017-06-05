@@ -1,7 +1,9 @@
 ﻿using Database;
 using Logics.Services;
+using System;
 using System.Linq;
 using System.Windows;
+using System.Windows.Input;
 using WpfApplication.Helpers;
 
 namespace WpfApplication
@@ -33,6 +35,25 @@ namespace WpfApplication
         {
             Settings.Check.Топливо = t;
             Settings.Check.кол_во_топлива = int.Parse(amount.Text);
+            if (Settings.Check.Топливо != null)
+            {
+
+            }
+            MessageBox.Show("Топливо добавлено в чек.");
+        }
+
+        private void amount_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            try
+            {
+                KeyConverter KC = new KeyConverter();
+                char number = Convert.ToChar(KC.ConvertToString(e.Key));
+                if (!Char.IsDigit(number))
+                {
+                    e.Handled = true;
+                }
+            }
+            catch { }
         }
     }
 }

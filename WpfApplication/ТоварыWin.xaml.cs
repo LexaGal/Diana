@@ -4,6 +4,8 @@ using System.Windows;
 using Database;
 using Logics.Services;
 using WpfApplication.Helpers;
+using System.Windows.Input;
+using System;
 
 namespace WpfApplication
 {
@@ -98,6 +100,11 @@ namespace WpfApplication
                 prod.количесвто -= qtyProd;
                 prodServ.Save(prod);
             }
+            if (Settings.Check.ЧекТовар != null)
+            {
+
+            }
+            MessageBox.Show("Товар добавлен в чек.");
         }
 
         private void update_amount_click(object sender, RoutedEventArgs e)
@@ -113,6 +120,20 @@ namespace WpfApplication
                 prod.количесвто = n;
                 prodServ.Save(prod);
             }
+        }
+
+        private void name_of_product_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            try
+            {
+                KeyConverter KC = new KeyConverter();
+                char number = Convert.ToChar(KC.ConvertToString(e.Key));
+                if (!Char.IsLetter(number))
+                {
+                    e.Handled = true;
+                }
+            }
+            catch { }
         }
     }
 }

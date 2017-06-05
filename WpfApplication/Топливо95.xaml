@@ -34,7 +34,7 @@
     </Window.Resources>
     <Grid Style="{StaticResource Gray}">
         <TextBox x:Name="name" HorizontalAlignment="Left" Height="20" Margin="261,102,0,0" TextWrapping="Wrap" Text="95" VerticalAlignment="Top" Width="140" IsEnabled="False"  Style="{StaticResource Texti}"/>
-        <TextBox x:Name="amount" HorizontalAlignment="Left" Height="20" Margin="261,182,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="140" Style="{StaticResource Texti}"/>
+        <TextBox x:Name="amount" HorizontalAlignment="Left" Height="20" Margin="261,182,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="140" Style="{StaticResource Texti}" KeyDown="amount_KeyDown"/>
         <TextBox x:Name="value" HorizontalAlignment="Left" Height="22" Margin="261,140,0,0" TextWrapping="Wrap" Text="Стоимость" VerticalAlignment="Top" Width="140" IsEnabled="False" Style="{StaticResource Texti}"/>
         <Button x:Name="back" HorizontalAlignment="Left" Height="38" VerticalAlignment="Top" Width="37" Click="back_Click" Margin="480,0,0,0" Style="{StaticResource Buttoni}">
             <Image Source="100.png" Width="40" Height="29" />

@@ -1,5 +1,7 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace WpfApplication
 {
@@ -20,6 +22,20 @@ namespace WpfApplication
             winTool.Owner = this;
             winTool.Show();
             this.Hide();
+        }
+
+        private void entrance_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            try
+            {
+                KeyConverter KC = new KeyConverter();
+                char number = Convert.ToChar(KC.ConvertToString(e.Key));
+                if (!Char.IsDigit(number))
+                {
+                    e.Handled = true;
+                }
+            }
+            catch { }
         }
     }
 }
